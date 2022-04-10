@@ -307,7 +307,8 @@ function (_Component) {
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(ChuHan).call(this, props));
     _this.state = {
       modal: false,
-      nghiaViet: _this.props.nghiaViet
+      nghiaViet: _this.props.nghiaViet,
+      bacKinh: _this.props.bacKinh
     };
     _this.onHtmlChangeNghiaViet = _this.onHtmlChangeNghiaViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.handleClick = _this.handleClick.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
@@ -343,8 +344,8 @@ function (_Component) {
   }, {
     key: "handleClick",
     value: function handleClick() {
-      var mp3Link = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_11__["getSoundFile"])(this.props.bacKinh); // const { bacKinh } = this.bacKinh;
-
+      var mp3Link = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_11__["getSoundFile"])(this.props.bacKinh);
+      var bacKinh = this.bacKinh.bacKinh;
       var au = new Audio("http://tv.nhidonghocphat.com/BasicSound/".concat(mp3Link));
       au.play();
       _utils_analystics__WEBPACK_IMPORTED_MODULE_9__["trackEvent"]('ChuHan', 'BacKinh', this.props.bacKinh);
@@ -370,7 +371,7 @@ function (_Component) {
             hanViet = _this$props.hanViet,
             bacKinh = _this$props.bacKinh,
             nghiaViet = _this$props.nghiaViet,
-            dot = _this$props.dot;
+            dot = _this$props.dot; // console.log(chinesse, bacKinh);
 
         if (dot) {
           nghiaViet = "".concat(nghiaViet).concat(dot, " ");
@@ -569,7 +570,7 @@ function getDisplayHanViet(mean) {
   }
 }
 
-function processWord(chinessArray, i, dict, textScripts) {
+function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
   var mean;
   var word;
 
@@ -599,7 +600,7 @@ function processWord(chinessArray, i, dict, textScripts) {
         id: i,
         chinesse: word,
         hanViet: mean["hv"],
-        bacKinh: '',
+        bacKinh: bacKinhs[i] + ' ' + bacKinhs[i + 1] + ' ' + bacKinhs[i + 2] + ' ' + bacKinhs[i + 3] + ' ' + bacKinhs[i + 4],
         nghiaViet: getDisplayHanViet(mean),
         nghias: mean["nghia"]
       });
@@ -616,7 +617,7 @@ function processWord(chinessArray, i, dict, textScripts) {
         id: i,
         chinesse: word,
         hanViet: mean["hv"],
-        bacKinh: '',
+        bacKinh: bacKinhs[i] + ' ' + bacKinhs[i + 1] + ' ' + bacKinhs[i + 2] + ' ' + bacKinhs[i + 3],
         nghiaViet: getDisplayHanViet(mean),
         nghias: mean["nghia"]
       });
@@ -633,7 +634,7 @@ function processWord(chinessArray, i, dict, textScripts) {
         id: i,
         chinesse: word,
         hanViet: mean["hv"],
-        bacKinh: '',
+        bacKinh: bacKinhs[i] + ' ' + bacKinhs[i + 1] + ' ' + bacKinhs[i + 2],
         nghiaViet: getDisplayHanViet(mean),
         nghias: mean["nghia"]
       });
@@ -650,7 +651,7 @@ function processWord(chinessArray, i, dict, textScripts) {
         id: i,
         chinesse: word,
         hanViet: mean["hv"],
-        bacKinh: '',
+        bacKinh: bacKinhs[i] + ' ' + bacKinhs[i + 1],
         nghiaViet: getDisplayHanViet(mean),
         nghias: mean["nghia"]
       });
@@ -669,7 +670,7 @@ function processWord(chinessArray, i, dict, textScripts) {
     id: i,
     chinesse: chinessArray[i],
     hanViet: hv,
-    bacKinh: '',
+    bacKinh: bacKinhs[i],
     nghiaViet: getDisplayHanViet(mean),
     nghias: mean ? mean["nghia"] : ''
   });
@@ -704,13 +705,14 @@ function getChuHanOneWord(chinesse, dict) {
   return textScripts;
 }
 
-function parserScript(chinesse, dict) {
+function parserScript(chinesse, dict, bacKinh) {
   var chinessArray = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_16__["chuanHoaChinesseV2"])(chinesse);
   var textScripts = [];
+  var bacKinhs = bacKinh.split(' ');
   var i = 0;
 
   for (i = 0; i < chinessArray.length;) {
-    i += processWord(chinessArray, i, dict, textScripts);
+    i += processWord(chinessArray, i, dict, textScripts, bacKinhs);
   }
 
   return textScripts;
@@ -733,7 +735,9 @@ function parserScriptCau(cau, dict) {
   var textScripts = [];
 
   for (j = 0; j < cacDoan.length; j++) {
-    var doan = parserScript(cacDoan[j], dict);
+    var bacKinh = chinese_to_pinyin__WEBPACK_IMPORTED_MODULE_9___default()(cacDoan[j]);
+    var doan = parserScript(cacDoan[j], dict, bacKinh);
+    console.log(cacDoan[j], doan, bacKinh);
 
     if (cacDoan[j]) {
       var word = doan[doan.length - 1];
@@ -975,11 +979,13 @@ function (_Component) {
           nghiaViet = _this$state4.nghiaViet,
           typingChinesse = _this$state4.typingChinesse,
           chinesse = _this$state4.chinesse,
+          bacKinh = _this$state4.bacKinh,
           loading = _this$state4.loading,
           dict = _this$state4.dict,
           newWord = _this$state4.newWord,
           newHanViet = _this$state4.newHanViet,
-          newNghia = _this$state4.newNghia; // Build Cards for Listing
+          newNghia = _this$state4.newNghia;
+      console.log(chinesse); // Build Cards for Listing
 
       var chuHans = '',
           i = 0;
@@ -1321,16 +1327,11 @@ function (_React$Component) {
         className: "text-muted font-weight-bold"
       }, __jsx("span", {
         className: "icon ion-logo-github"
-      }), " T\u1EEB \u0110i\u1EC3n D\u1ECBch ", _package__WEBPACK_IMPORTED_MODULE_12__.version)), __jsx("span", null, " x\xE2y d\u1EF1ng b\u1EDFi \u0110\u1EE9c C\u01B0\u1EDDng "), __jsx(next_link__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      }), " T\u1EEB \u0110i\u1EC3n D\u1ECBch ", _package__WEBPACK_IMPORTED_MODULE_12__.version)), __jsx("span", null, " Email "), __jsx(next_link__WEBPACK_IMPORTED_MODULE_10___default.a, {
         href: "mailto:tudiendich@gmail.com"
       }, __jsx("a", {
         className: "text-muted font-weight-bold"
-      }, "tudiendich@gmail.com")), __jsx("span", null, " Trang web h\u1ECDc ch\u1EEF H\xE1n mi\u1EC5n ph\xED  "), __jsx(next_link__WEBPACK_IMPORTED_MODULE_10___default.a, {
-        href: "http://nhidonghocphat.com"
-      }, __jsx("a", {
-        className: "text-muted font-weight-bold",
-        target: "blank"
-      }, "http://nhidonghocphat.com")), ".", __jsx("span", {
+      }, "tudiendich@gmail.com")), ".", __jsx("span", {
         className: "ml-2"
       }, "\xA9 ", new Date().getYear() + 1900, "."))));
     }
@@ -29062,10 +29063,10 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ccash-flow%5Cpages%5Cindex.js!./":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ccash-flow%5Cpages%5Cindex.js ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cindex.js!./":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cindex.js ***!
+  \****************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53428,7 +53429,7 @@ module.exports = function(module) {
 /*! exports provided: name, version, description, author, scripts, license, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"1.0.10\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 10.13.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
+module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"1.0.10\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 10.13.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin master\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
 
 /***/ }),
 
@@ -53956,13 +53957,13 @@ function removeTags(content) {
 /***/ }),
 
 /***/ 1:
-/*!*******************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ccash-flow%5Cpages%5Cindex.js ***!
-  \*******************************************************************************************************************************/
+/*!********************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cindex.js ***!
+  \********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ccash-flow%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ccash-flow%5Cpages%5Cindex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cindex.js!./");
 
 
 /***/ }),
