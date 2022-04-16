@@ -937,7 +937,7 @@ function (_Component) {
       for (i = 0; i < cacCau.length; i++) {
         var cau = parserScriptCau(cacCau[i], dict);
 
-        if (cacCau[i]) {
+        if (cacCau[i] && cau[cau.length - 1]) {
           console.log(cacCau[i]);
           var word = cau[cau.length - 1];
           cau[cau.length - 1]['dot'] = cacCau[i].substr(cacCau[i].length - 1);
@@ -949,6 +949,8 @@ function (_Component) {
         chinesse: textScripts
       });
       updateNghiaViet(this);
+      console.log("typingChinesse", typingChinesse);
+      _utils_analystics__WEBPACK_IMPORTED_MODULE_18__["trackEvent"]('Dich doan', 'trans', typingChinesse);
     }
   }, {
     key: "reportNew",
@@ -974,7 +976,6 @@ function (_Component) {
           chinesse = _this$state3.chinesse,
           dict = _this$state3.dict;
       updateNghiaViet(this);
-      _utils_analystics__WEBPACK_IMPORTED_MODULE_18__["trackEvent"]('DichDoan', 'trans', typingChinesse);
     }
   }, {
     key: "updateNghia",
@@ -1000,8 +1001,7 @@ function (_Component) {
           dict = _this$state4.dict,
           newWord = _this$state4.newWord,
           newHanViet = _this$state4.newHanViet,
-          newNghia = _this$state4.newNghia;
-      console.log(chinesse); // Build Cards for Listing
+          newNghia = _this$state4.newNghia; // Build Cards for Listing
 
       var chuHans = '',
           i = 0;
