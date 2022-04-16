@@ -1,56 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\_app.js"],{
 
-/***/ "./action/clockAction.js":
-/*!*******************************!*\
-  !*** ./action/clockAction.js ***!
-  \*******************************/
-/*! exports provided: tickClock, startClock, loadDataSaga, loadDataSagaSuccess, loadDataSagaErr */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tickClock", function() { return tickClock; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startClock", function() { return startClock; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDataSaga", function() { return loadDataSaga; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDataSagaSuccess", function() { return loadDataSagaSuccess; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDataSagaErr", function() { return loadDataSagaErr; });
-/* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/date/now */ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./action/types.js");
-
-
-var tickClock = function tickClock(isServer) {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_1__["TICK_CLOCK"],
-    light: !isServer,
-    ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
-  };
-};
-var startClock = function startClock() {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_1__["START_CLOCK"]
-  };
-};
-var loadDataSaga = function loadDataSaga() {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_DATASAGA"]
-  };
-};
-var loadDataSagaSuccess = function loadDataSagaSuccess(data) {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_DATASAGA_SUCCESS"],
-    data: data
-  };
-};
-var loadDataSagaErr = function loadDataSagaErr(err) {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOAD_DATASAGA_ERR"],
-    err: err
-  };
-};
-
-/***/ }),
-
 /***/ "./action/englishAction.js":
 /*!*********************************!*\
   !*** ./action/englishAction.js ***!
@@ -151,7 +100,7 @@ var getEnglishPhonicErr = function getEnglishPhonicErr(err) {
 /*!*************************!*\
   !*** ./action/types.js ***!
   \*************************/
-/*! exports provided: GET_USER, GET_USER_SUCCESS, GET_USER_ERR, TICK_CLOCK, START_CLOCK, LOAD_DATASAGA, LOAD_DATASAGA_SUCCESS, LOAD_DATASAGA_ERR, ADD_USER, ADD_USER_SUCCESS, ADD_USER_ERR, DELETE_USER, DELETE_USER_SUCCESS, DELETE_USER_ERR, RANDOM_NUMBER, CARD_RESULT_OKCLICK, GET_ENGLISH_STORY, GET_ENGLISH_STORY_SUCCESS, GET_ENGLISH_STORY_ERR, GET_ENGLISH_BOOK, GET_ENGLISH_BOOK_SUCCESS, GET_ENGLISH_BOOK_ERR, GET_ENGLISH_LIST_PHONIC, GET_ENGLISH_LIST_PHONIC_SUCCESS, GET_ENGLISH_LIST_PHONIC_ERR, GET_ENGLISH_PHONIC, GET_ENGLISH_PHONIC_SUCCESS, GET_ENGLISH_PHONIC_ERR */
+/*! exports provided: GET_USER, GET_USER_SUCCESS, GET_USER_ERR, LOAD_DATASAGA, LOAD_DATASAGA_SUCCESS, LOAD_DATASAGA_ERR, ADD_USER, ADD_USER_SUCCESS, ADD_USER_ERR, DELETE_USER, DELETE_USER_SUCCESS, DELETE_USER_ERR, RANDOM_NUMBER, CARD_RESULT_OKCLICK, GET_ENGLISH_STORY, GET_ENGLISH_STORY_SUCCESS, GET_ENGLISH_STORY_ERR, GET_ENGLISH_BOOK, GET_ENGLISH_BOOK_SUCCESS, GET_ENGLISH_BOOK_ERR, GET_ENGLISH_LIST_PHONIC, GET_ENGLISH_LIST_PHONIC_SUCCESS, GET_ENGLISH_LIST_PHONIC_ERR, GET_ENGLISH_PHONIC, GET_ENGLISH_PHONIC_SUCCESS, GET_ENGLISH_PHONIC_ERR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -159,8 +108,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_USER", function() { return GET_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_USER_SUCCESS", function() { return GET_USER_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_USER_ERR", function() { return GET_USER_ERR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TICK_CLOCK", function() { return TICK_CLOCK; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "START_CLOCK", function() { return START_CLOCK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_DATASAGA", function() { return LOAD_DATASAGA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_DATASAGA_SUCCESS", function() { return LOAD_DATASAGA_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_DATASAGA_ERR", function() { return LOAD_DATASAGA_ERR; });
@@ -187,8 +134,6 @@ __webpack_require__.r(__webpack_exports__);
 var GET_USER = 'GET_USER';
 var GET_USER_SUCCESS = 'GET_USER_SUCCESS';
 var GET_USER_ERR = 'GET_USER_ERR';
-var TICK_CLOCK = 'TICK_CLOCK';
-var START_CLOCK = 'START_CLOCK';
 var LOAD_DATASAGA = 'LOAD_DATASAGA';
 var LOAD_DATASAGA_SUCCESS = 'LOAD_DATASAGA_SUCCESS';
 var LOAD_DATASAGA_ERR = 'LOAD_DATASAGA_ERR';
@@ -368,17 +313,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/array/from */ "./nod
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/array/is-array */ "./node_modules/core-js/library/fn/array/is-array.js");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/date/now.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/date/now */ "./node_modules/core-js/library/fn/date/now.js");
 
 /***/ }),
 
@@ -6944,19 +6878,6 @@ module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/core-js/library/fn/date/now.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/core-js/library/fn/date/now.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../../modules/es6.date.now */ "./node_modules/core-js/library/modules/es6.date.now.js");
-module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Date.now;
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/library/fn/get-iterator.js":
 /*!*********************************************************!*\
   !*** ./node_modules/core-js/library/fn/get-iterator.js ***!
@@ -9618,21 +9539,6 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/modules/es6.date.now.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es6.date.now.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 20.3.3.1 / 15.9.4.4 Date.now()
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
-
-$export($export.S, 'Date', { now: function () { return new Date().getTime(); } });
 
 
 /***/ }),
@@ -19325,72 +19231,6 @@ function cashFlowReducer() {
 
 /***/ }),
 
-/***/ "./reducer/clockReducer.js":
-/*!*********************************!*\
-  !*** ./reducer/clockReducer.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return clockReducer; });
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptors */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../action/types */ "./action/types.js");
-
-
-
-
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(Object(source)).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
-
-
-var initialState = {
-  lastUpdate: 0,
-  light: false,
-  dataSaga: null
-};
-function clockReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  // console.log('action :', action);
-  switch (action.type) {
-    case _action_types__WEBPACK_IMPORTED_MODULE_7__["TICK_CLOCK"]:
-      return _objectSpread({}, state, {}, {
-        lastUpdate: action.ts,
-        light: action.light
-      });
-
-    case _action_types__WEBPACK_IMPORTED_MODULE_7__["LOAD_DATASAGA_SUCCESS"]:
-      return _objectSpread({}, state, {
-        dataSaga: action.data
-      });
-
-    default:
-      return state;
-  }
-}
-
-/***/ }),
-
 /***/ "./reducer/englishReducer.js":
 /*!***********************************!*\
   !*** ./reducer/englishReducer.js ***!
@@ -19505,19 +19345,16 @@ function englishReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _userReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./userReducer */ "./reducer/userReducer.js");
-/* harmony import */ var _clockReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./clockReducer */ "./reducer/clockReducer.js");
-/* harmony import */ var _cashFlowReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cashFlowReducer */ "./reducer/cashFlowReducer.js");
-/* harmony import */ var _englishReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./englishReducer */ "./reducer/englishReducer.js");
-
+/* harmony import */ var _cashFlowReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cashFlowReducer */ "./reducer/cashFlowReducer.js");
+/* harmony import */ var _englishReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./englishReducer */ "./reducer/englishReducer.js");
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   userReducer: _userReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  clockReducer: _clockReducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  cashFlowReducer: _cashFlowReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  englishReducer: _englishReducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  cashFlowReducer: _cashFlowReducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  englishReducer: _englishReducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -19606,126 +19443,6 @@ function userReducer() {
       return state;
   }
 }
-
-/***/ }),
-
-/***/ "./saga/clockSaga.js":
-/*!***************************!*\
-  !*** ./saga/clockSaga.js ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../action/types */ "./action/types.js");
-/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/dist/redux-saga-effects-npm-proxy.esm.js");
-/* harmony import */ var _action_clockAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../action/clockAction */ "./action/clockAction.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-
-
-var _marked =
-/*#__PURE__*/
-_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(runClockSaga),
-    _marked2 =
-/*#__PURE__*/
-_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(loadDataSaga),
-    _marked3 =
-/*#__PURE__*/
-_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(clockSaga);
-
-
-
-
-
-
-
-function runClockSaga() {
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function runClockSaga$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["take"])(_action_types__WEBPACK_IMPORTED_MODULE_1__["START_CLOCK"]);
-
-        case 2:
-          if (false) {}
-
-          _context.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["put"])(Object(_action_clockAction__WEBPACK_IMPORTED_MODULE_3__["tickClock"])(true));
-
-        case 5:
-          _context.next = 7;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["delay"])(1000);
-
-        case 7:
-          _context.next = 2;
-          break;
-
-        case 9:
-        case "end":
-          return _context.stop();
-      }
-    }
-  }, _marked);
-}
-
-function loadDataSaga() {
-  var res, data;
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function loadDataSaga$(_context2) {
-    while (1) {
-      switch (_context2.prev = _context2.next) {
-        case 0:
-          _context2.prev = 0;
-          _context2.next = 3;
-          return axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('https://jsonplaceholder.typicode.com/users');
-
-        case 3:
-          res = _context2.sent;
-          console.log(res);
-          data = res.data;
-          _context2.next = 8;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["put"])(_action_clockAction__WEBPACK_IMPORTED_MODULE_3__["loadDataSagaSuccess"](data));
-
-        case 8:
-          _context2.next = 14;
-          break;
-
-        case 10:
-          _context2.prev = 10;
-          _context2.t0 = _context2["catch"](0);
-          _context2.next = 14;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["put"])(_action_clockAction__WEBPACK_IMPORTED_MODULE_3__["loadDataSagaErr"](_context2.t0));
-
-        case 14:
-        case "end":
-          return _context2.stop();
-      }
-    }
-  }, _marked2, null, [[0, 10]]);
-}
-
-function clockSaga() {
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function clockSaga$(_context3) {
-    while (1) {
-      switch (_context3.prev = _context3.next) {
-        case 0:
-          _context3.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["all"])([// call(runClockSaga),
-          Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["fork"])(runClockSaga), Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__["takeLatest"])(_action_types__WEBPACK_IMPORTED_MODULE_1__["LOAD_DATASAGA"], loadDataSaga)]);
-
-        case 2:
-        case "end":
-          return _context3.stop();
-      }
-    }
-  }, _marked3);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (clockSaga);
 
 /***/ }),
 
@@ -19986,14 +19703,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/dist/redux-saga-effects-npm-proxy.esm.js");
 /* harmony import */ var _userSaga__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./userSaga */ "./saga/userSaga.js");
-/* harmony import */ var _clockSaga__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./clockSaga */ "./saga/clockSaga.js");
-/* harmony import */ var _englishSaga__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./englishSaga */ "./saga/englishSaga.js");
+/* harmony import */ var _englishSaga__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./englishSaga */ "./saga/englishSaga.js");
 
 
 var _marked =
 /*#__PURE__*/
 _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(rootSaga);
-
 
 
 
@@ -20011,20 +19726,15 @@ function rootSaga() {
         case 3:
           _context.t1 = _context.sent;
           _context.next = 6;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_clockSaga__WEBPACK_IMPORTED_MODULE_3__["default"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_englishSaga__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
         case 6:
           _context.t2 = _context.sent;
-          _context.next = 9;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_englishSaga__WEBPACK_IMPORTED_MODULE_4__["default"]);
+          _context.t3 = [_context.t1, _context.t2];
+          _context.next = 10;
+          return (0, _context.t0)(_context.t3);
 
-        case 9:
-          _context.t3 = _context.sent;
-          _context.t4 = [_context.t1, _context.t2, _context.t3];
-          _context.next = 13;
-          return (0, _context.t0)(_context.t4);
-
-        case 13:
+        case 10:
         case "end":
           return _context.stop();
       }

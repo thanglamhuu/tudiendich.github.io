@@ -106,7 +106,11 @@ function Header() {
     route: "/english-phonetic"
   }, __jsx("a", {
     style: linkStyle
-  }, "H\u1ECDc Ph\xE1t \xC2m")));
+  }, "H\u1ECDc Ph\xE1t \xC2m")), __jsx(Link, {
+    route: "/post"
+  }, __jsx("a", {
+    style: linkStyle
+  }, "Post")));
 }
 
 /***/ }),
@@ -741,7 +745,7 @@ function parserScriptCau(cau, dict) {
 
     if (cacDoan[j]) {
       var word = doan[doan.length - 1];
-      doan[doan.length - 1]['dot'] = cacDoan[j].substr(cacDoan[j].length - 1);
+      if (word) word['dot'] = cacDoan[j].substr(cacDoan[j].length - 1);
       textScripts = textScripts.concat(doan);
     }
   }
@@ -751,6 +755,27 @@ function parserScriptCau(cau, dict) {
   }
 
   return textScripts;
+}
+
+function updateNghiaViet(that) {
+  var _that$state = that.state,
+      typingChinesse = _that$state.typingChinesse,
+      chinesse = _that$state.chinesse,
+      dict = _that$state.dict;
+  var nghiaViet = ''; // Build Cards for Listing
+
+  var chuHans = chinesse.map(function (item) {
+    var nghiaViet_lastest = item.nghiaViet || item.hanViet || '';
+
+    if (item.dot) {
+      nghiaViet += "".concat(nghiaViet_lastest).concat(item.dot, " ");
+    } else {
+      nghiaViet += "".concat(nghiaViet_lastest, " ");
+    }
+  });
+  that.setState({
+    nghiaViet: nghiaViet
+  });
 }
 
 var DictComponent =
@@ -943,23 +968,11 @@ function (_Component) {
     key: "trans",
     value: function trans() {
       var _this$state3 = this.state,
+          typingChinesse = _this$state3.typingChinesse,
           chinesse = _this$state3.chinesse,
           dict = _this$state3.dict;
-      var nghiaViet = ''; // Build Cards for Listing
-
-      var chuHans = chinesse.map(function (item) {
-        var nghiaViet_lastest = item.nghiaViet || item.hanViet || '';
-
-        if (item.dot) {
-          nghiaViet += "".concat(nghiaViet_lastest).concat(item.dot, " ");
-        } else {
-          nghiaViet += "".concat(nghiaViet_lastest, " ");
-        }
-      });
-      this.setState({
-        nghiaViet: nghiaViet
-      });
-      _utils_analystics__WEBPACK_IMPORTED_MODULE_18__["trackEvent"]('DichDoan', 'trans', this.state.chinesse);
+      updateNghiaViet(this);
+      _utils_analystics__WEBPACK_IMPORTED_MODULE_18__["trackEvent"]('DichDoan', 'trans', typingChinesse);
     }
   }, {
     key: "updateNghia",
@@ -969,6 +982,7 @@ function (_Component) {
       this.setState({
         chinesse: chinesse
       });
+      updateNghiaViet(this);
     }
   }, {
     key: "render",
@@ -53429,7 +53443,7 @@ module.exports = function(module) {
 /*! exports provided: name, version, description, author, scripts, license, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"1.0.10\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 10.13.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin master\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
+module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"1.0.10\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 10.13.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
 
 /***/ }),
 
@@ -53580,7 +53594,6 @@ routes.add({
   pattern: '/users/add',
   page: 'users/add'
 });
-routes.add('clock');
 
 /***/ }),
 
