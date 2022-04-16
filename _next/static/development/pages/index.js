@@ -762,7 +762,8 @@ function updateNghiaViet(that) {
       typingChinesse = _that$state.typingChinesse,
       chinesse = _that$state.chinesse,
       dict = _that$state.dict;
-  var nghiaViet = ''; // Build Cards for Listing
+  var nghiaViet = '';
+  if (!chinesse) return; // Build Cards for Listing
 
   var chuHans = chinesse.map(function (item) {
     var nghiaViet_lastest = item.nghiaViet || item.hanViet || '';
@@ -947,6 +948,7 @@ function (_Component) {
       this.setState({
         chinesse: textScripts
       });
+      updateNghiaViet(this);
     }
   }, {
     key: "reportNew",
@@ -1039,7 +1041,9 @@ function (_Component) {
       })), __jsx("button", {
         className: "btnProcess",
         onClick: this.transToHanViet
-      }, "L\u1EA5y t\u1EEB \u0111i\u1EC3n")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_10__["Row"], {
+      }, "L\u1EA5y t\u1EEB \u0111i\u1EC3n")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_10__["Row"], null, __jsx("h5", null, "Click l\xEAn ch\u1EEF \u0111\u1EC3 xem t\u1EEB \u0111i\u1EC3n v\xE0 ch\u1ECDn ngh\u0129a Vi\u1EC7t"), __jsx("div", {
+        className: "chuHanList"
+      }, chuHans)), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_10__["Row"], {
         style: {
           paddingTop: '10px'
         }
@@ -1054,19 +1058,13 @@ function (_Component) {
         style: {
           marginLeft: 100
         }
-      }, "L\u1EA5y k\u1EBFt qu\u1EA3 sang ngh\u0129a Vi\u1EC7t"))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_10__["Row"], null, __jsx("div", {
-        className: "divResult"
-      }, __jsx("h5", null, "Click l\xEAn ch\u1EEF \u0111\u1EC3 xem t\u1EEB \u0111i\u1EC3n v\xE0 ch\u1ECDn ngh\u0129a Vi\u1EC7t"), __jsx("div", {
-        className: "chuHanList"
-      }, chuHans)), __jsx("div", {
-        className: "divResult"
-      }, __jsx("h4", null, "Ch\u1EC9nh s\u1EEDa l\u1EA1i n\u1ED9i dung b\u1EA3n d\u1ECBch t\u1EA1i \u0111\xE2y"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      }, "L\u1EA5y k\u1EBFt qu\u1EA3 sang ngh\u0129a Vi\u1EC7t")), __jsx("h4", null, "Ch\u1EC9nh s\u1EEDa l\u1EA1i n\u1ED9i dung b\u1EA3n d\u1ECBch t\u1EA1i \u0111\xE2y"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_13__["default"], {
         className: "txtAutoSize",
         id: "inputNghiaViet",
         placeholder: "d\u1ECBch ngh\u0129a",
         value: nghiaViet,
         onChange: this.onHtmlChangeNghiaViet
-      }))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_10__["Row"], {
+      })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_10__["Row"], {
         style: {
           paddingTop: '10px'
         }
