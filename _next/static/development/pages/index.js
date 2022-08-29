@@ -184,6 +184,10 @@ function (_Component) {
       return __jsx(DivContainer, null, __jsx(But, {
         href: "/static/hangout3.html"
       }, "Hangout 3"), __jsx(But, {
+        href: "/static/hangout4/index.html"
+      }, "Hangout 4"), __jsx(But, {
+        href: "/static/hangout3.html"
+      }, "Hangout 3"), __jsx(But, {
         href: "/static/ff1.html"
       }, "Family 1"), __jsx(But, {
         href: "/static/900caugiaotiep.html"
@@ -53536,7 +53540,7 @@ function (_Page) {
       }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Container"], null, __jsx(_components_tuDien_DictComponent__WEBPACK_IMPORTED_MODULE_12__["default"], {
         className: "text-muted small"
       }), __jsx("br", null), __jsx("h4", null, "H\xE3y like ", __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["NavbarBrand"], {
-        href: "https://www.facebook.com/pg/Tudiendichcom-354125561828018/posts/?ref=page_internal",
+        href: "https://www.facebook.com/tudiendich",
         target: "blank",
         style: {
           color: '#3B5998'
