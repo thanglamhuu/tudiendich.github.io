@@ -1,7 +1,7 @@
 <body>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta title="Hang Out 3 Student book">
+        <meta title="Hang Out 4">
         <style>
             .flex-container {
                 display: flex;
@@ -31,7 +31,7 @@
     <body>
         <audio id="aud" controls="" loop="" src="./Track%20001.mp3" type="audio/mp3"></audio>
         <!-- <audio id="aud" src="https://thanglamhuu.github.io/eng-hangout/studentbook/Track%20001.mp3" type="audio/mp3"></audio> -->
-        <h1>Fammily and Friends Student book</h1>
+        <h1>Hangout 4</h1>
         <div class="flex-container">
             <button onclick="changeFile(1)">1</button>
             <button onclick="changeFile(2)">2</button>
@@ -81,6 +81,7 @@
         </div>
         <h1>Chuyển sách</h1>
         <div class="flex-container">
+            <a href='/'>Trang Chủ</a>
             <a href='/static/hangout3.html'>Hangout 3</a>
             <a href='/static/ff1.html'>Family 1</a>
             <a href='/static/900caugiaotiep.html'>900 Câu giao tiếp</a>
@@ -89,7 +90,7 @@
             function changeFile(number) {
                 var num = '0' + number;
                 num = num.substr(num.length - 2,2);
-                var englishCdn = 'https://tudiendich.com/static/hangout4/Track%20';
+                var englishCdn = 'https://tudiendich.com/static/hangout4/Track%200';
 
                 var url = englishCdn + num + ".mp3";
                 var audio = document.getElementById("aud");
