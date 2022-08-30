@@ -52749,7 +52749,7 @@ function (_Page) {
             // tuMois += chuHan + '(' + getHanViet(dict, chuHan) + ' - ' + bacKinh + ') ' + tuHaiBen[1]  + '\n';
 
 
-            tuMois += "{chuHan:'" + chuHan + "', hanViet:'" + hanViet + "', bacKinh:'" + bacKinh + "', nghiaViet: '" + tuHaiBen[1] + "'},\n";
+            tuMois += '{"chuHan":"' + chuHan + '", "hanViet":"' + hanViet + '", "bacKinh":"' + bacKinh + '", "nghiaViet": "' + tuHaiBen[1] + '"},\n';
           }
         } catch (e) {
           console.log(word, means, e);
