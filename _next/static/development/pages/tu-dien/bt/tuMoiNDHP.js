@@ -52691,9 +52691,10 @@ function (_Page) {
     _this.state = {
       loading: true,
       content: '',
-      chinesse: '滲透(sấm thấu - shèn tòu): thấm vào\n可是(khả thị - kě shì): chính là',
+      chinesse: '滲透(sấm thấu - shèn tòu): thấm vào\n可是(khả thị - kě shì): chính là\n末法(mạt pháp - mò fǎ): mạt pháp\n保障(bảo chướng - bǎo zhàng): bảo đảm\n大陸(đại lục - dà lù): đại lục\n寺院(tự viện - sì yuàn): chùa chiền\n落還情有可原(đọa lạc hoàn tình hữu khả nguyên - duò luò hái qíng yǒu kě yuán) : đọa lạc còn có thể tha thứ',
       hanViet: '',
       bacKinh: '',
+      tuMoisJson: '',
       tuMois: '',
       dict: {}
     };
@@ -52721,23 +52722,24 @@ function (_Page) {
           bacKinh = '',
           tuHaiBen = '';
       var j = 0;
-      var tuMois = '';
+      var tuMois = '',
+          tuMoisJson = '';
       var i = 0;
 
       for (i = 0; i < words.length; i++) {
         try {
           word = '', chuHan = '', hanViet = '', bacKinh = '';
-          word = words[i].trim(); //視(shì)之(zhī)自(zì)然(rán) nhìn thấy bình thường
+          word = words[i].trim(); //滲透(sấm thấu - shèn tòu): thấm vào
 
           word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(word, '：', ':');
-          word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(word, ') ', ':');
+          word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(word, ' :', ':');
           word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(word, ') :', ':');
           word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(word, '):', ':');
 
           if (!lodash__WEBPACK_IMPORTED_MODULE_13___default.a.isEmpty(word)) {
             tuHaiBen = word.split(':'); //視(shì)之(zhī)自(zì)然(rán)
 
-            var hanBks = tuHaiBen[0].split(')');
+            var hanBks = tuHaiBen[0].split(':');
 
             for (j = 0; j < hanBks.length; j++) {
               var hanbk = hanBks[j].split('(');
@@ -52747,9 +52749,11 @@ function (_Page) {
               bacKinh = hvbk[1]; // console.log('tuHaiBen',tuHaiBen,'hanbk',hanbk, 'chuHan',chuHan,'getHanViet(dict, chuHan)',getHanViet(dict, chuHan),'bacKinh',bacKinh);
             } //{chuHan:'滲透', hanViet:'sấm thấu', bacKinh:'shèn tòu', nghiaViet: 'thấm vào'}
             // tuMois += chuHan + '(' + getHanViet(dict, chuHan) + ' - ' + bacKinh + ') ' + tuHaiBen[1]  + '\n';
+            // tuMois += '{"chuHan":"' + chuHan + '", "hanViet":"' + hanViet +'", "bacKinh":"' + bacKinh + '", "nghiaViet": "' + tuHaiBen[1]  + '"},\n';
 
 
-            tuMois += '{"chuHan":"' + chuHan + '", "hanViet":"' + hanViet + '", "bacKinh":"' + bacKinh + '", "nghiaViet": "' + tuHaiBen[1] + '"},\n';
+            tuMoisJson += '{chuHan:"' + chuHan.trim() + '", hanViet:"' + hanViet.trim() + '", bacKinh:"' + bacKinh.trim() + '", nghiaViet: "' + tuHaiBen[1].trim() + '"},\n';
+            tuMois += '{"chuHan":"' + chuHan.trim() + '", "hanViet":"' + hanViet.trim() + '", "bacKinh":"' + bacKinh.trim() + '", "nghiaViet": "' + tuHaiBen[1].trim() + '"},\n';
           }
         } catch (e) {
           console.log(word, means, e);
@@ -52758,7 +52762,8 @@ function (_Page) {
 
       this.setState({
         chinesse: chinesse,
-        tuMois: tuMois
+        tuMois: tuMois,
+        tuMoisJson: tuMoisJson
       });
     }
   }, {
@@ -52767,7 +52772,8 @@ function (_Page) {
       var _this$state = this.state,
           chuHans = _this$state.chuHans,
           chinesse = _this$state.chinesse,
-          tuMois = _this$state.tuMois;
+          tuMois = _this$state.tuMois,
+          tuMoisJson = _this$state.tuMoisJson;
       _utils_analystics__WEBPACK_IMPORTED_MODULE_17__["trackPageView"]("bt-convert"); // GA.trackEvent('TraTu', 'Han', word);
 
       return __jsx(_components_tuDien_layout__WEBPACK_IMPORTED_MODULE_19__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.props, {
@@ -52790,8 +52796,13 @@ function (_Page) {
       }))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_11__["Col"], null, __jsx("h4", null, "K\u1EBFt qu\u1EA3"), __jsx("span", null, "Vui l\xF2ng click l\xEAn t\u1EEBng ch\u1EEF \u0111\u1EC3 xem t\u1EEB \u0111i\u1EC3n"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_15__["default"], {
         className: "txtAutoSize",
         id: "inputChuHan",
-        placeholder: "Ch\u1EEF H\xE1n",
+        placeholder: "T\u1EEB m\u1EDBi",
         value: tuMois
+      }), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        className: "txtAutoSize",
+        id: "inputChuHan",
+        placeholder: "T\u1EEB m\u1EDBi",
+        value: tuMoisJson
       }))));
     }
   }]);
