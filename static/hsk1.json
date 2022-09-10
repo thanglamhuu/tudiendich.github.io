@@ -1,0 +1,198 @@
+[
+    {
+      "chuHan": "多少",
+      "bacKinh": "duōshǎo",
+      "nghiaViet": "bao nhiêu",
+      "viDuChuHan": "这件衣服多少钱？",
+      "viDuNghia": "Bộ đồ này bao nhiêu tiền?"
+    },
+    {
+      "chuHan": "饿",
+      "bacKinh": "è",
+      "nghiaViet": "đói",
+      "viDuChuHan": "我饿了，我们去吃饭吧。",
+      "viDuNghia": "Tôi đói rồi, chúng ta đi ăn cơm đi."
+    },
+    {
+      "chuHan": "儿子",
+      "bacKinh": "érzi",
+      "nghiaViet": "con trai",
+      "viDuChuHan": "我儿子今年三岁。",
+      "viDuNghia": "Năm nay con trai tôi 3 tuổi."
+    },
+    {
+      "chuHan": "二",
+      "bacKinh": "èr",
+      "nghiaViet": "số 2",
+      "viDuChuHan": "今天是三月二号。",
+      "viDuNghia": "Hôm nay là ngày 2 tháng 3."
+    },
+    {
+      "chuHan": "饭",
+      "bacKinh": "fàn",
+      "nghiaViet": "cơm",
+      "viDuChuHan": "你吃饭了吗?",
+      "viDuNghia": "Bạn ăn cơm chưa?"
+    },
+    {
+      "chuHan": "饭店",
+      "bacKinh": "fàndiàn",
+      "nghiaViet": "quán ăn/ nhà hàng",
+      "viDuChuHan": "这饭店的菜很好吃。",
+      "viDuNghia": "Đồ ăn ở nhà hàng này rất ngon."
+    },
+    {
+      "chuHan": "房间",
+      "bacKinh": "fángjiān",
+      "nghiaViet": "căn phòng",
+      "viDuChuHan": "他的房间很大。",
+      "viDuNghia": "Phòng của anh ấy rất to."
+    },
+    {
+      "chuHan": "房子",
+      "bacKinh": "fángzi",
+      "nghiaViet": "căn nhà/ căn hộ",
+      "viDuChuHan": "他的房子比我的小。",
+      "viDuNghia": "Phòng của anh ấy nhỏ hơn phòng của tôi."
+    },
+    {
+      "chuHan": "放",
+      "bacKinh": "fàng",
+      "nghiaViet": "thả, đặt, để",
+      "viDuChuHan": "我的手机放在桌子上。",
+      "viDuNghia": "Điện thoại của tôi để trên bàn."
+    },
+    {
+      "chuHan": "放假",
+      "bacKinh": "fàng//jià",
+      "nghiaViet": "nghỉ, nghỉ định kỳ",
+      "viDuChuHan": "我们明天放假。",
+      "viDuNghia": "Ngày mai chúng tôi được nghỉ."
+    },
+    {
+      "chuHan": "放学",
+      "bacKinh": "fàng//xué",
+      "nghiaViet": "tan học",
+      "viDuChuHan": "你几点放学？",
+      "viDuNghia": "Bạn mấy giờ tan học?"
+    },
+    {
+      "chuHan": "飞",
+      "bacKinh": "fēi",
+      "nghiaViet": "bay",
+      "viDuChuHan": "飞机快起飞了。",
+      "viDuNghia": "Máy bay sắp cất cánh rồi."
+    },
+    {
+      "chuHan": "飞机",
+      "bacKinh": "fēijī",
+      "nghiaViet": "máy bay",
+      "viDuChuHan": "我喜欢坐飞机",
+      "viDuNghia": "Tôi thích đi máy bay."
+    },
+    {
+      "chuHan": "非常",
+      "bacKinh": "fēicháng",
+      "nghiaViet": "vô cùng, hết sức, rất",
+      "viDuChuHan": "我非常羡慕她。",
+      "viDuNghia": "Tôi vô cùng ngưỡng mộ cô ấy."
+    },
+    {
+      "chuHan": "分",
+      "bacKinh": "fēn",
+      "nghiaViet": "phút",
+      "viDuChuHan": "现在9点5分。",
+      "viDuNghia": "Bây giờ là 9 giờ 5 phút"
+    },
+    {
+      "chuHan": "风",
+      "bacKinh": "fēng",
+      "nghiaViet": "gió",
+      "viDuChuHan": "今天的风很大。",
+      "viDuNghia": "Gió hôm nay rất lớn."
+    },
+    {
+      "chuHan": "干",
+      "bacKinh": "gān",
+      "nghiaViet": "khô",
+      "viDuChuHan": "我的衣服晒干了。",
+      "viDuNghia": "Quần áo của tôi phơi khô rồi."
+    },
+    {
+      "chuHan": "干净",
+      "bacKinh": "gānjìng",
+      "nghiaViet": "sạch sẽ",
+      "viDuChuHan": "她的房间很干净。",
+      "viDuNghia": "Phòng của cô ấy rất sạch."
+    },
+    {
+      "chuHan": "干",
+      "bacKinh": "gàn",
+      "nghiaViet": "làm",
+      "viDuChuHan": "我今天要干很多事儿。",
+      "viDuNghia": "Hôm nay tôi phải làm rất nhiều việc."
+    },
+    {
+      "chuHan": "干什么",
+      "bacKinh": "gànshénme",
+      "nghiaViet": "làm gì đó",
+      "viDuChuHan": "你在干什么？",
+      "viDuNghia": "Bạn đang làm gì thế?"
+    },
+    {
+      "chuHan": "高",
+      "bacKinh": "gāo",
+      "nghiaViet": "cao",
+      "viDuChuHan": "他是我们班最高的学生。",
+      "viDuNghia": "Anh ấy là người cao nhất trong lớp chúng tôi."
+    },
+    {
+      "chuHan": "高兴",
+      "bacKinh": "gāoxìng",
+      "nghiaViet": "vui vẻ, vui mừng",
+      "viDuChuHan": "他高兴地说。",
+      "viDuNghia": "Anh ấy nói một cách vui vẻ."
+    },
+    {
+      "chuHan": "告诉",
+      "bacKinh": "gàosù",
+      "nghiaViet": "nói, kể lại",
+      "viDuChuHan": "这件事我还没告诉他。",
+      "viDuNghia": "Chuyện này tôi vẫn chưa nói cho anh ấy."
+    },
+    {
+      "chuHan": "哥哥｜哥",
+      "bacKinh": "gēge｜gē",
+      "nghiaViet": "anh trai",
+      "viDuChuHan": "我哥哥比我大五岁。",
+      "viDuNghia": "Anh trai tôi lớn hơn tôi năm tuổi."
+    },
+    {
+      "chuHan": "歌",
+      "bacKinh": "gē",
+      "nghiaViet": "bài hát",
+      "viDuChuHan": "我很喜欢这首歌。",
+      "viDuNghia": "Tôi rất thích bài hát này."
+    },
+    {
+      "chuHan": "个",
+      "bacKinh": "gè",
+      "nghiaViet": "cái",
+      "viDuChuHan": "我喜欢这个盘子。",
+      "viDuNghia": "Tôi thích cái đĩa này."
+    },
+    {
+      "chuHan": "给",
+      "bacKinh": "gěi",
+      "nghiaViet": "cho",
+      "viDuChuHan": "我爸爸送给妈妈了一束花。",
+      "viDuNghia": "Bố tôi tặng cho mẹ tôi một bó hoa."
+    },
+    {
+      "chuHan": "跟",
+      "bacKinh": "gēn",
+      "nghiaViet": "và, cùng",
+      "viDuChuHan": "明天我跟朋友去看电影。",
+      "viDuNghia": "Ngày mai tôi đi xem phim cùng bạn."
+    }
+  ]
