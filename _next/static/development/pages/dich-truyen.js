@@ -747,15 +747,12 @@ function (_Component) {
 
       var dictFb = Object(firebase_database__WEBPACK_IMPORTED_MODULE_11__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_10__["database"], "dictTruyen");
       Object(firebase_database__WEBPACK_IMPORTED_MODULE_11__["onValue"])(dictFb, function (snapshot) {
-        var dict = snapshot.val() || {}; // console.log('getTkpsgnlListSaga getTkpsgnlSaga onValue', id, data);
-
+        var dict = snapshot.val() || {};
         var dictHv = {};
 
         for (var word in dict) {
           dictHv[dict[word].ch] = dict[word].nghia;
         }
-
-        console.log('updateTudien ', dictHv);
 
         _this2.setState({
           dict: dict,
@@ -774,11 +771,9 @@ function (_Component) {
           dict = _this$state3.dict,
           dictHv = _this$state3.dictHv;
       typingChinesse = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_18__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
-      var doichieu = '';
-
-      for (var word in dictHv) {
-        typingChinesse = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_18__["replaceAll"])(typingChinesse, word, dictHv[word]);
-      }
+      var doichieu = ''; // for (var word in dictHv){
+      //   typingChinesse = replaceAll(typingChinesse, word, dictHv[word] );
+      // }
 
       var nghiaViet = '';
       translation_google__WEBPACK_IMPORTED_MODULE_9___default()(typingChinesse, {
@@ -32002,7 +31997,7 @@ const timedOut = __webpack_require__(/*! timed-out */ "./node_modules/timed-out/
 const urlParseLax = __webpack_require__(/*! url-parse-lax */ "./node_modules/url-parse-lax/index.js");
 const lowercaseKeys = __webpack_require__(/*! lowercase-keys */ "./node_modules/lowercase-keys/index.js");
 const isRedirect = __webpack_require__(/*! is-redirect */ "./node_modules/is-redirect/index.js");
-const unzipResponse = __webpack_require__(/*! unzip-response */ 5);
+const unzipResponse = __webpack_require__(/*! unzip-response */ 4);
 const createErrorClass = __webpack_require__(/*! create-error-class */ "./node_modules/create-error-class/index.js");
 const isRetryAllowed = __webpack_require__(/*! is-retry-allowed */ "./node_modules/is-retry-allowed/index.js");
 const Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
@@ -71483,7 +71478,7 @@ util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inh
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(/*! util */ 3);
+var debugUtil = __webpack_require__(/*! util */ 2);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -73372,7 +73367,7 @@ Writable.prototype._destroy = function (err, cb) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
-var util = __webpack_require__(/*! util */ 4);
+var util = __webpack_require__(/*! util */ 3);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -80110,7 +80105,7 @@ function extend() {
 /*! exports provided: name, version, description, author, scripts, license, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"1.0.10\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 10.13.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"devdebug\":\"nvm use 10.13.0 && node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"firebase\":\"^9.22.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\",\"translation-google\":\"^0.2.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
+module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"2.2.01\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 12.22.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"devdebug\":\"nvm use 12.22.0 && node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"firebase\":\"^9.22.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\",\"translation-google\":\"^0.2.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
 
 /***/ }),
 
@@ -80690,7 +80685,7 @@ function removeTags(content) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js ***!
   \*************************************************************************************************************************************************/
@@ -80699,6 +80694,17 @@ function removeTags(content) {
 
 module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js!./");
 
+
+/***/ }),
+
+/***/ 2:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ }),
 
@@ -80714,17 +80720,6 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdich-t
 /***/ }),
 
 /***/ 4:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 5:
 /*!********************************!*\
   !*** unzip-response (ignored) ***!
   \********************************/
@@ -80746,5 +80741,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dich-truyen.js.map
