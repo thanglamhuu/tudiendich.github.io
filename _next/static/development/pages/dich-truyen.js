@@ -863,7 +863,8 @@ function (_Component) {
       hanViet: '',
       bacKinh: '',
       dictHv: {},
-      dict: {}
+      dict: {},
+      blnchiHienNghiaViet: false
     }; // axios.get('https://tv.nhidonghocphat.com/dictClient.json').then((res) => {
 
     axios__WEBPACK_IMPORTED_MODULE_14___default.a.get('/static/baiChuHan.txt').then(function (res) {
@@ -879,6 +880,7 @@ function (_Component) {
     _this.onHtmlChangeNghiaViet = _this.onHtmlChangeNghiaViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.lamMinVanBan = _this.lamMinVanBan.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.trans = _this.trans.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.chiHienNghiaViet = _this.chiHienNghiaViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onDoiChieuSelect = _this.onDoiChieuSelect.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.updateNghia = _this.updateNghia.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.updateTudien = _this.updateTudien.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
@@ -1065,6 +1067,14 @@ function (_Component) {
       });
     }
   }, {
+    key: "chiHienNghiaViet",
+    value: function chiHienNghiaViet() {
+      var blnchiHienNghiaViet = this.state.blnchiHienNghiaViet;
+      this.setState({
+        blnchiHienNghiaViet: !blnchiHienNghiaViet
+      });
+    }
+  }, {
     key: "updateNghia",
     value: function updateNghia(i, nghia) {
       var chinesse = this.state.chinesse;
@@ -1090,7 +1100,8 @@ function (_Component) {
           newHanViet = _this$state4.newHanViet,
           doichieu = _this$state4.doichieu,
           seletedDoiChieu = _this$state4.seletedDoiChieu,
-          newNghia = _this$state4.newNghia; // Build Cards for Listing
+          newNghia = _this$state4.newNghia,
+          blnchiHienNghiaViet = _this$state4.blnchiHienNghiaViet; // Build Cards for Listing
 
       var chuHans = '',
           i = 0;
@@ -1115,7 +1126,7 @@ function (_Component) {
 
       return __jsx("div", null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], null, __jsx("h2", {
         className: "h1Title"
-      }, "D\u1ECBch truy\u1EC7n")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      }, "D\u1ECBch truy\u1EC7n"), blnchiHienNghiaViet && nghiaViet), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
         style: {
           paddingTop: '10px'
         }
@@ -1131,7 +1142,7 @@ function (_Component) {
       }, "_\u7B2C\u4E03\u767E\u4E03\u5341\u7AE0"), __jsx("a", {
         href: "https://tamlinh247.vn/truyen-hau-due-kiem-than/chuong-3376/",
         target: "_blank"
-      }, "chuong-3376")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["FormGroup"], {
+      }, "chuong-3376")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["FormGroup"], {
         style: {
           width: '100%'
         }
@@ -1158,13 +1169,19 @@ function (_Component) {
         style: {
           marginLeft: 100
         }
-      }, "L\u1EA5y l\u1EA1i t\u1EEB \u0111i\u1EC3n"), __jsx("button", {
+      }, "L\u1EA5y t\u1EEB \u0111i\u1EC3n"), __jsx("button", {
         className: "btnProcess",
         onClick: this.trans,
         style: {
           marginLeft: 100
         }
-      }, "L\u1EA5y k\u1EBFt qu\u1EA3 sang ngh\u0129a Vi\u1EC7t"))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      }, "Dich"), __jsx("button", {
+        className: "btnProcess",
+        onClick: this.chiHienNghiaViet,
+        style: {
+          marginLeft: 100
+        }
+      }, "Ch\u1EC9 hi\u1EC7n ngh\u0129a Vi\u1EC7t"))), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
         style: {
           paddingTop: '10px'
         }
@@ -1175,7 +1192,7 @@ function (_Component) {
         value: doichieu,
         onChange: this.onHtmlChangeNghiaViet,
         onSelect: this.onDoiChieuSelect
-      })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      })), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
         style: {
           paddingTop: '10px'
         }
@@ -32255,7 +32272,7 @@ const timedOut = __webpack_require__(/*! timed-out */ "./node_modules/timed-out/
 const urlParseLax = __webpack_require__(/*! url-parse-lax */ "./node_modules/url-parse-lax/index.js");
 const lowercaseKeys = __webpack_require__(/*! lowercase-keys */ "./node_modules/lowercase-keys/index.js");
 const isRedirect = __webpack_require__(/*! is-redirect */ "./node_modules/is-redirect/index.js");
-const unzipResponse = __webpack_require__(/*! unzip-response */ 5);
+const unzipResponse = __webpack_require__(/*! unzip-response */ 6);
 const createErrorClass = __webpack_require__(/*! create-error-class */ "./node_modules/create-error-class/index.js");
 const isRetryAllowed = __webpack_require__(/*! is-retry-allowed */ "./node_modules/is-retry-allowed/index.js");
 const Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
@@ -71736,7 +71753,7 @@ util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inh
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(/*! util */ 3);
+var debugUtil = __webpack_require__(/*! util */ 4);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -73625,7 +73642,7 @@ Writable.prototype._destroy = function (err, cb) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
-var util = __webpack_require__(/*! util */ 4);
+var util = __webpack_require__(/*! util */ 5);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -80943,7 +80960,7 @@ function removeTags(content) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!*************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js ***!
   \*************************************************************************************************************************************************/
@@ -80952,17 +80969,6 @@ function removeTags(content) {
 
 module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js!./");
 
-
-/***/ }),
-
-/***/ 3:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
 
 /***/ }),
 
@@ -80978,6 +80984,17 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdich-t
 /***/ }),
 
 /***/ 5:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 6:
 /*!********************************!*\
   !*** unzip-response (ignored) ***!
   \********************************/
@@ -80999,5 +81016,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dich-truyen.js.map
