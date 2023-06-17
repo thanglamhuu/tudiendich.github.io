@@ -1131,15 +1131,15 @@ function (_Component) {
           paddingTop: '10px'
         }
       }, __jsx("a", {
-        href: "http://m.qbyqxs.com/xiaoshuo/70022/all.html?sort=-1&page=5",
+        href: "https://www.feibzw.com/html/35181/index.html",
         target: "_blank"
       }, "_M\u1EE5c L\u1EE5c"), __jsx("a", {
         href: "https://tamlinh247.vn/truyen-hau-due-kiem-than/",
         target: "_blank"
       }, "_TamLinh247"), "\u0110\u1ED1i chi\u1EBFu", __jsx("a", {
-        href: "http://m.qbyqxs.com/xiaoshuo/70022/read_39068387.html",
+        href: "https://www.feibzw.com/html/35181/35649573.html",
         target: "_blank"
-      }, "_\u7B2C\u4E03\u767E\u4E03\u5341\u7AE0"), __jsx("a", {
+      }, "\u516B\u767E\u56DB\u5341\u56DB"), __jsx("a", {
         href: "https://tamlinh247.vn/truyen-hau-due-kiem-than/chuong-3376/",
         target: "_blank"
       }, "chuong-3376")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["FormGroup"], {
@@ -32272,7 +32272,7 @@ const timedOut = __webpack_require__(/*! timed-out */ "./node_modules/timed-out/
 const urlParseLax = __webpack_require__(/*! url-parse-lax */ "./node_modules/url-parse-lax/index.js");
 const lowercaseKeys = __webpack_require__(/*! lowercase-keys */ "./node_modules/lowercase-keys/index.js");
 const isRedirect = __webpack_require__(/*! is-redirect */ "./node_modules/is-redirect/index.js");
-const unzipResponse = __webpack_require__(/*! unzip-response */ 6);
+const unzipResponse = __webpack_require__(/*! unzip-response */ 5);
 const createErrorClass = __webpack_require__(/*! create-error-class */ "./node_modules/create-error-class/index.js");
 const isRetryAllowed = __webpack_require__(/*! is-retry-allowed */ "./node_modules/is-retry-allowed/index.js");
 const Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
@@ -71753,7 +71753,7 @@ util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inh
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(/*! util */ 4);
+var debugUtil = __webpack_require__(/*! util */ 3);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -73642,7 +73642,7 @@ Writable.prototype._destroy = function (err, cb) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
-var util = __webpack_require__(/*! util */ 5);
+var util = __webpack_require__(/*! util */ 4);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -80960,7 +80960,7 @@ function removeTags(content) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!*************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js ***!
   \*************************************************************************************************************************************************/
@@ -80969,6 +80969,17 @@ function removeTags(content) {
 
 module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdich-truyen&absolutePagePath=E%3A%5CWorks%5CChinese%5CsrcChi%5Ctudiendich%5Cpages%5Cdich-truyen.js!./");
 
+
+/***/ }),
+
+/***/ 3:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ }),
 
@@ -80984,17 +80995,6 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdich-t
 /***/ }),
 
 /***/ 5:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 6:
 /*!********************************!*\
   !*** unzip-response (ignored) ***!
   \********************************/
@@ -81016,5 +81016,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dich-truyen.js.map
