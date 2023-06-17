@@ -1134,6 +1134,9 @@ function (_Component) {
           paddingTop: '10px'
         }
       }, __jsx("a", {
+        href: "https://docs.google.com/document/d/e/2PACX-1vQai_CXAKESaTwRgmoenHEKXP9mymw4NGn7oUVt6_OPwxH663qHs_Pu6K7hjhIVk85IKwR2Wq3Afe0X/pub",
+        target: "_blank"
+      }, "wordDich"), __jsx("a", {
         href: "https://www.feibzw.com/html/35181/index.html",
         target: "_blank"
       }, "_M\u1EE5c L\u1EE5c"), __jsx("a", {
