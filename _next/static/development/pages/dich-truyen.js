@@ -995,14 +995,14 @@ function (_Component) {
     value: function updateTudien() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_14___default.a.get('https://raw.githubusercontent.com/thanglamhuu/nddhp.github.io/master/dictClient.json').then(function (res) {
-        _this2.setState({
-          dict: res.data,
-          newNghia: '',
-          newWord: '',
-          loading: false
-        });
-      });
+      // axios.get('https://raw.githubusercontent.com/thanglamhuu/nddhp.github.io/master/dictClient.json').then((res) => {
+      //   this.setState({
+      //     dict: res.data,
+      //     newNghia: '',
+      //     newWord: '',
+      //     loading: false,
+      //   });
+      // });
       var dictFb = Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"], "dictTruyen");
       Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["onValue"])(dictFb, function (snapshot) {
         var dict = snapshot.val() || {};
@@ -1014,7 +1014,8 @@ function (_Component) {
 
         _this2.setState({
           dict: dict,
-          dictHv: dictHv
+          dictHv: dictHv,
+          loading: false
         });
       });
     }
@@ -1039,8 +1040,10 @@ function (_Component) {
         to: 'vi'
       }).then(function (res) {
         nghiaViet = res.text;
+        console.log('dict', dict);
 
         for (var word in dict) {
+          console.log(word, Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, word, dict[word].nghia), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, 'Ye Guan', 'Diệp Quân'));
           nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, word, dict[word].nghia);
         } //Ghep cau chu Han voi Chu viet
 
