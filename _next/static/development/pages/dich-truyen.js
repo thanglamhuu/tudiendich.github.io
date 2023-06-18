@@ -532,16 +532,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var translation_google__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(translation_google__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/firebase */ "./utils/firebase.js");
 /* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! firebase/database */ "./node_modules/firebase/database/dist/esm/index.esm.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_textarea_autosize__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react-textarea-autosize */ "./node_modules/react-textarea-autosize/dist/react-textarea-autosize.esm.browser.js");
-/* harmony import */ var _loader__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./loader */ "./components/tuDien/loader.js");
-/* harmony import */ var _ChuHan__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ChuHan */ "./components/tuDien/ChuHan.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../utils/utils */ "./utils/utils.js");
-/* harmony import */ var _dict_book_data__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./dict-book-data */ "./components/tuDien/dict-book-data.js");
-/* harmony import */ var _utils_analystics__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../utils/analystics */ "./utils/analystics.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_hot_toast__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_textarea_autosize__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-textarea-autosize */ "./node_modules/react-textarea-autosize/dist/react-textarea-autosize.esm.browser.js");
+/* harmony import */ var _loader__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./loader */ "./components/tuDien/loader.js");
+/* harmony import */ var _ChuHan__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./ChuHan */ "./components/tuDien/ChuHan.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../utils/utils */ "./utils/utils.js");
+/* harmony import */ var _dict_book_data__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./dict-book-data */ "./components/tuDien/dict-book-data.js");
+/* harmony import */ var _utils_analystics__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../utils/analystics */ "./utils/analystics.js");
 
 
 
@@ -551,6 +553,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
+
 
 
 
@@ -585,7 +588,7 @@ function getDisplayHanViet(mean) {
 
     return mean;
   } else {
-    _utils_analystics__WEBPACK_IMPORTED_MODULE_21__["trackEvent"]('ThieuTu', 'Han', _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(mean));
+    _utils_analystics__WEBPACK_IMPORTED_MODULE_22__["trackEvent"]('ThieuTu', 'Han', _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(mean));
     return '';
   }
 }
@@ -596,7 +599,7 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
   console.log('processWord , chinessArray, lenWord, textScripts', chinessArray, i, textScripts);
 
   if (i < chinessArray.length - 5) {
-    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 3]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 4]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 5]);
+    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 3]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 4]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 5]);
     mean = dict[word];
     console.log('processWord word, mean', word, mean);
 
@@ -614,7 +617,7 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
   }
 
   if (i < chinessArray.length - 4) {
-    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 3]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 4]);
+    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 3]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 4]);
     mean = dict[word];
     console.log('processWord word, mean', word, mean);
 
@@ -632,7 +635,7 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
   }
 
   if (i < chinessArray.length - 3) {
-    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 3]);
+    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 3]);
     mean = dict[word];
     console.log('processWord word, mean', word, mean);
 
@@ -650,7 +653,7 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
   }
 
   if (i < chinessArray.length - 2) {
-    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]);
+    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 2]);
     mean = dict[word];
 
     if (mean) {
@@ -667,7 +670,7 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
   }
 
   if (i < chinessArray.length - 1) {
-    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]);
+    word = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i]) + Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i + 1]);
     mean = dict[word];
 
     if (mean) {
@@ -683,7 +686,7 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
     }
   }
 
-  mean = dict[Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i])];
+  mean = dict[Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i])];
   var hv = '';
 
   if (mean) {
@@ -702,14 +705,14 @@ function processWord(chinessArray, i, dict, textScripts, bacKinhs) {
 }
 
 function getChuHanOneWord(chinesse, dict) {
-  var chinessArray = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinesseV2"])(chinesse);
+  var chinessArray = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinesseV2"])(chinesse);
   var textScripts = [];
   var mean;
   var word;
   var i = 0;
 
   for (i = 0; i < chinessArray.length; i++) {
-    mean = dict[Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinneseNoSign"])(chinessArray[i])];
+    mean = dict[Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinneseNoSign"])(chinessArray[i])];
     var hv = '';
 
     if (mean) {
@@ -730,7 +733,7 @@ function getChuHanOneWord(chinesse, dict) {
 }
 
 function parserScript(chinesse, dict, bacKinh) {
-  var chinessArray = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["chuanHoaChinesseV2"])(chinesse);
+  var chinessArray = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["chuanHoaChinesseV2"])(chinesse);
   var textScripts = [];
   var bacKinhs = bacKinh.split(' ');
   var i = 0;
@@ -743,7 +746,7 @@ function parserScript(chinesse, dict, bacKinh) {
 }
 
 function parserScriptCau(cau, dict) {
-  var cacDoan = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(cau, ',', ',#'), '，', ',#'), '：', ':#'), ':', ':#').split('#');
+  var cacDoan = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(cau, ',', ',#'), '，', ',#'), '：', ':#'), ':', ':#').split('#');
   var j = 0;
   var textScripts = [];
 
@@ -772,10 +775,10 @@ function updateNghiaViet(that) {
       dict = _that$state.dict;
   var nghiaViet = '';
   if (!typingChinesse) return;
-  nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
+  nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
 
   for (var word in dict) {
-    nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, word, dict[word].nghia);
+    nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(nghiaViet, word, dict[word].nghia);
   }
 
   that.setState({
@@ -817,12 +820,12 @@ function (_Component) {
 
               _context.prev = 3;
               _context.next = 6;
-              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_dict_book_data__WEBPACK_IMPORTED_MODULE_20__["default"].getDictBookData());
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_dict_book_data__WEBPACK_IMPORTED_MODULE_21__["default"].getDictBookData());
 
             case 6:
               props.dictBook = _context.sent;
               _context.next = 9;
-              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_dict_book_data__WEBPACK_IMPORTED_MODULE_20__["default"].getDictTruyenData());
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_dict_book_data__WEBPACK_IMPORTED_MODULE_21__["default"].getDictTruyenData());
 
             case 9:
               props.dictTruyen = _context.sent;
@@ -862,16 +865,23 @@ function (_Component) {
       seletedDoiChieu: '',
       hanViet: '',
       bacKinh: '',
-      dictHv: {},
+      dictChuHan: {},
       dict: {},
-      blnchiHienNghiaViet: false
+      blnchiHienNghiaViet: false,
+      tumoiCh: '',
+      tumoiNghia: '',
+      tumoiReplace: ''
     }; // axios.get('https://tv.nhidonghocphat.com/dictClient.json').then((res) => {
 
-    axios__WEBPACK_IMPORTED_MODULE_14___default.a.get('/static/baiChuHan.txt').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_15___default.a.get('/static/baiChuHan.txt').then(function (res) {
       _this.setState({
-        typingChinesse: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["xoaKiTuThuaCopyTuTrang"])(res.data)
+        typingChinesse: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["xoaKiTuThuaCopyTuTrang"])(res.data)
       });
     });
+    _this.onChangetumoiCh = _this.onChangetumoiCh.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.onChangetumoiNghia = _this.onChangetumoiNghia.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.onChangetumoiReplace = _this.onChangetumoiReplace.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.btnThemTuMoiClick = _this.btnThemTuMoiClick.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerNewHanViet = _this.onChangeHandlerNewHanViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerNewNghia = _this.onChangeHandlerNewNghia.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerChuHan = _this.onChangeHandlerChuHan.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
@@ -892,6 +902,79 @@ function (_Component) {
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(DictComponent, [{
+    key: "onChangetumoiCh",
+    value: function onChangetumoiCh(e) {
+      this.setState({
+        tumoiCh: e.target.value
+      });
+    }
+  }, {
+    key: "onChangetumoiNghia",
+    value: function onChangetumoiNghia(e) {
+      this.setState({
+        tumoiNghia: e.target.value
+      });
+    }
+  }, {
+    key: "onChangetumoiReplace",
+    value: function onChangetumoiReplace(e) {
+      this.setState({
+        tumoiReplace: e.target.value
+      });
+    }
+  }, {
+    key: "btnThemTuMoiClick",
+    value: function btnThemTuMoiClick() {
+      var _this2 = this;
+
+      try {
+        var _this$state = this.state,
+            tumoiCh = _this$state.tumoiCh,
+            tumoiNghia = _this$state.tumoiNghia,
+            tumoiReplace = _this$state.tumoiReplace;
+        var dbPath = "dictTruyenHanViet/".concat(tumoiNghia);
+        var dbRef = Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"]);
+        Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["get"])(Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["child"])(dbRef, dbPath)).then(function (snapshot) {
+          console.log('btnThemTuMoiClick tumoiCh,tumoiNghia,tumoiReplace,snapshot', tumoiCh, tumoiNghia, tumoiReplace, snapshot);
+          var tuDB = snapshot.val() || {
+            ch: tumoiCh,
+            thaythe: ''
+          };
+
+          if (tumoiCh !== tuDB["ch"]) {
+            react_hot_toast__WEBPACK_IMPORTED_MODULE_13___default.a.error("T\u1EEB m\u1EDBi c\u0169 chung ngh\u0129a c\xF3 ch\u1EEF H\xE1n l\xE0 ".concat(tuDB.ch, " t\u1EEB m\u1EDBi ch\u1EEF H\xE1n l\xE0 ").concat(tumoiCh));
+            return;
+          }
+
+          if (tuDB.thaythe.length == 0) tuDB.thaythe = tumoiReplace;else tuDB.thaythe = tuDB.thaythe + ',' + tumoiReplace;
+          var updates = {};
+          updates[dbPath] = tuDB;
+          Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["update"])(Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"]), updates).then(function _callee() {
+            return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    react_hot_toast__WEBPACK_IMPORTED_MODULE_13___default.a.success('Đã thêm từ');
+
+                  case 1:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            });
+          });
+
+          _this2.setState({
+            dict: dict,
+            dictChuHan: dictChuHan,
+            loading: false
+          });
+        });
+      } catch (err) {
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_13___default.a.error("Th\xEAm t\u1EEB l\u1ED7i ".concat(err.message));
+      }
+    }
+  }, {
     key: "onHtmlChangeNghiaViet",
     value: function onHtmlChangeNghiaViet(e) {
       this.setState({
@@ -909,28 +992,28 @@ function (_Component) {
     key: "onChangeHandlerHanViet",
     value: function onChangeHandlerHanViet(e) {
       this.setState({
-        hanViet: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["correctTyping"])(e.target.value)
+        hanViet: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["correctTyping"])(e.target.value)
       });
     }
   }, {
     key: "onChangeHandlerNewNghia",
     value: function onChangeHandlerNewNghia(e) {
       this.setState({
-        newNghia: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["correctTyping"])(e.target.value)
+        newNghia: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["correctTyping"])(e.target.value)
       });
     }
   }, {
     key: "onChangeHandlerNewHanViet",
     value: function onChangeHandlerNewHanViet(e) {
       this.setState({
-        newHanViet: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["correctTyping"])(e.target.value)
+        newHanViet: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["correctTyping"])(e.target.value)
       });
     }
   }, {
     key: "onChangeHandlerBacKinh",
     value: function onChangeHandlerBacKinh(e) {
       this.setState({
-        bacKinh: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["correctTyping"])(e.target.value)
+        bacKinh: Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["correctTyping"])(e.target.value)
       });
     }
   }, {
@@ -941,7 +1024,7 @@ function (_Component) {
       console.log("selection", selection);
       var dict = this.state.dict;
       var textScripts = [];
-      var cacCau = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(selection, '.', '.#'), '. ', '.#'), '? ', '?#'), '。', '.#').split('#');
+      var cacCau = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(selection, '.', '.#'), '. ', '.#'), '? ', '?#'), '。', '.#').split('#');
       var i = 0;
 
       for (i = 0; i < cacCau.length; i++) {
@@ -958,31 +1041,32 @@ function (_Component) {
       console.log("selection", selection);
       this.setState({
         seletedDoiChieu: selection,
-        chinesse: textScripts
+        chinesse: textScripts,
+        tumoiCh: selection
       });
     }
   }, {
     key: "lamMinVanBan",
     value: function lamMinVanBan() {
-      var _this$state = this.state,
-          typingChinesse = _this$state.typingChinesse,
-          dict = _this$state.dict;
-      typingChinesse = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
+      var _this$state2 = this.state,
+          typingChinesse = _this$state2.typingChinesse,
+          dict = _this$state2.dict;
+      typingChinesse = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
       this.setState({
         typingChinesse: typingChinesse
       });
       console.log("lamMinVanBan");
-      _utils_analystics__WEBPACK_IMPORTED_MODULE_21__["trackEvent"]('Dich truyen', 'lam min', 'lam min');
+      _utils_analystics__WEBPACK_IMPORTED_MODULE_22__["trackEvent"]('Dich truyen', 'lam min', 'lam min');
     }
   }, {
     key: "reportNew",
     value: function reportNew() {
-      var _this$state2 = this.state,
-          newWord = _this$state2.newWord,
-          newHanViet = _this$state2.newHanViet,
-          newNghia = _this$state2.newNghia;
+      var _this$state3 = this.state,
+          newWord = _this$state3.newWord,
+          newHanViet = _this$state3.newHanViet,
+          newNghia = _this$state3.newNghia;
       var json = "{\"chuHan\":\"".concat(newWord, "\",\"hanViet\":\"").concat(newHanViet, "\",\"bacKinh\":\"").concat(chinese_to_pinyin__WEBPACK_IMPORTED_MODULE_9___default()(newWord), "\",\"nghia\":\"").concat(newNghia, "\"},");
-      _utils_analystics__WEBPACK_IMPORTED_MODULE_21__["trackEvent"]("Report", "newWord", json);
+      _utils_analystics__WEBPACK_IMPORTED_MODULE_22__["trackEvent"]("Report", "newWord", json);
       this.setState({
         newWord: '',
         newHanViet: '',
@@ -993,28 +1077,29 @@ function (_Component) {
   }, {
     key: "updateTudien",
     value: function updateTudien() {
-      var _this2 = this;
+      var _this3 = this;
 
-      // axios.get('https://raw.githubusercontent.com/thanglamhuu/nddhp.github.io/master/dictClient.json').then((res) => {
-      //   this.setState({
-      //     dict: res.data,
-      //     newNghia: '',
-      //     newWord: '',
-      //     loading: false,
-      //   });
-      // });
-      var dictFb = Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"], "dictTruyen");
+      var dictFb = Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"], "dictTruyenHanViet");
       Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["onValue"])(dictFb, function (snapshot) {
-        var dict = snapshot.val() || {};
-        var dictHv = {};
+        var dictHanViet = snapshot.val() || {};
+        var dictChuHan = {};
+        var dict = {};
 
-        for (var word in dict) {
-          dictHv[dict[word].ch] = dict[word].nghia;
+        for (var word in dictHanViet) {
+          var replaceTxt = dictHanViet[word].thaythe.split(',');
+          var j = 0;
+
+          for (j = 0; j < replaceTxt.length; j++) {
+            dict[replaceTxt[j]] = {
+              ch: dictHanViet[word].ch,
+              nghia: word
+            };
+          }
         }
 
-        _this2.setState({
+        _this3.setState({
           dict: dict,
-          dictHv: dictHv,
+          dictChuHan: dictChuHan,
           loading: false
         });
       });
@@ -1022,16 +1107,16 @@ function (_Component) {
   }, {
     key: "trans",
     value: function trans() {
-      var _this3 = this;
+      var _this4 = this;
 
-      var _this$state3 = this.state,
-          typingChinesse = _this$state3.typingChinesse,
-          chinesse = _this$state3.chinesse,
-          dict = _this$state3.dict,
-          dictHv = _this$state3.dictHv;
-      typingChinesse = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
-      var doichieu = ''; // for (var word in dictHv){
-      //   typingChinesse = replaceAll(typingChinesse, word, dictHv[word] );
+      var _this$state4 = this.state,
+          typingChinesse = _this$state4.typingChinesse,
+          chinesse = _this$state4.chinesse,
+          dict = _this$state4.dict,
+          dictChuHan = _this$state4.dictChuHan;
+      typingChinesse = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["xoaKiTuThuaCopyTuTrang"])(typingChinesse);
+      var doichieu = ''; // for (var word in dictChuHan){
+      //   typingChinesse = replaceAll(typingChinesse, word, dictChuHan[word] );
       // }
 
       var nghiaViet = '';
@@ -1043,8 +1128,8 @@ function (_Component) {
         console.log('dict', dict);
 
         for (var word in dict) {
-          console.log(word, Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, word, dict[word].nghia), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, 'Ye Guan', 'Diệp Quân'));
-          nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_19__["replaceAll"])(nghiaViet, word, dict[word].nghia);
+          console.log(word, Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(nghiaViet, word, dict[word].nghia), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(nghiaViet, 'Ye Guan', 'Diệp Quân'));
+          nghiaViet = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(nghiaViet, word, dict[word].nghia);
         } //Ghep cau chu Han voi Chu viet
 
 
@@ -1056,12 +1141,12 @@ function (_Component) {
           doichieu += cauHans[cauPos] + '\n' + cauViets[cauPos] + '\n';
         }
 
-        _this3.setState({
+        _this4.setState({
           nghiaViet: nghiaViet,
           doichieu: doichieu
         });
 
-        _this3.setState({
+        _this4.setState({
           nghiaViet: nghiaViet
         }); //=> en
 
@@ -1090,30 +1175,33 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
-      var _this$state4 = this.state,
-          nghiaViet = _this$state4.nghiaViet,
-          typingChinesse = _this$state4.typingChinesse,
-          chinesse = _this$state4.chinesse,
-          bacKinh = _this$state4.bacKinh,
-          loading = _this$state4.loading,
-          dict = _this$state4.dict,
-          newWord = _this$state4.newWord,
-          newHanViet = _this$state4.newHanViet,
-          doichieu = _this$state4.doichieu,
-          seletedDoiChieu = _this$state4.seletedDoiChieu,
-          newNghia = _this$state4.newNghia,
-          blnchiHienNghiaViet = _this$state4.blnchiHienNghiaViet; // Build Cards for Listing
+      var _this$state5 = this.state,
+          nghiaViet = _this$state5.nghiaViet,
+          typingChinesse = _this$state5.typingChinesse,
+          chinesse = _this$state5.chinesse,
+          bacKinh = _this$state5.bacKinh,
+          loading = _this$state5.loading,
+          dict = _this$state5.dict,
+          newWord = _this$state5.newWord,
+          newHanViet = _this$state5.newHanViet,
+          doichieu = _this$state5.doichieu,
+          seletedDoiChieu = _this$state5.seletedDoiChieu,
+          newNghia = _this$state5.newNghia,
+          blnchiHienNghiaViet = _this$state5.blnchiHienNghiaViet,
+          tumoiCh = _this$state5.tumoiCh,
+          tumoiNghia = _this$state5.tumoiNghia,
+          tumoiReplace = _this$state5.tumoiReplace; // Build Cards for Listing
 
       var chuHans = '',
           i = 0;
 
       if (loading) {
-        chuHans = __jsx(_loader__WEBPACK_IMPORTED_MODULE_17__["default"], null);
+        chuHans = __jsx(_loader__WEBPACK_IMPORTED_MODULE_18__["default"], null);
       } else if (chinesse) {
         chuHans = chinesse.map(function (item) {
-          return __jsx(_ChuHan__WEBPACK_IMPORTED_MODULE_18__["default"], {
+          return __jsx(_ChuHan__WEBPACK_IMPORTED_MODULE_19__["default"], {
             id: i++,
             key: Math.random(),
             chinesse: item.chinesse,
@@ -1121,15 +1209,21 @@ function (_Component) {
             bacKinh: item.bacKinh,
             nghias: item.nghias,
             nghiaViet: item.nghiaViet,
-            updateNghia: _this4.updateNghia,
+            updateNghia: _this5.updateNghia,
             dot: item.dot
           });
         });
       }
 
-      return __jsx("div", null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], null, __jsx("h2", {
+      return __jsx("div", null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], null, __jsx("h2", {
         className: "h1Title"
-      }, "D\u1ECBch truy\u1EC7n"), blnchiHienNghiaViet && nghiaViet), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      }, "D\u1ECBch truy\u1EC7n"), blnchiHienNghiaViet && __jsx("div", null, "$", nghiaViet), __jsx("button", {
+        className: "btnProcess",
+        onClick: this.chiHienNghiaViet,
+        style: {
+          marginLeft: 100
+        }
+      }, "Ch\u1EC9 hi\u1EC7n ngh\u0129a Vi\u1EC7t")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], {
         style: {
           paddingTop: '10px'
         }
@@ -1148,61 +1242,76 @@ function (_Component) {
       }, "\u516B\u767E\u56DB\u5341\u56DB"), __jsx("a", {
         href: "https://tamlinh247.vn/truyen-hau-due-kiem-than/chuong-3376/",
         target: "_blank"
-      }, "chuong-3376")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["FormGroup"], {
+      }, "chuong-3376")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], null, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["FormGroup"], {
         style: {
           width: '100%'
         }
-      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Label"], {
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Label"], {
         "for": "inputChuHan"
-      }, "Nh\u1EADp n\u1ED9i dung ch\u1EEF H\xE1n"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      }, "Nh\u1EADp n\u1ED9i dung ch\u1EEF H\xE1n"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_17__["default"], {
         className: "txtAutoSize",
         id: "inputChuHan",
         placeholder: "Ch\u1EEF H\xE1n",
         value: typingChinesse,
         onChange: this.onChangeHandlerChuHan
-      }))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      }))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], {
         style: {
           paddingTop: '10px'
         }
-      }, __jsx("h3", null, "K\u1EBFt qu\u1EA3"), __jsx("div", {
+      }, __jsx("div", {
         style: {
-          width: '70%',
+          width: '100%',
           textAlign: 'center'
         }
       }, __jsx("button", {
         className: "btnProcess",
         onClick: this.updateTudien,
         style: {
-          marginLeft: 100
+          marginLeft: 10
         }
       }, "L\u1EA5y t\u1EEB \u0111i\u1EC3n"), __jsx("button", {
         className: "btnProcess",
         onClick: this.trans,
         style: {
-          marginLeft: 100
+          marginLeft: 10
         }
-      }, "Dich"), __jsx("button", {
+      }, "D\u1ECBch"), __jsx("button", {
         className: "btnProcess",
         onClick: this.chiHienNghiaViet,
         style: {
-          marginLeft: 100
+          marginLeft: 10
         }
-      }, "Ch\u1EC9 hi\u1EC7n ngh\u0129a Vi\u1EC7t"))), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      }, "Nghe \u0111\u1ECDc"), "Th\xEAm t\u1EEB m\u1EDBi t\xECm ", __jsx("input", {
+        value: tumoiReplace,
+        onChange: this.onChangetumoiReplace
+      }), "chinese ", __jsx("input", {
+        value: tumoiCh,
+        onChange: this.onChangetumoiCh
+      }), "ngh\u0129a ", __jsx("input", {
+        value: tumoiNghia,
+        onChange: this.onChangetumoiNghia
+      }), __jsx("button", {
+        className: "btnProcess",
+        onClick: this.btnThemTuMoiClick,
+        style: {
+          marginLeft: 10
+        }
+      }, "Th\xEAm"))), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], {
         style: {
           paddingTop: '10px'
         }
-      }, __jsx("h4", null, "\u0110\u1ED1i Chi\u1EBFu"), chuHans, __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      }, __jsx("h4", null, "\u0110\u1ED1i Chi\u1EBFu"), chuHans, __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_17__["default"], {
         className: "txtAutoSize",
         id: "inputDoiChieu",
         placeholder: "d\u1ECBch ngh\u0129a",
         value: doichieu,
         onChange: this.onHtmlChangeNghiaViet,
         onSelect: this.onDoiChieuSelect
-      })), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Row"], {
+      })), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], {
         style: {
           paddingTop: '10px'
         }
-      }, __jsx("h4", null, "Ch\u1EC9nh s\u1EEDa l\u1EA1i n\u1ED9i dung b\u1EA3n d\u1ECBch t\u1EA1i \u0111\xE2y"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      }, __jsx("h4", null, "Ch\u1EC9nh s\u1EEDa l\u1EA1i n\u1ED9i dung b\u1EA3n d\u1ECBch t\u1EA1i \u0111\xE2y"), __jsx(react_textarea_autosize__WEBPACK_IMPORTED_MODULE_17__["default"], {
         className: "txtAutoSize",
         id: "inputNghiaViet",
         placeholder: "d\u1ECBch ngh\u0129a",
@@ -32256,6 +32365,26 @@ module.exports.array = (stream, opts) => getStream(stream, Object.assign({}, opt
 
 /***/ }),
 
+/***/ "./node_modules/goober/dist/goober.esm.js":
+/*!************************************************!*\
+  !*** ./node_modules/goober/dist/goober.esm.js ***!
+  \************************************************/
+/*! exports provided: css, extractCss, glob, keyframes, setup, styled */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "css", function() { return u; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extractCss", function() { return r; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "glob", function() { return b; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "keyframes", function() { return h; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setup", function() { return m; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styled", function() { return j; });
+let e={data:""},t=t=>"object"==typeof window?((t?t.querySelector("#_goober"):window._goober)||Object.assign((t||document.head).appendChild(document.createElement("style")),{innerHTML:" ",id:"_goober"})).firstChild:t||e,r=e=>{let r=t(e),l=r.data;return r.data="",l},l=/(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}\s*)/g,a=/\/\*[^]*?\*\/|  +/g,n=/\n+/g,o=(e,t)=>{let r="",l="",a="";for(let n in e){let c=e[n];"@"==n[0]?"i"==n[1]?r=n+" "+c+";":l+="f"==n[1]?o(c,n):n+"{"+o(c,"k"==n[1]?"":t)+"}":"object"==typeof c?l+=o(c,t?t.replace(/([^,])+/g,e=>n.replace(/(^:.*)|([^,])+/g,t=>/&/.test(t)?t.replace(/&/g,e):e?e+" "+t:t)):n):null!=c&&(n=/^--/.test(n)?n:n.replace(/[A-Z]/g,"-$&").toLowerCase(),a+=o.p?o.p(n,c):n+":"+c+";")}return r+(t&&a?t+"{"+a+"}":a)+l},c={},s=e=>{if("object"==typeof e){let t="";for(let r in e)t+=r+s(e[r]);return t}return e},i=(e,t,r,i,p)=>{let u=s(e),d=c[u]||(c[u]=(e=>{let t=0,r=11;for(;t<e.length;)r=101*r+e.charCodeAt(t++)>>>0;return"go"+r})(u));if(!c[d]){let t=u!==e?e:(e=>{let t,r,o=[{}];for(;t=l.exec(e.replace(a,""));)t[4]?o.shift():t[3]?(r=t[3].replace(n," ").trim(),o.unshift(o[0][r]=o[0][r]||{})):o[0][t[1]]=t[2].replace(n," ").trim();return o[0]})(e);c[d]=o(p?{["@keyframes "+d]:t}:t,r?"":"."+d)}let f=r&&c.g?c.g:null;return r&&(c.g=c[d]),((e,t,r,l)=>{l?t.data=t.data.replace(l,e):-1===t.data.indexOf(e)&&(t.data=r?e+t.data:t.data+e)})(c[d],t,i,f),d},p=(e,t,r)=>e.reduce((e,l,a)=>{let n=t[a];if(n&&n.call){let e=n(r),t=e&&e.props&&e.props.className||/^go/.test(e)&&e;n=t?"."+t:e&&"object"==typeof e?e.props?"":o(e,""):!1===e?"":e}return e+l+(null==n?"":n)},"");function u(e){let r=this||{},l=e.call?e(r.p):e;return i(l.unshift?l.raw?p(l,[].slice.call(arguments,1),r.p):l.reduce((e,t)=>Object.assign(e,t&&t.call?t(r.p):t),{}):l,t(r.target),r.g,r.o,r.k)}let d,f,g,b=u.bind({g:1}),h=u.bind({k:1});function m(e,t,r,l){o.p=t,d=e,f=r,g=l}function j(e,t){let r=this||{};return function(){let l=arguments;function a(n,o){let c=Object.assign({},n),s=c.className||a.className;r.p=Object.assign({theme:f&&f()},c),r.o=/ *go\d+/.test(s),c.className=u.apply(r,l)+(s?" "+s:""),t&&(c.ref=o);let i=e;return e[0]&&(i=c.as||e,delete c.as),g&&i[0]&&g(c),d(i,c)}return t?t(a):a}}
+
+
+/***/ }),
+
 /***/ "./node_modules/got/index.js":
 /*!***********************************!*\
   !*** ./node_modules/got/index.js ***!
@@ -59639,6 +59768,195 @@ function trim(s) {
 
 /***/ }),
 
+/***/ "./node_modules/react-hot-toast/dist/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-hot-toast/dist/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use client";
+"use strict";var Y=Object.create;var E=Object.defineProperty;var q=Object.getOwnPropertyDescriptor;var G=Object.getOwnPropertyNames;var K=Object.getPrototypeOf,Z=Object.prototype.hasOwnProperty;var ee=(e,t)=>{for(var o in t)E(e,o,{get:t[o],enumerable:!0})},j=(e,t,o,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of G(t))!Z.call(e,r)&&r!==o&&E(e,r,{get:()=>t[r],enumerable:!(s=q(t,r))||s.enumerable});return e};var W=(e,t,o)=>(o=e!=null?Y(K(e)):{},j(t||!e||!e.__esModule?E(o,"default",{value:e,enumerable:!0}):o,e)),te=e=>j(E({},"__esModule",{value:!0}),e);var Ve={};ee(Ve,{CheckmarkIcon:()=>F,ErrorIcon:()=>w,LoaderIcon:()=>M,ToastBar:()=>$,ToastIcon:()=>U,Toaster:()=>J,default:()=>_e,resolveValue:()=>u,toast:()=>n,useToaster:()=>V,useToasterStore:()=>_});module.exports=te(Ve);var oe=e=>typeof e=="function",u=(e,t)=>oe(e)?e(t):e;var Q=(()=>{let e=0;return()=>(++e).toString()})(),R=(()=>{let e;return()=>{if(e===void 0&&typeof window<"u"){let t=matchMedia("(prefers-reduced-motion: reduce)");e=!t||t.matches}return e}})();var k=__webpack_require__(/*! react */ "./node_modules/react/index.js"),re=20;var v=new Map,se=1e3,X=e=>{if(v.has(e))return;let t=setTimeout(()=>{v.delete(e),l({type:4,toastId:e})},se);v.set(e,t)},ae=e=>{let t=v.get(e);t&&clearTimeout(t)},H=(e,t)=>{switch(t.type){case 0:return{...e,toasts:[t.toast,...e.toasts].slice(0,re)};case 1:return t.toast.id&&ae(t.toast.id),{...e,toasts:e.toasts.map(a=>a.id===t.toast.id?{...a,...t.toast}:a)};case 2:let{toast:o}=t;return e.toasts.find(a=>a.id===o.id)?H(e,{type:1,toast:o}):H(e,{type:0,toast:o});case 3:let{toastId:s}=t;return s?X(s):e.toasts.forEach(a=>{X(a.id)}),{...e,toasts:e.toasts.map(a=>a.id===s||s===void 0?{...a,visible:!1}:a)};case 4:return t.toastId===void 0?{...e,toasts:[]}:{...e,toasts:e.toasts.filter(a=>a.id!==t.toastId)};case 5:return{...e,pausedAt:t.time};case 6:let r=t.time-(e.pausedAt||0);return{...e,pausedAt:void 0,toasts:e.toasts.map(a=>({...a,pauseDuration:a.pauseDuration+r}))}}},I=[],D={toasts:[],pausedAt:void 0},l=e=>{D=H(D,e),I.forEach(t=>{t(D)})},ie={blank:4e3,error:4e3,success:2e3,loading:1/0,custom:4e3},_=(e={})=>{let[t,o]=(0,k.useState)(D);(0,k.useEffect)(()=>(I.push(o),()=>{let r=I.indexOf(o);r>-1&&I.splice(r,1)}),[t]);let s=t.toasts.map(r=>{var a,c;return{...e,...e[r.type],...r,duration:r.duration||((a=e[r.type])==null?void 0:a.duration)||(e==null?void 0:e.duration)||ie[r.type],style:{...e.style,...(c=e[r.type])==null?void 0:c.style,...r.style}}});return{...t,toasts:s}};var ce=(e,t="blank",o)=>({createdAt:Date.now(),visible:!0,type:t,ariaProps:{role:"status","aria-live":"polite"},message:e,pauseDuration:0,...o,id:(o==null?void 0:o.id)||Q()}),S=e=>(t,o)=>{let s=ce(t,e,o);return l({type:2,toast:s}),s.id},n=(e,t)=>S("blank")(e,t);n.error=S("error");n.success=S("success");n.loading=S("loading");n.custom=S("custom");n.dismiss=e=>{l({type:3,toastId:e})};n.remove=e=>l({type:4,toastId:e});n.promise=(e,t,o)=>{let s=n.loading(t.loading,{...o,...o==null?void 0:o.loading});return e.then(r=>(n.success(u(t.success,r),{id:s,...o,...o==null?void 0:o.success}),r)).catch(r=>{n.error(u(t.error,r),{id:s,...o,...o==null?void 0:o.error})}),e};var A=__webpack_require__(/*! react */ "./node_modules/react/index.js");var pe=(e,t)=>{l({type:1,toast:{id:e,height:t}})},de=()=>{l({type:5,time:Date.now()})},V=e=>{let{toasts:t,pausedAt:o}=_(e);(0,A.useEffect)(()=>{if(o)return;let a=Date.now(),c=t.map(i=>{if(i.duration===1/0)return;let d=(i.duration||0)+i.pauseDuration-(a-i.createdAt);if(d<0){i.visible&&n.dismiss(i.id);return}return setTimeout(()=>n.dismiss(i.id),d)});return()=>{c.forEach(i=>i&&clearTimeout(i))}},[t,o]);let s=(0,A.useCallback)(()=>{o&&l({type:6,time:Date.now()})},[o]),r=(0,A.useCallback)((a,c)=>{let{reverseOrder:i=!1,gutter:d=8,defaultPosition:p}=c||{},g=t.filter(m=>(m.position||p)===(a.position||p)&&m.height),z=g.findIndex(m=>m.id===a.id),O=g.filter((m,B)=>B<z&&m.visible).length;return g.filter(m=>m.visible).slice(...i?[O+1]:[0,O]).reduce((m,B)=>m+(B.height||0)+d,0)},[t]);return{toasts:t,handlers:{updateHeight:pe,startPause:de,endPause:s,calculateOffset:r}}};var T=W(__webpack_require__(/*! react */ "./node_modules/react/index.js")),b=__webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.esm.js");var y=W(__webpack_require__(/*! react */ "./node_modules/react/index.js")),x=__webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.esm.js");var h=__webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.esm.js"),me=h.keyframes`
+from {
+  transform: scale(0) rotate(45deg);
+	opacity: 0;
+}
+to {
+ transform: scale(1) rotate(45deg);
+  opacity: 1;
+}`,ue=h.keyframes`
+from {
+  transform: scale(0);
+  opacity: 0;
+}
+to {
+  transform: scale(1);
+  opacity: 1;
+}`,le=h.keyframes`
+from {
+  transform: scale(0) rotate(90deg);
+	opacity: 0;
+}
+to {
+  transform: scale(1) rotate(90deg);
+	opacity: 1;
+}`,w=(0,h.styled)("div")`
+  width: 20px;
+  opacity: 0;
+  height: 20px;
+  border-radius: 10px;
+  background: ${e=>e.primary||"#ff4b4b"};
+  position: relative;
+  transform: rotate(45deg);
+
+  animation: ${me} 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+  animation-delay: 100ms;
+
+  &:after,
+  &:before {
+    content: '';
+    animation: ${ue} 0.15s ease-out forwards;
+    animation-delay: 150ms;
+    position: absolute;
+    border-radius: 3px;
+    opacity: 0;
+    background: ${e=>e.secondary||"#fff"};
+    bottom: 9px;
+    left: 4px;
+    height: 2px;
+    width: 12px;
+  }
+
+  &:before {
+    animation: ${le} 0.15s ease-out forwards;
+    animation-delay: 180ms;
+    transform: rotate(90deg);
+  }
+`;var C=__webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.esm.js"),Te=C.keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`,M=(0,C.styled)("div")`
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  border: 2px solid;
+  border-radius: 100%;
+  border-color: ${e=>e.secondary||"#e0e0e0"};
+  border-right-color: ${e=>e.primary||"#616161"};
+  animation: ${Te} 1s linear infinite;
+`;var P=__webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.esm.js"),fe=P.keyframes`
+from {
+  transform: scale(0) rotate(45deg);
+	opacity: 0;
+}
+to {
+  transform: scale(1) rotate(45deg);
+	opacity: 1;
+}`,ye=P.keyframes`
+0% {
+	height: 0;
+	width: 0;
+	opacity: 0;
+}
+40% {
+  height: 0;
+	width: 6px;
+	opacity: 1;
+}
+100% {
+  opacity: 1;
+  height: 10px;
+}`,F=(0,P.styled)("div")`
+  width: 20px;
+  opacity: 0;
+  height: 20px;
+  border-radius: 10px;
+  background: ${e=>e.primary||"#61d345"};
+  position: relative;
+  transform: rotate(45deg);
+
+  animation: ${fe} 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+  animation-delay: 100ms;
+  &:after {
+    content: '';
+    box-sizing: border-box;
+    animation: ${ye} 0.2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 200ms;
+    position: absolute;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-color: ${e=>e.secondary||"#fff"};
+    bottom: 6px;
+    left: 6px;
+    height: 10px;
+    width: 6px;
+  }
+`;var ge=(0,x.styled)("div")`
+  position: absolute;
+`,he=(0,x.styled)("div")`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  min-height: 20px;
+`,xe=x.keyframes`
+from {
+  transform: scale(0.6);
+  opacity: 0.4;
+}
+to {
+  transform: scale(1);
+  opacity: 1;
+}`,be=(0,x.styled)("div")`
+  position: relative;
+  transform: scale(0.6);
+  opacity: 0.4;
+  min-width: 20px;
+  animation: ${xe} 0.3s 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+`,U=({toast:e})=>{let{icon:t,type:o,iconTheme:s}=e;return t!==void 0?typeof t=="string"?y.createElement(be,null,t):t:o==="blank"?null:y.createElement(he,null,y.createElement(M,{...s}),o!=="loading"&&y.createElement(ge,null,o==="error"?y.createElement(w,{...s}):y.createElement(F,{...s})))};var Se=e=>`
+0% {transform: translate3d(0,${e*-200}%,0) scale(.6); opacity:.5;}
+100% {transform: translate3d(0,0,0) scale(1); opacity:1;}
+`,Ae=e=>`
+0% {transform: translate3d(0,0,-1px) scale(1); opacity:1;}
+100% {transform: translate3d(0,${e*-150}%,-1px) scale(.6); opacity:0;}
+`,Pe="0%{opacity:0;} 100%{opacity:1;}",Oe="0%{opacity:1;} 100%{opacity:0;}",Ee=(0,b.styled)("div")`
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #363636;
+  line-height: 1.3;
+  will-change: transform;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
+  max-width: 350px;
+  pointer-events: auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+`,Re=(0,b.styled)("div")`
+  display: flex;
+  justify-content: center;
+  margin: 4px 10px;
+  color: inherit;
+  flex: 1 1 auto;
+  white-space: pre-line;
+`,ve=(e,t)=>{let s=e.includes("top")?1:-1,[r,a]=R()?[Pe,Oe]:[Se(s),Ae(s)];return{animation:t?`${(0,b.keyframes)(r)} 0.35s cubic-bezier(.21,1.02,.73,1) forwards`:`${(0,b.keyframes)(a)} 0.4s forwards cubic-bezier(.06,.71,.55,1)`}},$=T.memo(({toast:e,position:t,style:o,children:s})=>{let r=e.height?ve(e.position||t||"top-center",e.visible):{opacity:0},a=T.createElement(U,{toast:e}),c=T.createElement(Re,{...e.ariaProps},u(e.message,e));return T.createElement(Ee,{className:e.className,style:{...r,...o,...e.style}},typeof s=="function"?s({icon:a,message:c}):T.createElement(T.Fragment,null,a,c))});var N=__webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.esm.js"),f=W(__webpack_require__(/*! react */ "./node_modules/react/index.js"));(0,N.setup)(f.createElement);var Ie=({id:e,className:t,style:o,onHeightUpdate:s,children:r})=>{let a=f.useCallback(c=>{if(c){let i=()=>{let d=c.getBoundingClientRect().height;s(e,d)};i(),new MutationObserver(i).observe(c,{subtree:!0,childList:!0,characterData:!0})}},[e,s]);return f.createElement("div",{ref:a,className:t,style:o},r)},De=(e,t)=>{let o=e.includes("top"),s=o?{top:0}:{bottom:0},r=e.includes("center")?{justifyContent:"center"}:e.includes("right")?{justifyContent:"flex-end"}:{};return{left:0,right:0,display:"flex",position:"absolute",transition:R()?void 0:"all 230ms cubic-bezier(.21,1.02,.73,1)",transform:`translateY(${t*(o?1:-1)}px)`,...s,...r}},ke=N.css`
+  z-index: 9999;
+  > * {
+    pointer-events: auto;
+  }
+`,L=16,J=({reverseOrder:e,position:t="top-center",toastOptions:o,gutter:s,children:r,containerStyle:a,containerClassName:c})=>{let{toasts:i,handlers:d}=V(o);return f.createElement("div",{style:{position:"fixed",zIndex:9999,top:L,left:L,right:L,bottom:L,pointerEvents:"none",...a},className:c,onMouseEnter:d.startPause,onMouseLeave:d.endPause},i.map(p=>{let g=p.position||t,z=d.calculateOffset(p,{reverseOrder:e,gutter:s,defaultPosition:t}),O=De(g,z);return f.createElement(Ie,{id:p.id,key:p.id,onHeightUpdate:d.updateHeight,className:p.visible?ke:"",style:O},p.type==="custom"?u(p.message,p):r?r(p):f.createElement($,{toast:p,position:g}))}))};var _e=n;0&&(false);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
 /***/ "./node_modules/react-is/cjs/react-is.development.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
@@ -80386,7 +80704,7 @@ function extend() {
 /*! exports provided: name, version, description, author, scripts, license, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"2.2.01\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 12.22.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"devdebug\":\"nvm use 12.22.0 && node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"firebase\":\"^9.22.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\",\"translation-google\":\"^0.2.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
+module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"2.2.01\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 12.22.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"devdebug\":\"nvm use 12.22.0 && node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"firebase\":\"^9.22.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-hot-toast\":\"^2.4.1\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\",\"translation-google\":\"^0.2.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
 
 /***/ }),
 
