@@ -855,9 +855,11 @@ function (_Component) {
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, DictComponent);
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(DictComponent).call(this, props));
+    '';
     var words = props.words;
     _this.state = {
       loading: true,
+      chuonghdkt: '',
       nghiaViet: '',
       typingChinesse: sample,
       chinesse: '',
@@ -883,7 +885,10 @@ function (_Component) {
     _this.onChangetumoiReplace = _this.onChangetumoiReplace.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.btnThemTuMoiClick = _this.btnThemTuMoiClick.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerNewHanViet = _this.onChangeHandlerNewHanViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.btnLayChuong = _this.btnLayChuong.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.onChangeChuongHdkt = _this.onChangeChuongHdkt.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerNewNghia = _this.onChangeHandlerNewNghia.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
+    _this.onChangeHandlerNewHanViet = _this.onChangeHandlerNewHanViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerChuHan = _this.onChangeHandlerChuHan.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerHanViet = _this.onChangeHandlerHanViet.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
     _this.onChangeHandlerBacKinh = _this.onChangeHandlerBacKinh.bind(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this));
@@ -949,7 +954,7 @@ function (_Component) {
           if (tuDB.thaythe.length == 0) tuDB.thaythe = tumoiReplace;else tuDB.thaythe = tuDB.thaythe + ',' + tumoiReplace;
           var updates = {};
           updates[dbPath] = tuDB;
-          Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["update"])(Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"]), updates).then(function _callee() {
+          Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["update"])(dbRef, updates).then(function _callee() {
             return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context2) {
               while (1) {
                 switch (_context2.prev = _context2.next) {
@@ -964,15 +969,18 @@ function (_Component) {
             });
           });
 
-          _this2.setState({
-            dict: dict,
-            dictChuHan: dictChuHan,
-            loading: false
-          });
+          _this2.updateTudien();
         });
       } catch (err) {
         react_hot_toast__WEBPACK_IMPORTED_MODULE_13___default.a.error("Th\xEAm t\u1EEB l\u1ED7i ".concat(err.message));
       }
+    }
+  }, {
+    key: "onChangeChuongHdkt",
+    value: function onChangeChuongHdkt(e) {
+      this.setState({
+        chuonghdkt: e.target.value
+      });
     }
   }, {
     key: "onHtmlChangeNghiaViet",
@@ -1075,12 +1083,33 @@ function (_Component) {
       return json;
     }
   }, {
-    key: "updateTudien",
-    value: function updateTudien() {
+    key: "btnLayChuong",
+    value: function btnLayChuong() {
       var _this3 = this;
 
-      var dictFb = Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"], "dictTruyenHanViet");
-      Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["onValue"])(dictFb, function (snapshot) {
+      var chuonghdkt = this.state.chuonghdkt;
+
+      try {
+        axios__WEBPACK_IMPORTED_MODULE_15___default.a.get("https://thanglamhuu.github.io/thaz.github.io/feibzw/dataHtml/".concat(chuonghdkt, ".json")).then(function (res) {
+          var content = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(res.data.title + '\n' + res.data.content, '<p>', '\n');
+          content = Object(_utils_utils__WEBPACK_IMPORTED_MODULE_20__["replaceAll"])(content, '</p>', '');
+
+          _this3.setState({
+            typingChinesse: content
+          });
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }, {
+    key: "updateTudien",
+    value: function updateTudien() {
+      var _this4 = this;
+
+      var dbRef = Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["ref"])(_utils_firebase__WEBPACK_IMPORTED_MODULE_11__["database"]);
+      var dbPath = "dictTruyenHanViet";
+      Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["get"])(Object(firebase_database__WEBPACK_IMPORTED_MODULE_12__["child"])(dbRef, dbPath)).then(function (snapshot) {
         var dictHanViet = snapshot.val() || {};
         var dictChuHan = {};
         var dict = {};
@@ -1097,17 +1126,19 @@ function (_Component) {
           }
         }
 
-        _this3.setState({
+        _this4.setState({
           dict: dict,
           dictChuHan: dictChuHan,
           loading: false
         });
+
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_13___default.a.success('Đã cập nhật từ điển.');
       });
     }
   }, {
     key: "trans",
     value: function trans() {
-      var _this4 = this;
+      var _this5 = this;
 
       var _this$state4 = this.state,
           typingChinesse = _this$state4.typingChinesse,
@@ -1141,12 +1172,12 @@ function (_Component) {
           doichieu += cauHans[cauPos] + '\n' + cauViets[cauPos] + '\n';
         }
 
-        _this4.setState({
+        _this5.setState({
           nghiaViet: nghiaViet,
           doichieu: doichieu
         });
 
-        _this4.setState({
+        _this5.setState({
           nghiaViet: nghiaViet
         }); //=> en
 
@@ -1175,7 +1206,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       var _this$state5 = this.state,
           nghiaViet = _this$state5.nghiaViet,
@@ -1192,7 +1223,8 @@ function (_Component) {
           blnchiHienNghiaViet = _this$state5.blnchiHienNghiaViet,
           tumoiCh = _this$state5.tumoiCh,
           tumoiNghia = _this$state5.tumoiNghia,
-          tumoiReplace = _this$state5.tumoiReplace; // Build Cards for Listing
+          tumoiReplace = _this$state5.tumoiReplace,
+          chuonghdkt = _this$state5.chuonghdkt; // Build Cards for Listing
 
       var chuHans = '',
           i = 0;
@@ -1209,7 +1241,7 @@ function (_Component) {
             bacKinh: item.bacKinh,
             nghias: item.nghias,
             nghiaViet: item.nghiaViet,
-            updateNghia: _this5.updateNghia,
+            updateNghia: _this6.updateNghia,
             dot: item.dot
           });
         });
@@ -1223,7 +1255,16 @@ function (_Component) {
         style: {
           marginLeft: 100
         }
-      }, "Ch\u1EC9 hi\u1EC7n ngh\u0129a Vi\u1EC7t")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], {
+      }, "Ch\u1EC9 hi\u1EC7n ngh\u0129a Vi\u1EC7t"), "Ch\u01B0\u01A1ng ", __jsx("input", {
+        value: chuonghdkt,
+        onChange: this.onChangeChuongHdkt
+      }), __jsx("button", {
+        className: "btnProcess",
+        onClick: this.btnLayChuong,
+        style: {
+          marginLeft: 100
+        }
+      }, "L\u1EA5y ch\u01B0\u01A1ng")), !blnchiHienNghiaViet && __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_14__["Row"], {
         style: {
           paddingTop: '10px'
         }
@@ -80704,7 +80745,7 @@ function extend() {
 /*! exports provided: name, version, description, author, scripts, license, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"2.2.01\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 12.22.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"devdebug\":\"nvm use 12.22.0 && node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"firebase\":\"^9.22.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-hot-toast\":\"^2.4.1\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\",\"translation-google\":\"^0.2.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
+module.exports = JSON.parse("{\"name\":\"TuDienDich\",\"version\":\"2.2.02\",\"description\":\"Từ Điển Dịch, công cụ hỗ trợ dịch văn bản thuận tiện\",\"author\":\"Đức Cường <tudiendich@gmail.com>\",\"scripts\":{\"setenv\":\"nvm use 12.22.0\",\"lint\":\"eslint --fix --ext .js action components lib pages reducer saga utils\",\"lint:watch\":\"esw -w --fix action components lib pages reducer saga util\",\"start\":\"NODE_ENV=production PORT=3003 node tudien.js\",\"devdebug\":\"nvm use 12.22.0 && node tudien.js\",\"dev\":\"node tudien.js\",\"build\":\"next build\",\"mp3\":\"node speech.js && cd /Volumes/data/Works/english/srcEng/eng-story/english/mp3/ && git add -A && git commit -m 'update' && git push origin master && cd /Volumes/data/VNDS/rd/cash-flow\",\"bdu\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cp -rf ./out/*  E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"tddu\":\"cd E:/Works/Chinese/srcChi/gitHubPage/tudiendich.github.io && git add -A && git commit -m 'Deploy' && git push origin main\",\"bd\":\"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll \"},\"license\":\"ISC\",\"dependencies\":{\"@fortawesome/fontawesome-svg-core\":\"^1.2.29\",\"@fortawesome/free-solid-svg-icons\":\"^5.13.1\",\"@fortawesome/react-fontawesome\":\"^0.1.11\",\"accounting\":\"^0.4.1\",\"axios\":\"^0.19.2\",\"bootstrap\":\"^4.4.1\",\"chinese-to-pinyin\":\"^1.3.1\",\"dotenv\":\"^8.2.0\",\"download-file\":\"^0.1.5\",\"express\":\"^4.17.1\",\"firebase\":\"^9.22.1\",\"google-tts-api\":\"^0.0.4\",\"ionicons\":\"^5.0.1\",\"isomorphic-fetch\":\"^2.2.1\",\"lodash\":\"^4.17.15\",\"lodash.keys\":\"^4.2.0\",\"next\":\"latest\",\"next-redux-saga\":\"^4.1.2\",\"next-redux-wrapper\":\"^4.0.1\",\"next-routes\":\"^1.4.2\",\"node-sass\":\"^4.11.0\",\"raw-loader\":\"^0.5.1\",\"react\":\"^16.12.0\",\"react-dom\":\"^16.12.0\",\"react-ga\":\"^2.7.0\",\"react-hot-toast\":\"^2.4.1\",\"react-player\":\"^2.9.0\",\"react-redux\":\"^7.1.3\",\"react-render-html\":\"^0.6.0\",\"react-syntax-highlighter\":\"^12.2.1\",\"react-textarea-autosize\":\"^7.1.2\",\"reactstrap\":\"^8.4.1\",\"redux\":\"^4.0.5\",\"redux-devtools-extension\":\"^2.13.8\",\"redux-saga\":\"^1.1.3\",\"sass-loader\":\"^8.0.2\",\"styled-components\":\"^5.0.1\",\"translation-google\":\"^0.2.1\"},\"devDependencies\":{\"eslint\":\"^6.8.0\",\"eslint-plugin-react\":\"^7.18.3\"}}");
 
 /***/ }),
 
