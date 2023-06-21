@@ -1,0 +1,107 @@
+[
+    {
+        "voiceName": "Microsoft Vietnamese (An)",
+        "lang": "vi-VI",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Microsoft US English (David)",
+        "lang": "en-US",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Microsoft US English (Mark)",
+        "lang": "en-US",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Microsoft US English (Zira)",
+        "lang": "en-US",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Amazon US English (Ivy)",
+        "lang": "en-US",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Amazon US English (Joey)",
+        "lang": "en-US",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Amazon US English (Justin)",
+        "lang": "en-US",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Amazon US English (Kendra)",
+        "lang": "en-US",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Amazon US English (Kimberly)",
+        "lang": "en-US",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Amazon US English (Salli)",
+        "lang": "en-US",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Amazon British English (Amy)",
+        "lang": "en-GB",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Amazon British English (Brian)",
+        "lang": "en-GB",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Amazon British English (Emma)",
+        "lang": "en-GB",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Microsoft Chinese (Huihui)",
+        "lang": "zh-CN",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Microsoft Chinese (Kangkang)",
+        "lang": "zh-CN",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Microsoft Chinese (Yaoyao)",
+        "lang": "zh-CN",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Microsoft ChineseHK (Danny)",
+        "lang": "zh-HK",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Microsoft ChineseHK (Tracy)",
+        "lang": "zh-HK",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Microsoft British English (George)",
+        "lang": "en-GB",
+        "gender": "male"
+    },
+    {
+        "voiceName": "Microsoft British English (Hazel)",
+        "lang": "en-GB",
+        "gender": "female"
+    },
+    {
+        "voiceName": "Microsoft British English (Susan)",
+        "lang": "en-GB",
+        "gender": "female"
+    }
+]
