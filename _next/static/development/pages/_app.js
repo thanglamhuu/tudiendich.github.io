@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\_app.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/_app.js"],{
 
 /***/ "./action/englishAction.js":
 /*!*********************************!*\
@@ -100,7 +100,7 @@ var getEnglishPhonicErr = function getEnglishPhonicErr(err) {
 /*!*************************!*\
   !*** ./action/types.js ***!
   \*************************/
-/*! exports provided: GET_USER, GET_USER_SUCCESS, GET_USER_ERR, LOAD_DATASAGA, LOAD_DATASAGA_SUCCESS, LOAD_DATASAGA_ERR, ADD_USER, ADD_USER_SUCCESS, ADD_USER_ERR, DELETE_USER, DELETE_USER_SUCCESS, DELETE_USER_ERR, RANDOM_NUMBER, CARD_RESULT_OKCLICK, GET_ENGLISH_STORY, GET_ENGLISH_STORY_SUCCESS, GET_ENGLISH_STORY_ERR, GET_ENGLISH_BOOK, GET_ENGLISH_BOOK_SUCCESS, GET_ENGLISH_BOOK_ERR, GET_ENGLISH_LIST_PHONIC, GET_ENGLISH_LIST_PHONIC_SUCCESS, GET_ENGLISH_LIST_PHONIC_ERR, GET_ENGLISH_PHONIC, GET_ENGLISH_PHONIC_SUCCESS, GET_ENGLISH_PHONIC_ERR */
+/*! exports provided: GET_USER, GET_USER_SUCCESS, GET_USER_ERR, LOAD_DATASAGA, LOAD_DATASAGA_SUCCESS, LOAD_DATASAGA_ERR, ADD_USER, ADD_USER_SUCCESS, ADD_USER_ERR, DELETE_USER, DELETE_USER_SUCCESS, DELETE_USER_ERR, RANDOM_NUMBER, CARD_RESULT_OKCLICK, CARD_RESULT_SELLCLICK, CARD_RESULT_IGNORECLICK, GET_ENGLISH_STORY, GET_ENGLISH_STORY_SUCCESS, GET_ENGLISH_STORY_ERR, GET_ENGLISH_BOOK, GET_ENGLISH_BOOK_SUCCESS, GET_ENGLISH_BOOK_ERR, GET_ENGLISH_LIST_PHONIC, GET_ENGLISH_LIST_PHONIC_SUCCESS, GET_ENGLISH_LIST_PHONIC_ERR, GET_ENGLISH_PHONIC, GET_ENGLISH_PHONIC_SUCCESS, GET_ENGLISH_PHONIC_ERR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -119,6 +119,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_USER_ERR", function() { return DELETE_USER_ERR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RANDOM_NUMBER", function() { return RANDOM_NUMBER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CARD_RESULT_OKCLICK", function() { return CARD_RESULT_OKCLICK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CARD_RESULT_SELLCLICK", function() { return CARD_RESULT_SELLCLICK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CARD_RESULT_IGNORECLICK", function() { return CARD_RESULT_IGNORECLICK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ENGLISH_STORY", function() { return GET_ENGLISH_STORY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ENGLISH_STORY_SUCCESS", function() { return GET_ENGLISH_STORY_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ENGLISH_STORY_ERR", function() { return GET_ENGLISH_STORY_ERR; });
@@ -145,6 +147,8 @@ var DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
 var DELETE_USER_ERR = 'DELETE_USER_ERR';
 var RANDOM_NUMBER = 'RANDOM_NUMBER';
 var CARD_RESULT_OKCLICK = 'CARD_RESULT_OKCLICK';
+var CARD_RESULT_SELLCLICK = 'CARD_RESULT_SELLCLICK';
+var CARD_RESULT_IGNORECLICK = 'CARD_RESULT_IGNORECLICK';
 var GET_ENGLISH_STORY = 'GET_ENGLISH_STORY';
 var GET_ENGLISH_STORY_SUCCESS = 'GET_ENGLISH_STORY_SUCCESS';
 var GET_ENGLISH_STORY_ERR = 'GET_ENGLISH_STORY_ERR';
@@ -16736,7 +16740,7 @@ exports.devToolsEnhancer = (
 /*!***********************************************************************!*\
   !*** ./node_modules/redux-saga/dist/redux-saga-core-npm-proxy.esm.js ***!
   \***********************************************************************/
-/*! exports provided: default, CANCEL, SAGA_LOCATION, buffers, detach, END, channel, eventChannel, isEnd, multicastChannel, runSaga, stdChannel */
+/*! exports provided: CANCEL, SAGA_LOCATION, buffers, detach, END, channel, eventChannel, isEnd, multicastChannel, runSaga, stdChannel, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19344,6 +19348,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../action/types */ "./action/types.js");
 /* harmony import */ var _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/cashFlowUtils */ "./utils/cashFlowUtils.js");
 /* harmony import */ var _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_hot_toast__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -19358,12 +19364,128 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var initialState = {
   indexPlayer: 0,
   players: [_utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.jobs[0]],
   number: 1,
   selectingCard: 0
 };
+
+function processCardCoHoi(curPlayer, payload) {
+  var _curPlayer = curPlayer,
+      cardTitle = _curPlayer.cardTitle,
+      cardVal = _curPlayer.cardVal,
+      luong = _curPlayer.luong,
+      laiNganHang = _curPlayer.laiNganHang,
+      laiCoPhan = _curPlayer.laiCoPhan,
+      thuNhapThuDong = _curPlayer.thuNhapThuDong,
+      tongThuNhap = _curPlayer.tongThuNhap,
+      thue = _curPlayer.thue,
+      traLaiVayMuaNha = _curPlayer.traLaiVayMuaNha,
+      traTienVayHoc = _curPlayer.traTienVayHoc,
+      traTienVayMuaXe = _curPlayer.traTienVayMuaXe,
+      traTienVayTinDung = _curPlayer.traTienVayTinDung,
+      chiPhiMuaSam = _curPlayer.chiPhiMuaSam,
+      chiPhiKhac = _curPlayer.chiPhiKhac,
+      chiPhiNuoi1Con = _curPlayer.chiPhiNuoi1Con,
+      soCon = _curPlayer.soCon,
+      chiPhiNuoiCon = _curPlayer.chiPhiNuoiCon,
+      vayNganHang = _curPlayer.vayNganHang,
+      laiVayNganHang = _curPlayer.laiVayNganHang,
+      khoanNoKhac = _curPlayer.khoanNoKhac,
+      tongChiPhi = _curPlayer.tongChiPhi,
+      dongTien = _curPlayer.dongTien,
+      tuThien = _curPlayer.tuThien,
+      tienMat = _curPlayer.tienMat,
+      batDongSans = _curPlayer.batDongSans,
+      congTys = _curPlayer.congTys,
+      chungKhoans = _curPlayer.chungKhoans,
+      tienNoMuaNha = _curPlayer.tienNoMuaNha,
+      tongTienHocPhi = _curPlayer.tongTienHocPhi,
+      tienNoMuaXe = _curPlayer.tienNoMuaXe,
+      tienNoTheTinDung = _curPlayer.tienNoTheTinDung,
+      tienNoMuaBanLe = _curPlayer.tienNoMuaBanLe,
+      noNganHang = _curPlayer.noNganHang;
+  var type = cardVal.type,
+      gia = cardVal.gia,
+      traTruoc = cardVal.traTruoc,
+      no = cardVal.no,
+      thuNhap = cardVal.thuNhap,
+      soPhong = cardVal.soPhong,
+      symbol = cardVal.symbol;
+
+  switch (type) {
+    case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChBds:
+      curPlayer.batDongSans.push(cardVal);
+      curPlayer.tienNoMuaNha += no;
+      curPlayer.tienMat -= traTruoc;
+      curPlayer.showCardResult = 0;
+      break;
+
+    case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChKdbtg:
+      curPlayer.congTys.push(cardVal);
+      curPlayer.tienMat -= traTruoc;
+      curPlayer.showCardResult = 0;
+      break;
+
+    case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChBdsLamHu:
+      curPlayer.showCardResult = 0;
+      if (curPlayer.batDongSans.length > 0) curPlayer.tienMat -= traTruoc;
+      break;
+
+    case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChCoPhieuGia:
+      var soluongcp = payload.soluongcp;
+      var giaMoi = 0;
+
+      if (soluongcp * gia > curPlayer.tienMat) {
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_9___default.a.error('Số dư tiền mặt không đủ mua, cần giảm số lượng cổ phiếu.');
+        curPlayer.showCardResult = 1;
+        break;
+      } else {
+        curPlayer.showCardResult = 0;
+
+        for (var i = 0; i < curPlayer.chungKhoans.length; i++) {
+          if (curPlayer.chungKhoans[i].symbol === symbol) {
+            curPlayer.tienMat -= soluongcp * gia;
+            giaMoi = (soluongcp * gia + curPlayer.chungKhoans[i].gia * curPlayer.chungKhoans[i].soLuong) / (soluongcp + curPlayer.chungKhoans[i].soLuong);
+            curPlayer.chungKhoans[i] = {
+              symbol: symbol,
+              gia: giaMoi,
+              soLuong: soluongcp + curPlayer.chungKhoans[i].soLuong
+            };
+          }
+        }
+
+        if (giaMoi === 0) curPlayer.chungKhoans.push({
+          symbol: symbol,
+          gia: gia,
+          soLuong: soluongcp
+        });
+      }
+
+      break;
+
+    default:
+      break;
+  }
+
+  curPlayer = tinhTong(curPlayer);
+  return _objectSpread({}, curPlayer);
+}
+
+function processCard(curPlayer, payload) {
+  var _curPlayer2 = curPlayer,
+      cardTitle = _curPlayer2.cardTitle,
+      cardVal = _curPlayer2.cardVal;
+
+  if (cardTitle === _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.sinhCon && curPlayer.soCon < 3) {
+    curPlayer.soCon = curPlayer.soCon + 1;
+  } else if (cardTitle == _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.coHoi) return processCardCoHoi(curPlayer, payload);
+
+  curPlayer = tinhTong(curPlayer);
+  return _objectSpread({}, curPlayer);
+}
 
 function tinhTong(curPlayer) {
   var batDongSanDN = 0,
@@ -19415,6 +19537,7 @@ function cashFlowReducer() {
   var indexPlayer = state.indexPlayer,
       players = state.players;
   var curPlayer = {};
+  var payload = {};
   var ran = 0;
 
   switch (action.type) {
@@ -19425,6 +19548,9 @@ function cashFlowReducer() {
       var paycheck = getPayCheck(curPlayer.number, ran, curPlayer.dongTien);
       curPlayer.tienMat = curPlayer.tienMat + paycheck;
       curPlayer.number = curPlayer.number + ran;
+      var cardContent = _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.getResultStep(curPlayer.number);
+      curPlayer.cardTitle = cardContent.type;
+      curPlayer.cardVal = cardContent.val;
       curPlayer.showCardResult = 1;
       return _objectSpread({}, state, {
         players: players
@@ -19432,16 +19558,58 @@ function cashFlowReducer() {
 
     case _action_types__WEBPACK_IMPORTED_MODULE_7__["CARD_RESULT_OKCLICK"]:
       curPlayer = players[indexPlayer];
-      ran = action.ran;
-      curPlayer.showCardResult = 0;
-      curPlayer.ran = ran;
-      var lastType = _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.getStepText(curPlayer.number);
+      payload = action.payload;
+      curPlayer = processCard(curPlayer, payload); // curPlayer.ran = ran;
 
-      if (lastType === _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.sinhCon && curPlayer.soCon < 3) {
-        curPlayer.soCon = curPlayer.soCon + 1;
+      players[indexPlayer] = curPlayer;
+      return _objectSpread({}, state, {
+        players: players
+      });
+
+    case _action_types__WEBPACK_IMPORTED_MODULE_7__["CARD_RESULT_SELLCLICK"]:
+      curPlayer = players[indexPlayer];
+      var _curPlayer3 = curPlayer,
+          cardVal = _curPlayer3.cardVal;
+      var gia = cardVal.gia,
+          symbol = cardVal.symbol;
+      payload = action.payload;
+      var _payload = payload,
+          soluongcp = _payload.soluongcp;
+      var giaMoi = 0;
+
+      for (var i = 0; i < curPlayer.chungKhoans.length; i++) {
+        if (curPlayer.chungKhoans[i].symbol === symbol) {
+          console.log('CARD_RESULT_SELLCLICK symbol, soluongcp, curPlayer.chungKhoans[i].soLuong', symbol, soluongcp, curPlayer.chungKhoans[i].soLuong);
+
+          if (soluongcp > curPlayer.chungKhoans[i].soLuong) {
+            react_hot_toast__WEBPACK_IMPORTED_MODULE_9___default.a.error('Số cổ phiếu bán không được lớn hơn số dư.');
+            break;
+          }
+
+          curPlayer.tienMat += soluongcp * gia;
+
+          if (soluongcp === curPlayer.chungKhoans[i].soLuong) {
+            curPlayer.chungKhoans.splice(i, 1);
+          } else {
+            curPlayer.chungKhoans[i] = {
+              symbol: symbol,
+              gia: curPlayer.chungKhoans[i].gia,
+              soLuong: curPlayer.chungKhoans[i].soLuong - soluongcp
+            };
+          }
+
+          curPlayer.showCardResult = 0;
+        }
       }
 
-      curPlayer = tinhTong(curPlayer);
+      players[indexPlayer] = curPlayer;
+      return _objectSpread({}, state, {
+        players: players
+      });
+
+    case _action_types__WEBPACK_IMPORTED_MODULE_7__["CARD_RESULT_IGNORECLICK"]:
+      curPlayer = players[indexPlayer];
+      curPlayer.showCardResult = 0;
       players[indexPlayer] = curPlayer;
       return _objectSpread({}, state, {
         players: players
@@ -20180,46 +20348,141 @@ function userSaga() {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+ //#region CacHangGiaTri
 
-
+var typeChBds = 'Bất Động Sản';
+var typeChBdsLamHu = 'Người Thuê Lam Hư Bất Động Sản';
+var typeChKdbtg = 'Kinh Doanh Bán Thời Gian';
+var typeChCoPhieuGia = 'Giá Cổ Phiếu';
 var ch = 'Cơ hội';
 var cp = 'Chi phí';
 var tuThien = 'Từ thiện';
 var nl = 'Nhận lương';
 var tt = 'Thị trường';
 var sc = 'Sinh con';
-var tn = 'Thất nghiệp';
-var duplex1 = {
-  type: 'plex',
-  title: 'Căn hộ 2 phòng',
-  description: 'Giá $20,000, trả trước $8000, thu nhập hàng tháng $200',
-  gia: 20000,
-  traTruoc: 8000,
-  no: 12000,
+var tn = 'Thất nghiệp'; //#region cardCoHoi
+
+var chBdsLamHu = {
+  type: typeChBdsLamHu,
+  title: 'Người thuê nhà làm hư tài sản',
+  description: 'Thiếu nợ 2 tháng tiền nhà, anh ta bỏ trốn khỏi khu phố và làm hư một số tài sản. Bảo hiểm phải chịu phần lớn thiệt hại, nhưng bạn phải bỏ thêm $500. Trả $500 nếu bạn sở hữu tài sản cho thuê',
+  gia: 500,
+  traTruoc: 500,
+  no: 0,
+  thuNhap: 0,
+  soPhong: 0,
+  acceptedIgnore: true
+};
+var chBds2Br1Ba = {
+  type: typeChBds,
+  title: 'Căn hộ 2 ngủ 1 tắm',
+  description: 'Một doanh nhân thành công muốn bán một căn hộ 2 phòng ngủ 1 phòng tắm tuyệt vời có nhiều tiện ích bên trong, lí do là cô ta chuyển sang nơi ở khác. Giá thị trường khoảng $45,000-$65,000',
+  gia: 60000,
+  traTruoc: 5000,
+  no: 55000,
+  thuNhap: -100,
+  soPhong: 2,
+  acceptedIgnore: true
+};
+var chBds2Br1BaNH = {
+  type: typeChBds,
+  title: 'Căn hộ 2 ngủ 1 tắm',
+  description: 'Ngân hàng thanh lý tài sản thế chấp nợ bị tịch thu! Đây là một căn hộ 2 phòng ngủ 1 phòng tắm đáng khao khát, trong khu dân cư sầm uất. Giấy tờ OK, thủ tục tài chính ngân hàng thuận tiện. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 40000,
+  traTruoc: 5000,
+  no: 35000,
+  thuNhap: 220,
+  soPhong: 2,
+  acceptedIgnore: true
+};
+var chBds2Br1BaCu = {
+  type: typeChBds,
+  title: 'Căn hộ 2 ngủ 1 tắm',
+  description: 'Căn hộ đã cũ, xuống cấp 50%, cặp vợ chồng muốn chuyển tới căn hộ 3 ngủ 2 tắm rộng hơn. Giấy tờ đã sẵn sàng. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 55000,
+  traTruoc: 5000,
+  no: 50000,
+  thuNhap: 160,
+  soPhong: 2,
+  acceptedIgnore: true
+};
+var chBds3Br2Ba = {
+  type: typeChBds,
+  title: 'Căn hộ 3 ngủ 2 tắm',
+  description: 'Cần bán một căn nhà cho thuê 3 ngủ 2 tắm đẹp bất ngờ, đây là tài sản thừa kế, được bảo quản tốt, đang có người thuê. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 65000,
+  traTruoc: 5000,
+  no: 60000,
+  thuNhap: 160,
+  soPhong: 3,
+  acceptedIgnore: true
+};
+var chBds3Br2BaNH = {
+  type: typeChBds,
+  title: 'Căn hộ 3 ngủ 2 tắm',
+  description: 'Ngân hàng bán căn nhà niêm phong gần 6 tháng. Món nợ bao gồm cả chi phí tu sửa. 60% ROI có thể bán $65,000 - $135,000. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 50000,
+  traTruoc: 4000,
+  no: 46000,
   thuNhap: 200,
-  soPhong: 2
+  soPhong: 3,
+  acceptedIgnore: true
+};
+var chBds3Br2BaTv = {
+  type: typeChBds,
+  title: 'Căn hộ 3 ngủ 2 tắm',
+  description: 'Chính quyền hoá giá căn nhà 3 ngủ 2 tắm, đang có người thuê. 132% ROI có thể bán $65,000 - $135,000. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 35000,
+  traTruoc: 2000,
+  no: 33000,
+  thuNhap: 220,
+  soPhong: 3,
+  acceptedIgnore: true
+};
+var chBds10MauDat = {
+  type: typeChBds,
+  title: '10 mẫu đất trống',
+  description: 'Một công viên tuyệt vời trải dài hơn 10 mẫu ở vùng quê chưa phát triển, không đường xá cơ sở hạ tầng yếu kém, không có tiếng ồn. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 5000,
+  traTruoc: 5000,
+  no: 0,
+  thuNhap: 0,
+  soPhong: 0,
+  acceptedIgnore: true
 };
 var plex8_1 = {
-  type: 'plex',
+  type: typeChBds,
   title: 'Căn hộ 8 phòng',
   description: 'Giá $80,000, trả trước $40000, thu nhập hàng tháng $2000',
   gia: 80000,
   traTruoc: 40000,
   no: 40000,
   thuNhap: 2000,
-  soPhong: 8
+  soPhong: 8,
+  acceptedIgnore: true
 };
 var d2u = {
-  type: 'cty',
-  title: 'D2U',
-  description: 'Giá $200, trả trước $200, thu nhập hàng tháng $0',
+  type: typeChKdbtg,
+  title: 'Kinh doanh bán thời gian D2U',
+  description: 'Phát triển từ một ý tưởng kinh doanh phần mềm, bạn bắt đầu thành lập công ty để triển khai. Chưa có lợi nhuận trong thời kì đầu, mất nhiều thời gian, không phụ phí. Mua cơ hội này hoặc bán cho người khác.',
+  gia: 5000,
+  traTruoc: 5000,
+  no: 0,
+  thuNhap: 0,
+  acceptedIgnore: true
+};
+var ctyPhanMem = {
+  type: typeChKdbtg,
+  title: 'Kinh doanh bán thời gian phần mềm',
+  description: 'Bạn gia nhập công ty Direct 2 You (D2U). Một công ty tiếp thị theo mạng. Sản phẩm tốt, lợi nhuận ban đầu thấp, tiềm năng phát triển. Được huấn luyện về kỹ năng kinh doanh và lãnh đạo. Không hứa hẹn nhiều.',
   gia: 200,
   traTruoc: 200,
   no: 0,
-  thuNhap: 0
+  thuNhap: -100,
+  acceptedIgnore: true
 };
 var bqSach = {
-  type: 'cty',
+  type: typeChKdbtg,
   title: 'Bản quyền sách',
   description: 'Giá $8000, trả trước $8000, thu nhập hàng tháng $250',
   gia: 8000,
@@ -20227,14 +20490,71 @@ var bqSach = {
   no: 0,
   thuNhap: 250
 };
-var FPT = {
-  type: 'ck',
-  title: 'FPT',
-  description: 'Cổ phiếu FPT',
-  gia: 35,
-  soLuong: 100
+var OK4U5 = {
+  type: typeChCoPhieuGia,
+  symbol: 'OK4U',
+  title: 'Giá vàng cao nhất 20 năm',
+  description: 'Báo cáo thất nghiệp và lạm phát tăng cao. Chính phủ các nước bơm tiền để cứu nền kinh tế. Giá vàng liên tục được đẩy lên cao. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  gia: 5,
+  bienDo: '$5-$50',
+  coTuc: 0,
+  acceptedIgnore: true
 };
+var OK4U10 = {
+  type: typeChCoPhieuGia,
+  symbol: 'OK4U',
+  title: 'Cổ phiếu Công ty dược OK4U',
+  description: 'Nhà sản xuất thuốc lâu đời, đặc biệt là thuốc dành cho những người già trên 70 tuổi. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  gia: 10,
+  bienDo: '$5-$50',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var OK4U40 = {
+  type: typeChCoPhieuGia,
+  symbol: 'OK4U',
+  title: 'Cổ phiếu Công ty dược OK4U',
+  description: 'Lạm phát thấp dẫn đến gía cổ phiếu công ty sản xuất dược phẩm tăng cao. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  gia: 40,
+  bienDo: '$5-$50',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var OK4U50LS = {
+  type: typeChCoPhieuGia,
+  symbol: 'OK4U',
+  title: 'Cổ phiếu Công ty dược OK4U',
+  description: 'Lạm phát thấp dẫn đến gía cổ phiếu công ty sản xuất dược phẩm tăng cao. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  gia: 50,
+  bienDo: '$5-$50',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var OK4U50 = {
+  type: typeChCoPhieuGia,
+  symbol: 'OK4U',
+  title: 'Cổ phiếu Công ty dược OK4U',
+  description: 'Giá thị trường cổ phiếu của Công ty sản xuất được tăng đột biến. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  gia: 50,
+  bienDo: '$5-$50',
+  coTuc: 0,
+  acceptedIgnore: true
+}; //4 chBds2Br1Ba,chBds2Br1BaCu,chBds2Br1BaNH
+
+var coHoiList = [// {type: 'khac', title:'Tang gia phong tro', description: 'Giá phòng trọ trên thị trường tăng $30 1 căn.', gia: 0, traTruoc: 0, thuNhap: 30, acceptedIgnore: true},
+// chBdsLamHu,
+// chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1BaNH, chBds2Br1BaCu, chBds3Br2Ba, chBds3Br2Ba, chBds3Br2BaNH, chBds3Br2BaNH, chBds3Br2BaTv, chBds3Br2BaTv, chBds10MauDat, plex8_1,
+// d2u, d2u, d2u, d2u, d2u, d2u, ctyPhanMem, ctyPhanMem, bqSach,
+OK4U5, OK4U5, OK4U5, OK4U5, OK4U10, OK4U40, OK4U50LS, OK4U50]; //#endregion cardCoHoi
+//#endregion CacHangGiaTri
+
 module.exports = {
+  cardType: {
+    typeChBds: typeChBds,
+    typeChKdbtg: typeChKdbtg,
+    typeChBdsLamHu: typeChBdsLamHu,
+    typeChCoPhieuGia: typeChCoPhieuGia
+  },
   coHoi: ch,
   chiPhi: cp,
   tuThien: tuThien,
@@ -20244,27 +20564,37 @@ module.exports = {
   thatNghiep: tn,
   xucXacMax: 6,
   ratRaceSteps: [ch, cp, ch, tuThien, ch, nl, ch, tt, ch, cp, ch, sc, ch, nl, ch, tt, ch, cp, ch, tn, ch, nl, ch, tt],
-  getStepText: function getStepText(number) {
+  getResultStep: function getResultStep(number) {
     var index = number % this.ratRaceSteps.length - 1;
 
     if (index < 0) {
       index = 23;
     }
 
-    return this.ratRaceSteps[index];
+    var type = this.ratRaceSteps[index];
+    var value = {};
+
+    if (type === ch) {
+      var ran = Math.round(Math.random() * (coHoiList.length - 1));
+      value = coHoiList[ran];
+    }
+
+    return {
+      type: type,
+      val: value
+    };
   },
   batDongSanList: {
-    duplex1: duplex1,
+    chBds2Br1Ba: chBds2Br1Ba,
+    chBds2Br1BaNH: chBds2Br1BaNH,
+    chBds2Br1BaCu: chBds2Br1BaCu,
+    chBds3Br2Ba: chBds3Br2Ba,
+    chBds3Br2BaNH: chBds3Br2BaNH,
+    chBds3Br2BaTv: chBds3Br2BaTv,
+    chBds10MauDat: chBds10MauDat,
     plex8_1: plex8_1
   },
-  coHoiList: [{
-    type: 'khac',
-    title: 'Tang gia phong tro',
-    description: 'Giá phòng trọ trên thị trường tăng $30 1 căn.',
-    gia: 0,
-    traTruoc: 0,
-    thuNhap: 30
-  }, duplex1, plex8_1, d2u, bqSach],
+  coHoiList: coHoiList,
   jobs: [{
     name: 'Nhân viên cảnh sát',
     luong: 3500,
@@ -20291,9 +20621,9 @@ module.exports = {
     lastDice: 1,
     tuThien: 1,
     tienMat: 0,
-    batDongSans: [duplex1, plex8_1],
-    congTys: [d2u],
-    chungKhoans: [FPT],
+    batDongSans: [],
+    congTys: [],
+    chungKhoans: [],
     tienNoMuaNha: 20000,
     tongTienHocPhi: 0,
     tienNoMuaXe: 4000,
@@ -20313,7 +20643,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! next-client-pages-loader?page=%2F_app&absolutePagePath=private-next-pages%2F_app.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_app&absolutePagePath=private-next-pages%2F_app.js!./");
-module.exports = __webpack_require__(/*! E:\Works\Chinese\srcChi\tudiendich\node_modules\next\dist\client\router.js */"./node_modules/next/dist/client/router.js");
+module.exports = __webpack_require__(/*! /Users/lananh/Documents/tlhw/cash-flow/node_modules/next/dist/client/router.js */"./node_modules/next/dist/client/router.js");
 
 
 /***/ }),
