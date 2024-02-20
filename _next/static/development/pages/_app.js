@@ -19413,7 +19413,8 @@ function processCardCoHoi(curPlayer, payload) {
       no = cardVal.no,
       thuNhap = cardVal.thuNhap,
       soPhong = cardVal.soPhong,
-      symbol = cardVal.symbol;
+      symbol = cardVal.symbol,
+      coTuc = cardVal.coTuc;
 
   switch (type) {
     case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChBds:
@@ -19443,30 +19444,68 @@ function processCardCoHoi(curPlayer, payload) {
         curPlayer.showCardResult = 1;
         break;
       } else {
-        curPlayer.showCardResult = 0;
+        curPlayer.tienMat -= soluongcp * gia;
 
         for (var i = 0; i < curPlayer.chungKhoans.length; i++) {
           if (curPlayer.chungKhoans[i].symbol === symbol) {
-            curPlayer.tienMat -= soluongcp * gia;
             giaMoi = (soluongcp * gia + curPlayer.chungKhoans[i].gia * curPlayer.chungKhoans[i].soLuong) / (soluongcp + curPlayer.chungKhoans[i].soLuong);
             curPlayer.chungKhoans[i] = {
               symbol: symbol,
               gia: giaMoi,
-              soLuong: soluongcp + curPlayer.chungKhoans[i].soLuong
+              soLuong: soluongcp + curPlayer.chungKhoans[i].soLuong,
+              coTuc: coTuc
             };
           }
         }
 
-        if (giaMoi === 0) curPlayer.chungKhoans.push({
-          symbol: symbol,
-          gia: gia,
-          soLuong: soluongcp
-        });
+        if (giaMoi === 0) {
+          curPlayer.chungKhoans.push(_objectSpread({}, curPlayer.chungKhoans[i], {
+            symbol: symbol,
+            gia: gia,
+            soLuong: soluongcp,
+            coTuc: coTuc
+          }));
+        }
+
+        curPlayer.showCardResult = 0;
       }
 
       break;
 
+    case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChCoPhieuGop:
+      //tiLeGoc: 2, tiLeDich: 1, ac
+      var tiLe = cardVal.tiLeDich / cardVal.tiLeGoc;
+
+      for (var i = 0; i < curPlayer.chungKhoans.length; i++) {
+        if (curPlayer.chungKhoans[i].symbol === symbol) {
+          curPlayer.chungKhoans[i] = _objectSpread({}, curPlayer.chungKhoans[i], {
+            soLuong: curPlayer.chungKhoans[i].soLuong * tiLe,
+            gia: curPlayer.chungKhoans[i].gia / tiLe
+          });
+        }
+      }
+
+      curPlayer.showCardResult = 0;
+      break;
+
+    case _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.cardType.typeChCoPhieuChia:
+      //tiLeGoc: 1, tiLeDich: 2, ac
+      var tiLeChia = cardVal.tiLeDich / cardVal.tiLeGoc;
+
+      for (var i = 0; i < curPlayer.chungKhoans.length; i++) {
+        if (curPlayer.chungKhoans[i].symbol === symbol) {
+          curPlayer.chungKhoans[i] = _objectSpread({}, curPlayer.chungKhoans[i], {
+            soLuong: curPlayer.chungKhoans[i].soLuong * tiLeChia,
+            gia: curPlayer.chungKhoans[i].gia / tiLeChia
+          });
+        }
+      }
+
+      curPlayer.showCardResult = 0;
+      break;
+
     default:
+      curPlayer.showCardResult = 0;
       break;
   }
 
@@ -19481,13 +19520,20 @@ function processCard(curPlayer, payload) {
 
   if (cardTitle === _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.sinhCon && curPlayer.soCon < 3) {
     curPlayer.soCon = curPlayer.soCon + 1;
-  } else if (cardTitle == _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.coHoi) return processCardCoHoi(curPlayer, payload);
+    curPlayer.showCardResult = 0;
+  } else if (cardTitle == _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.coHoi) return processCardCoHoi(curPlayer, payload);else curPlayer.showCardResult = 0;
 
   curPlayer = tinhTong(curPlayer);
   return _objectSpread({}, curPlayer);
 }
 
 function tinhTong(curPlayer) {
+  var laiCoPhan = 0;
+
+  for (var i = 0; i < curPlayer.chungKhoans.length; i++) {
+    laiCoPhan += curPlayer.chungKhoans[i].soLuong * curPlayer.chungKhoans[i].coTuc;
+  }
+
   var batDongSanDN = 0,
       thuNhapThuDong = 0,
       tongThuNhap = 0,
@@ -19501,7 +19547,7 @@ function tinhTong(curPlayer) {
   curPlayer.congTys && curPlayer.congTys.map(function (congTy, index) {
     batDongSanDN += congTy.thuNhap;
   });
-  thuNhapThuDong = batDongSanDN + curPlayer.laiNganHang + curPlayer.laiCoPhan;
+  thuNhapThuDong = batDongSanDN + curPlayer.laiNganHang + laiCoPhan;
   tongThuNhap = curPlayer.luong + thuNhapThuDong;
   chiPhiNuoiCon = curPlayer.chiPhiNuoi1Con * curPlayer.soCon;
   laiVayNganHang = curPlayer.vayNganHang * 0.1;
@@ -19509,6 +19555,7 @@ function tinhTong(curPlayer) {
   dongTien = tongThuNhap - tongChiPhi;
   return _objectSpread({}, curPlayer, {
     batDongSanDN: batDongSanDN,
+    laiCoPhan: laiCoPhan,
     thuNhapThuDong: thuNhapThuDong,
     tongThuNhap: tongThuNhap,
     chiPhiNuoiCon: chiPhiNuoiCon,
@@ -19551,6 +19598,7 @@ function cashFlowReducer() {
       var cardContent = _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.getResultStep(curPlayer.number);
       curPlayer.cardTitle = cardContent.type;
       curPlayer.cardVal = cardContent.val;
+      players[indexPlayer] = curPlayer;
       curPlayer.showCardResult = 1;
       return _objectSpread({}, state, {
         players: players
@@ -20354,6 +20402,8 @@ var typeChBds = 'Bất Động Sản';
 var typeChBdsLamHu = 'Người Thuê Lam Hư Bất Động Sản';
 var typeChKdbtg = 'Kinh Doanh Bán Thời Gian';
 var typeChCoPhieuGia = 'Giá Cổ Phiếu';
+var typeChCoPhieuGop = 'Gộp Cổ Phiếu';
+var typeChCoPhieuChia = 'Chia Cổ Phiếu';
 var ch = 'Cơ hội';
 var cp = 'Chi phí';
 var tuThien = 'Từ thiện';
@@ -20488,13 +20538,14 @@ var bqSach = {
   gia: 8000,
   traTruoc: 8000,
   no: 0,
-  thuNhap: 250
+  thuNhap: 250,
+  acceptedIgnore: true
 };
 var OK4U5 = {
   type: typeChCoPhieuGia,
   symbol: 'OK4U',
   title: 'Giá vàng cao nhất 20 năm',
-  description: 'Báo cáo thất nghiệp và lạm phát tăng cao. Chính phủ các nước bơm tiền để cứu nền kinh tế. Giá vàng liên tục được đẩy lên cao. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  description: 'Báo cáo thất nghiệp và lạm phát tăng cao. Chính phủ các nước bơm tiền để cứu nền kinh tế. Giá vàng liên tục được đẩy lên cao. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu OK4U có thể bán với giá này.',
   gia: 5,
   bienDo: '$5-$50',
   coTuc: 0,
@@ -20504,7 +20555,7 @@ var OK4U10 = {
   type: typeChCoPhieuGia,
   symbol: 'OK4U',
   title: 'Cổ phiếu Công ty dược OK4U',
-  description: 'Nhà sản xuất thuốc lâu đời, đặc biệt là thuốc dành cho những người già trên 70 tuổi. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  description: 'Nhà sản xuất thuốc lâu đời, đặc biệt là thuốc dành cho những người già trên 70 tuổi. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu OK4U có thể bán với giá này.',
   gia: 10,
   bienDo: '$5-$50',
   coTuc: 0,
@@ -20514,7 +20565,7 @@ var OK4U40 = {
   type: typeChCoPhieuGia,
   symbol: 'OK4U',
   title: 'Cổ phiếu Công ty dược OK4U',
-  description: 'Lạm phát thấp dẫn đến gía cổ phiếu công ty sản xuất dược phẩm tăng cao. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  description: 'Lạm phát thấp dẫn đến gía cổ phiếu công ty sản xuất dược phẩm tăng cao. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu OK4U có thể bán với giá này.',
   gia: 40,
   bienDo: '$5-$50',
   coTuc: 0,
@@ -20524,7 +20575,7 @@ var OK4U50LS = {
   type: typeChCoPhieuGia,
   symbol: 'OK4U',
   title: 'Cổ phiếu Công ty dược OK4U',
-  description: 'Lạm phát thấp dẫn đến gía cổ phiếu công ty sản xuất dược phẩm tăng cao. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  description: 'Lạm phát thấp dẫn đến gía cổ phiếu công ty sản xuất dược phẩm tăng cao. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu OK4U có thể bán với giá này.',
   gia: 50,
   bienDo: '$5-$50',
   coTuc: 0,
@@ -20534,18 +20585,137 @@ var OK4U50 = {
   type: typeChCoPhieuGia,
   symbol: 'OK4U',
   title: 'Cổ phiếu Công ty dược OK4U',
-  description: 'Giá thị trường cổ phiếu của Công ty sản xuất được tăng đột biến. Chỉ có bạn mới mua được cổ phiếu này. Mọi người sở hữu OK4U có thể bán với giá này.',
+  description: 'Giá thị trường cổ phiếu của Công ty sản xuất được tăng đột biến. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu OK4U có thể bán với giá này.',
   gia: 50,
   bienDo: '$5-$50',
   coTuc: 0,
   acceptedIgnore: true
+};
+var OK4UCHIA = {
+  type: typeChCoPhieuChia,
+  symbol: 'OK4U',
+  title: 'Cổ phiếu Công ty dược OK4U',
+  description: 'Công việc kinh doanh phát triển đột ngột nên công ty tiến hành chia cổ phiếu! Những ai đang sở hữu cổ phiếu OK4U nâng cấp gấp đôi số lượng cổ phiếu đang nắm giữ. (Không trả tiền mặt, tổng giá trị không thay đổi). Không chia cổ tức. Không ai được mua hoặc bán trong thời điểm này.',
+  tiLeGoc: 1,
+  tiLeDich: 2,
+  acceptedIgnore: false
+};
+var OK4UGOP = {
+  type: typeChCoPhieuGop,
+  symbol: 'OK4U',
+  title: 'Cổ phiếu Công ty dược OK4U',
+  description: 'Công ty làm ăn khó khăn, tổn thất lớp do scandal về thuốc. Những ai đang nắm giữ OK4U phải chia số lượng cổ phiếu. (Không trả tiền mặt, tổng giá trị không đổi). Không chia cổ tức, không ai được mua, bán trong thời điểm này.',
+  tiLeGoc: 2,
+  tiLeDich: 1,
+  acceptedIgnore: false
+};
+var MYT4U1 = {
+  type: typeChCoPhieuGia,
+  symbol: 'MYT4U',
+  title: 'Cổ phiếu Công ty điện tử MYT4U',
+  description: 'Thị trường yếu dẫn đến sự sụt giảm giá cổ phiếu của công ty bán đồ gia dụng. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu MYT4U có thể bán với giá này.',
+  gia: 1,
+  bienDo: '$1-$30',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var MYT4U5 = {
+  type: typeChCoPhieuGia,
+  symbol: 'MYT4U',
+  title: 'Cổ phiếu Công ty điện tử MYT4U',
+  description: 'Việc giữ tỉ lệ lãi tức dẫn đến giá cổ phiếu giảm dưới tiêu chuẩn của một công ty bản đồ điện tử gia dụng. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu MYT4U có thể bán với giá này.',
+  gia: 5,
+  bienDo: '$1-$30',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var MYT4U30 = {
+  type: typeChCoPhieuGia,
+  symbol: 'MYT4U',
+  title: 'Cổ phiếu Công ty điện tử MYT4U',
+  description: 'Thị trường phát triển mạnh dẫn đến giá cổ phiếu tăng cao. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu MYT4U có thể bán với giá này.',
+  gia: 30,
+  bienDo: '$1-$30',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var MYT4U40 = {
+  type: typeChCoPhieuGia,
+  symbol: 'MYT4U',
+  title: 'Cổ phiếu Công ty điện tử MYT4U',
+  description: 'Thị trường chứng khoán bùng nổ dẫn đến giá cổ phiếu tăng rất cao. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu MYT4U có thể bán với giá này.',
+  gia: 40,
+  bienDo: '$1-$40',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var MYT4UCHIA = {
+  type: typeChCoPhieuChia,
+  symbol: 'MYT4U',
+  title: 'Cổ phiếu Công ty dược MYT4U',
+  description: 'Công việc kinh doanh phát triển đột ngột nên công ty tiến hành chia cổ phiếu! Những ai đang sở hữu cổ phiếu OK4U nâng cấp gấp đôi số lượng cổ phiếu đang nắm giữ. (Không trả tiền mặt, tổng giá trị không thay đổi). Không chia cổ tức. Không ai được mua hoặc bán trong thời điểm này.',
+  tiLeGoc: 1,
+  tiLeDich: 2,
+  acceptedIgnore: false
+};
+var MYT4UGOP = {
+  type: typeChCoPhieuGop,
+  symbol: 'MYT4U',
+  title: 'Cổ phiếu Công ty dược MYT4U',
+  description: 'Công ty tái cơ cấu! Do sự mở rộng quá mức và suy thoái. Những ai đang nắm giữ MYT4U phải chia số lượng cổ phiếu. (Không trả tiền mặt, tổng giá trị không đổi). Không chia cổ tức, không ai được mua, bán trong thời điểm này.',
+  tiLeGoc: 2,
+  tiLeDich: 1,
+  acceptedIgnore: false
+};
+var GRO4US10 = {
+  type: typeChCoPhieuGia,
+  symbol: 'GRO4US',
+  title: 'Chứng chỉ Quỹ hỗ tương GRO4US Fund',
+  description: 'Lợi nhuận giảm sút từ hầu hết các công ty dẫn đầu, làm cho giá quỹ tương hỗ giảm sút. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu GRO4US có thể bán với giá này.',
+  gia: 10,
+  bienDo: '$5-$40',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var GRO4US20 = {
+  type: typeChCoPhieuGia,
+  symbol: 'GRO4US',
+  title: 'Chứng chỉ Quỹ hỗ tương GRO4US Fund',
+  description: 'Lợi nhuận từ hầu hết các công ty dẫn đầu khả quan, làm cho giá quỹ tương hỗ tăng nhẹ. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu GRO4US có thể bán với giá này.',
+  gia: 20,
+  bienDo: '$5-$40',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var GRO4US40 = {
+  type: typeChCoPhieuGia,
+  symbol: 'GRO4US',
+  title: 'Chứng chỉ Quỹ hỗ tương GRO4US Fund',
+  description: 'Thị trường nhà ở đang nóng làm cho giá chứng chỉ quỹ tăng mạnh đạt tới đỉnh điểm. Chỉ có bạn mới mua được cổ phiếu này nếu muốn. Mọi người sở hữu GRO4US có thể bán với giá này.',
+  gia: 20,
+  bienDo: '$5-$40',
+  coTuc: 0,
+  acceptedIgnore: true
+};
+var BIGPower = {
+  type: typeChCoPhieuGia,
+  symbol: '2BIGPower',
+  title: 'Cổ phần ưu đãi 2 BIG Power',
+  description: 'Lợi tức tăng cao, rao bán cổ phần ưu đãi của một công ty điện lực địa phương. Hội đồng của bang cam kết lợi tức và gía sẽ không đổi. Mọi người có thể mua, bán nếu muốn giá này.',
+  gia: 1200,
+  bienDo: '$1200 - $1200',
+  coTuc: 10,
+  acceptedIgnore: true
 }; //4 chBds2Br1Ba,chBds2Br1BaCu,chBds2Br1BaNH
 
-var coHoiList = [// {type: 'khac', title:'Tang gia phong tro', description: 'Giá phòng trọ trên thị trường tăng $30 1 căn.', gia: 0, traTruoc: 0, thuNhap: 30, acceptedIgnore: true},
+var coHoiList = [// {type: 'khac', title:'Tăng giá phòng trọ.', description: 'Giá phòng trọ trên thị trường tăng $30 1 căn.', gia: 0, traTruoc: 0, thuNhap: 30, acceptedIgnore: true},
 // chBdsLamHu,
 // chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1BaNH, chBds2Br1BaCu, chBds3Br2Ba, chBds3Br2Ba, chBds3Br2BaNH, chBds3Br2BaNH, chBds3Br2BaTv, chBds3Br2BaTv, chBds10MauDat, plex8_1,
 // d2u, d2u, d2u, d2u, d2u, d2u, ctyPhanMem, ctyPhanMem, bqSach,
-OK4U5, OK4U5, OK4U5, OK4U5, OK4U10, OK4U40, OK4U50LS, OK4U50]; //#endregion cardCoHoi
+// OK4UCHIA, OK4UGOP, OK4U5, OK4U5, OK4U5, OK4U5, OK4U10, OK4U40, OK4U50LS, OK4U50,
+// MYT4U1, MYT4U5,MYT4U5,MYT4U30, MYT4U40, MYT4UCHIA, MYT4UGOP,
+// GRO4US10, GRO4US20, GRO4US40, GRO4US40, 
+BIGPower, BIGPower, BIGPower]; //#endregion cardCoHoi
 //#endregion CacHangGiaTri
 
 module.exports = {
@@ -20553,7 +20723,9 @@ module.exports = {
     typeChBds: typeChBds,
     typeChKdbtg: typeChKdbtg,
     typeChBdsLamHu: typeChBdsLamHu,
-    typeChCoPhieuGia: typeChCoPhieuGia
+    typeChCoPhieuGia: typeChCoPhieuGia,
+    typeChCoPhieuGop: typeChCoPhieuGop,
+    typeChCoPhieuChia: typeChCoPhieuChia
   },
   coHoi: ch,
   chiPhi: cp,
@@ -20616,7 +20788,7 @@ module.exports = {
     laiVayNganHang: 0,
     khoanNoKhac: 0,
     tongChiPhi: 1880,
-    dongTien: 1120,
+    dongTien: 1620,
     number: 1,
     lastDice: 1,
     tuThien: 1,
