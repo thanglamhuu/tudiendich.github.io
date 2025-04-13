@@ -16740,7 +16740,7 @@ exports.devToolsEnhancer = (
 /*!***********************************************************************!*\
   !*** ./node_modules/redux-saga/dist/redux-saga-core-npm-proxy.esm.js ***!
   \***********************************************************************/
-/*! exports provided: CANCEL, SAGA_LOCATION, buffers, detach, END, channel, eventChannel, isEnd, multicastChannel, runSaga, stdChannel, default */
+/*! exports provided: default, CANCEL, SAGA_LOCATION, buffers, detach, END, channel, eventChannel, isEnd, multicastChannel, runSaga, stdChannel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19598,6 +19598,7 @@ function cashFlowReducer() {
       var cardContent = _utils_cashFlowUtils__WEBPACK_IMPORTED_MODULE_8___default.a.getResultStep(curPlayer.number);
       curPlayer.cardTitle = cardContent.type;
       curPlayer.cardVal = cardContent.val;
+      console.log('cardContent: ', cardContent);
       players[indexPlayer] = curPlayer;
       curPlayer.showCardResult = 1;
       return _objectSpread({}, state, {
@@ -20404,6 +20405,9 @@ var typeChKdbtg = 'Kinh Doanh Bán Thời Gian';
 var typeChCoPhieuGia = 'Giá Cổ Phiếu';
 var typeChCoPhieuGop = 'Gộp Cổ Phiếu';
 var typeChCoPhieuChia = 'Chia Cổ Phiếu';
+var typeMkMuaBds = 'Mua căn hộ';
+var typeBds2Br1Ba = 'Căn hộ 2 ngủ 1 tắm';
+var typeBds3Br2Ba = 'Căn hộ 3 ngủ 2 tắm';
 var ch = 'Cơ hội';
 var cp = 'Chi phí';
 var tuThien = 'Từ thiện';
@@ -20425,7 +20429,7 @@ var chBdsLamHu = {
 };
 var chBds2Br1Ba = {
   type: typeChBds,
-  title: 'Căn hộ 2 ngủ 1 tắm',
+  title: typeBds2Br1Ba,
   description: 'Một doanh nhân thành công muốn bán một căn hộ 2 phòng ngủ 1 phòng tắm tuyệt vời có nhiều tiện ích bên trong, lí do là cô ta chuyển sang nơi ở khác. Giá thị trường khoảng $45,000-$65,000',
   gia: 60000,
   traTruoc: 5000,
@@ -20436,7 +20440,7 @@ var chBds2Br1Ba = {
 };
 var chBds2Br1BaNH = {
   type: typeChBds,
-  title: 'Căn hộ 2 ngủ 1 tắm',
+  title: typeBds2Br1Ba,
   description: 'Ngân hàng thanh lý tài sản thế chấp nợ bị tịch thu! Đây là một căn hộ 2 phòng ngủ 1 phòng tắm đáng khao khát, trong khu dân cư sầm uất. Giấy tờ OK, thủ tục tài chính ngân hàng thuận tiện. Mua cơ hội này hoặc bán cho người khác.',
   gia: 40000,
   traTruoc: 5000,
@@ -20447,7 +20451,7 @@ var chBds2Br1BaNH = {
 };
 var chBds2Br1BaCu = {
   type: typeChBds,
-  title: 'Căn hộ 2 ngủ 1 tắm',
+  title: typeBds2Br1Ba,
   description: 'Căn hộ đã cũ, xuống cấp 50%, cặp vợ chồng muốn chuyển tới căn hộ 3 ngủ 2 tắm rộng hơn. Giấy tờ đã sẵn sàng. Mua cơ hội này hoặc bán cho người khác.',
   gia: 55000,
   traTruoc: 5000,
@@ -20458,7 +20462,7 @@ var chBds2Br1BaCu = {
 };
 var chBds3Br2Ba = {
   type: typeChBds,
-  title: 'Căn hộ 3 ngủ 2 tắm',
+  title: typeBds3Br2Ba,
   description: 'Cần bán một căn nhà cho thuê 3 ngủ 2 tắm đẹp bất ngờ, đây là tài sản thừa kế, được bảo quản tốt, đang có người thuê. Mua cơ hội này hoặc bán cho người khác.',
   gia: 65000,
   traTruoc: 5000,
@@ -20469,7 +20473,7 @@ var chBds3Br2Ba = {
 };
 var chBds3Br2BaNH = {
   type: typeChBds,
-  title: 'Căn hộ 3 ngủ 2 tắm',
+  title: typeBds3Br2Ba,
   description: 'Ngân hàng bán căn nhà niêm phong gần 6 tháng. Món nợ bao gồm cả chi phí tu sửa. 60% ROI có thể bán $65,000 - $135,000. Mua cơ hội này hoặc bán cho người khác.',
   gia: 50000,
   traTruoc: 4000,
@@ -20480,7 +20484,7 @@ var chBds3Br2BaNH = {
 };
 var chBds3Br2BaTv = {
   type: typeChBds,
-  title: 'Căn hộ 3 ngủ 2 tắm',
+  title: typeBds3Br2Ba,
   description: 'Chính quyền hoá giá căn nhà 3 ngủ 2 tắm, đang có người thuê. 132% ROI có thể bán $65,000 - $135,000. Mua cơ hội này hoặc bán cho người khác.',
   gia: 35000,
   traTruoc: 2000,
@@ -20710,12 +20714,36 @@ var BIGPower = {
 
 var coHoiList = [// {type: 'khac', title:'Tăng giá phòng trọ.', description: 'Giá phòng trọ trên thị trường tăng $30 1 căn.', gia: 0, traTruoc: 0, thuNhap: 30, acceptedIgnore: true},
 // chBdsLamHu,
-// chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1BaNH, chBds2Br1BaCu, chBds3Br2Ba, chBds3Br2Ba, chBds3Br2BaNH, chBds3Br2BaNH, chBds3Br2BaTv, chBds3Br2BaTv, chBds10MauDat, plex8_1,
-// d2u, d2u, d2u, d2u, d2u, d2u, ctyPhanMem, ctyPhanMem, bqSach,
+chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1Ba, chBds2Br1BaNH, chBds2Br1BaCu, chBds3Br2Ba, chBds3Br2Ba, chBds3Br2BaNH, chBds3Br2BaNH, chBds3Br2BaTv, chBds3Br2BaTv, chBds10MauDat, plex8_1 // d2u, d2u, d2u, d2u, d2u, d2u, ctyPhanMem, ctyPhanMem, bqSach,
 // OK4UCHIA, OK4UGOP, OK4U5, OK4U5, OK4U5, OK4U5, OK4U10, OK4U40, OK4U50LS, OK4U50,
 // MYT4U1, MYT4U5,MYT4U5,MYT4U30, MYT4U40, MYT4UCHIA, MYT4UGOP,
 // GRO4US10, GRO4US20, GRO4US40, GRO4US40, 
-BIGPower, BIGPower, BIGPower]; //#endregion cardCoHoi
+// BIGPower, BIGPower, BIGPower
+]; //#endregion cardCoHoi
+//#region cardThiTruong
+
+var mkBds2Br1Ba55 = {
+  type: typeMkMuaBds,
+  title: typeBds2Br1Ba,
+  description: 'Bạn được trả giá $55,000 cho một căn hộ 2 phòng ngủ 1 phòng tắm. Người mua có về tài chính. Mọi người có thể bán giá này. Nếu bạn bán, bạn trả hết nợ thế chấp có liên quan và gạch bỏ hết dòng tiền mặt phát sinh từ tài sản đó.',
+  gia: 55000,
+  acceptedIgnore: true
+};
+var mkBds2Br1Ba65 = {
+  type: typeMkMuaBds,
+  title: typeBds2Br1Ba,
+  description: 'Bạn được trả giá $65,000 cho một căn hộ 2 phòng ngủ 1 phòng tắm. Người mua có về tài chính. Mọi người có thể bán giá này. Nếu bạn bán, bạn trả hết nợ thế chấp có liên quan và gạch bỏ hết dòng tiền mặt phát sinh từ tài sản đó.',
+  gia: 65000,
+  acceptedIgnore: true
+};
+var mkBds3Br2Ba25 = {
+  type: typeMkMuaBds,
+  title: typeBds3Br2Ba,
+  description: 'Bạn được trả giá $25,000 cho một căn hộ 3 phòng ngủ 2 phòng tắm. Người mua có về tài chính. Mọi người có thể bán giá này. Nếu bạn bán, bạn trả hết nợ thế chấp có liên quan và gạch bỏ hết dòng tiền mặt phát sinh từ tài sản đó.',
+  gia: 25000,
+  acceptedIgnore: true
+};
+var marketList = [mkBds2Br1Ba55, mkBds2Br1Ba65, mkBds2Br1Ba65, mkBds3Br2Ba25]; //#endregion cardThiTruong
 //#endregion CacHangGiaTri
 
 module.exports = {
@@ -20725,7 +20753,8 @@ module.exports = {
     typeChBdsLamHu: typeChBdsLamHu,
     typeChCoPhieuGia: typeChCoPhieuGia,
     typeChCoPhieuGop: typeChCoPhieuGop,
-    typeChCoPhieuChia: typeChCoPhieuChia
+    typeChCoPhieuChia: typeChCoPhieuChia,
+    typeMkMuaBds: typeMkMuaBds
   },
   coHoi: ch,
   chiPhi: cp,
@@ -20749,6 +20778,10 @@ module.exports = {
     if (type === ch) {
       var ran = Math.round(Math.random() * (coHoiList.length - 1));
       value = coHoiList[ran];
+    } else if (type === tt) {
+      var _ran = Math.round(Math.random() * (marketList.length - 1));
+
+      value = marketList[_ran];
     }
 
     return {
@@ -20767,6 +20800,7 @@ module.exports = {
     plex8_1: plex8_1
   },
   coHoiList: coHoiList,
+  marketList: marketList,
   jobs: [{
     name: 'Nhân viên cảnh sát',
     luong: 3500,
