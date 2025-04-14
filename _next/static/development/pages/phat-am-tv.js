@@ -272,7 +272,7 @@ var VietnameseSyllables = function VietnameseSyllables() {
     setVidu(viDuDict[rowIndex] && viDuDict[rowIndex][colIndex] ? "V\xED d\u1EE5: ".concat(viDuDict[rowIndex][colIndex]) : ''); // window.speechSynthesis.speak(utterance);
 
     var filename = "".concat(rowIndex >= 10 ? rowIndex : '0' + rowIndex).concat(colIndex < 10 ? colIndex : 'a').concat(removeVietnameseTones(syllable));
-    var fileUrl = "https://td.nhidonghocphat.com/static/phatam/".concat(filename, ".mp3"); // Cập nhật src và play
+    var fileUrl = "/static/phatam/".concat(filename, ".mp3"); // Cập nhật src và play
 
     audio.src = fileUrl;
     audio.play()["catch"](function (err) {
@@ -15084,7 +15084,7 @@ routes.add({
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!***************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fphat-am-tv&absolutePagePath=%2FUsers%2Flananh%2FDocuments%2Ftlhw%2Fcash-flow%2Fpages%2Fphat-am-tv.js ***!
   \***************************************************************************************************************************************************/
@@ -15107,5 +15107,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=phat-am-tv.js.map
