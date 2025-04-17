@@ -204,8 +204,8 @@ var QuizComponent = function QuizComponent(_ref) {
   // Sound arrays for correct and incorrect answers
 
 
-  var soundDung = ['/static/sounds/anime-wow.mp3', '/static/sounds/woooooaah.mp3', '/static/sounds/wow.mp3'];
-  var soundSai = ['/static/sounds/babylaugh.mp3', '/static/sounds/bad.mp3', '/static/sounds/fail.mp3', '/static/sounds/laughing-man.mp3', '/static/sounds/whip.mp3'];
+  var soundDung = ['/static/sounds/d_anime-wow.mp3', '/static/sounds/d_Bright_UI_.aac', '/static/sounds/d_Bubble_Click.aac', '/static/sounds/d_Coin_Collecting.aac', '/static/sounds/d_CONCERT_CROWD_CLAP.mp3', '/static/sounds/d_General_UI.aac', '/static/sounds/d_Menu_Appear_Double_Bubble_.aac', '/static/sounds/d_woooooaah.mp3', '/static/sounds/d_wow.mp3'];
+  var soundSai = ['/static/sounds/s_AirHorn-DJ_Horns.mp3', '/static/sounds/s_Alarm-Mid-High.aac', '/static/sounds/s_AS_Synth_Ramp_Upl.aac', '/static/sounds/s_babylaugh.mp3', '/static/sounds/s_bad.mp3', '/static/sounds/s_Cartoon_Boing_.aac', '/static/sounds/s_fail.mp3', '/static/sounds/s_laughing-man.mp3', '/static/sounds/s_Meow_Farm_Game.aac', '/static/sounds/s_Ni_Sound_Cartoon.aac', '/static/sounds/s_Regular_Braam.mp3', '/static/sounds/s_Vintage_Scream.mp3', '/static/sounds/s_whip.mp3'];
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       audio = _useState5[0],
@@ -32236,7 +32236,7 @@ routes.add({
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /*!*************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fphat-am%2Ftrac-nghiem&absolutePagePath=%2FUsers%2Flananh%2FDocuments%2Ftlhw%2Fcash-flow%2Fpages%2Fphat-am%2Ftrac-nghiem.js ***!
   \*************************************************************************************************************************************************************************/
@@ -32259,5 +32259,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=trac-nghiem.js.map
