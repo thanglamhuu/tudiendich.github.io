@@ -392,7 +392,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-var exercisesCong10 = Object(_constantsSoHoc__WEBPACK_IMPORTED_MODULE_2__["getExercisesCong10"])();
+var exercisesCongSoNhoHon10 = Object(_constantsSoHoc__WEBPACK_IMPORTED_MODULE_2__["getExercisesCongSoNhoHon10"])();
+var exercisesCongPv10 = Object(_constantsSoHoc__WEBPACK_IMPORTED_MODULE_2__["getExercisesCongPv10"])();
 ; // const exercisesCong10 = [
 //   { id: 1, question: "2 + 3 =", choices: ['4', '5', '6', '7'], correctAnswer: '5' },
 //   { id: 2, question: "2 + 4 =", choices: ['4', '5', '6', '7'], correctAnswer: '6' },
@@ -400,7 +401,10 @@ var exercisesCong10 = Object(_constantsSoHoc__WEBPACK_IMPORTED_MODULE_2__["getEx
 
 var danhSachExercies = [{
   t: "Cộng phạm vi 10",
-  e: exercisesCong10
+  e: exercisesCongPv10
+}, {
+  t: "Cộng số nhỏ hơn 10",
+  e: exercisesCongSoNhoHon10
 }, {
   t: 'Đánh vần',
   e: _constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__["exercisesPhatAm"]
@@ -443,13 +447,14 @@ var QuizList = function QuizList() {
 /*!****************************************************!*\
   !*** ./components/hoctaphieuan/constantsPhatAm.js ***!
   \****************************************************/
-/*! exports provided: soundDung, soundSai, syllablesTable, exercisesPhatAm, getExercises, removeVietnameseTones */
+/*! exports provided: soundDung, soundSai, shuffleArray, syllablesTable, exercisesPhatAm, getExercises, removeVietnameseTones */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "soundDung", function() { return soundDung; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "soundSai", function() { return soundSai; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shuffleArray", function() { return shuffleArray; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "syllablesTable", function() { return syllablesTable; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exercisesPhatAm", function() { return exercisesPhatAm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercises", function() { return getExercises; });
@@ -462,7 +467,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var soundDung = ['/static/sounds/d_anime-wow.mp3', '/static/sounds/d_Bright_UI_.aac', '/static/sounds/d_Bubble_Click.aac', '/static/sounds/d_Coin_Collecting.aac', '/static/sounds/d_CONCERT_CROWD_CLAP.mp3', '/static/sounds/d_General_UI.aac', '/static/sounds/d_Menu_Appear_Double_Bubble_.aac', '/static/sounds/d_woooooaah.mp3', '/static/sounds/d_wow.mp3'];
 var soundSai = ['/static/sounds/s_AirHorn-DJ_Horns.mp3', '/static/sounds/s_Alarm-Mid-High.aac', '/static/sounds/s_AS_Synth_Ramp_Upl.aac', '/static/sounds/s_babylaugh.mp3', '/static/sounds/s_bad.mp3', '/static/sounds/s_Cartoon_Boing_.aac', '/static/sounds/s_fail.mp3', '/static/sounds/s_laughing-man.mp3', '/static/sounds/s_Meow_Farm_Game.aac', '/static/sounds/s_Ni_Sound_Cartoon.aac', '/static/sounds/s_Regular_Braam.mp3', '/static/sounds/s_Vintage_Scream.mp3', '/static/sounds/s_whip.mp3'];
-
 function shuffleArray(array) {
   var arr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(array); // tạo bản sao để không làm thay đổi mảng gốc
 
@@ -477,7 +481,6 @@ function shuffleArray(array) {
 
   return arr;
 } // Mảng 2 chiều thể hiện chính xác layout trong ảnh
-
 
 var syllablesTable = [["am", "ap", "ăm", "ăp", "âm", "âp", "em", "ep", "im", "ip"], ["iêm", "yêm", "iêp", "om", "op", "ôm", "ôp", "ơm", "ơp", "um"], ["up", "uôm", "ươm", "ươp", "an", "at", "ăn", "ăt", "ân", "ât"], ["en", "et", "ên", "êt", "in", "it", "iên", "iêt", "yên", "yêt"], ["on", "ot", "ôn", "ôt", "ơn", "ơt", "un", "ut", "ưt", "uôn"], ["uôt", "ươn", "ươt", "ang", "ac", "ăng", "ăc", "âng", "âc", "eng"], ["ec", "iêng", "yêng", "iêc", "ong", "oc", "ông", "ôc", "ung", "uc"], ["ưng", "ưc", "uông", "uôc", "ương", "ươc", "anh", "ach", "ênh", "êch"], ["inh", "ich", "ai", "ay", "oi", "ây", "ôi", "ơi", "ui", "ưi"], ["uôi", "ươi", "ao", "eo", "au", "âu", "êu", "iu", "iêu", "yêu"], ["ưu", "ươu", "oa", "oe", "uê", "ươ", "uy", "uya", "oam", "oăm"], ["oan", "oat", "oăn", "oăt", "uân", "uât", "oen", "oet", "uyên", "uyêt"], ["uyn", "uyt", "oang", "oac", "oăng", "oăc", "oanh", "oach", "uênh", "uêch"], ["uynh", "uych", "oai", "oay", "uây", "oong", "ooc", "uyp", "oeo", "uêu"], ["oao", "oap", "uyu", "uâng", "", "", "", "", "", ""]];
 var exercisesPhatAm = getExercises(); // export const exercises = [
@@ -521,7 +524,7 @@ function getExercises() {
       });
     });
   });
-  return exercises;
+  return shuffleArray(exercises);
 }
 ; // Hàm chuyển âm sang tiếng Việt không dấu
 
@@ -536,38 +539,24 @@ function removeVietnameseTones(str) {
 /*!***************************************************!*\
   !*** ./components/hoctaphieuan/constantsSoHoc.js ***!
   \***************************************************/
-/*! exports provided: getExercisesCong10 */
+/*! exports provided: getExercisesCongPv10, getExercisesCongSoNhoHon10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercisesCong10", function() { return getExercisesCong10; });
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercisesCongPv10", function() { return getExercisesCongPv10; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercisesCongSoNhoHon10", function() { return getExercisesCongSoNhoHon10; });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constantsPhatAm */ "./components/hoctaphieuan/constantsPhatAm.js");
 
 
-
-function shuffleArray(array) {
-  var arr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(array); // tạo bản sao để không làm thay đổi mảng gốc
-
-
-  for (var i = arr.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1)); // số ngẫu nhiên từ 0 đến i
-
-    var _ref = [arr[j], arr[i]];
-    arr[i] = _ref[0];
-    arr[j] = _ref[1];
-  }
-
-  return arr;
-}
 
 function getChoices(a, b) {
   var choices = [];
   choices.push(a + b);
 
-  for (var i = a + 1; i > 0 && choices.length < 4; i--) {
+  for (var i = a + (a > 2 ? 1 : 3); i > 0 && choices.length < 4; i--) {
     for (var j = b + 1; j > 0 && choices.length < 4; j--) {
       if (!choices.find(function (e) {
         return e === i + j;
@@ -577,12 +566,27 @@ function getChoices(a, b) {
     }
   }
 
-  choices = shuffleArray(choices);
+  choices = Object(_constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__["shuffleArray"])(choices);
   return choices;
-} // Hàm chuyển âm sang tiếng Việt không dấu
+}
 
+function getExercisesCongPv10() {
+  var exercises = [];
 
-function getExercisesCong10() {
+  for (var i = 0; i < 10; i++) {
+    for (var j = 10 - i; j > 0; j--) {
+      exercises.push({
+        id: "".concat(i, "_").concat(j),
+        question: "".concat(i, " + ").concat(j, " = ?"),
+        choices: getChoices(i, j),
+        correctAnswer: i + j
+      });
+    }
+  }
+
+  return Object(_constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__["shuffleArray"])(exercises);
+}
+function getExercisesCongSoNhoHon10() {
   var exercises = [];
 
   for (var i = 0; i < 10; i++) {
@@ -594,9 +598,10 @@ function getExercisesCong10() {
         correctAnswer: i + j
       });
     }
-  }
+  } // console.log('getExercisesCongSoNhoHon10',exercises);
 
-  return exercises;
+
+  return Object(_constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__["shuffleArray"])(exercises);
 }
 ;
 
@@ -32493,7 +32498,7 @@ routes.add({
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!*************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fphat-am%2Ftrac-nghiem&absolutePagePath=%2FUsers%2Flananh%2FDocuments%2Ftlhw%2Fcash-flow%2Fpages%2Fphat-am%2Ftrac-nghiem.js ***!
   \*************************************************************************************************************************************************************************/
@@ -32516,5 +32521,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=trac-nghiem.js.map
