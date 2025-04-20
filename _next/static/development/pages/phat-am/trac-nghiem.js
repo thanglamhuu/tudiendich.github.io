@@ -344,7 +344,7 @@ var QuizComponent = function QuizComponent(_ref) {
       marginTop: '20px',
       textAlign: 'center'
     }
-  }, __jsx("strong", null, "C\xE2u tr\u1EA3 l\u1EDDi \u0111\xFAng: ", correctCount)), __jsx("div", {
+  }, __jsx("strong", null, "C\xE2u tr\u1EA3 l\u1EDDi \u0111\xFAng: ", correctCount, "/", exercises.length)), __jsx("div", {
     style: {
       marginTop: '20px',
       textAlign: 'center'
@@ -465,7 +465,7 @@ __webpack_require__.r(__webpack_exports__);
 
  // Sound arrays for correct and incorrect answers
 
-var soundDung = ['/static/sounds/d_anime-wow.mp3', '/static/sounds/d_Bright_UI_.aac', '/static/sounds/d_Bubble_Click.aac', '/static/sounds/d_Coin_Collecting.aac', '/static/sounds/d_CONCERT_CROWD_CLAP.mp3', '/static/sounds/d_General_UI.aac', '/static/sounds/d_Menu_Appear_Double_Bubble_.aac', '/static/sounds/d_woooooaah.mp3', '/static/sounds/d_wow.mp3'];
+var soundDung = ['/static/sounds/d_anime-wow.mp3', '/static/sounds/d_Bright_UI_.aac', '/static/sounds/d_Bubble_Click.aac', '/static/sounds/d_Coin_Collecting.aac', '/static/sounds/d_CONCERT_CROWD_CLAP.mp3', '/static/sounds/d_General_UI.aac', '/static/sounds/d_Menu_Appear_Double_Bubble_.aac', '/static/sounds/d_wow.mp3'];
 var soundSai = ['/static/sounds/s_AirHorn-DJ_Horns.mp3', '/static/sounds/s_Alarm-Mid-High.aac', '/static/sounds/s_AS_Synth_Ramp_Upl.aac', '/static/sounds/s_babylaugh.mp3', '/static/sounds/s_bad.mp3', '/static/sounds/s_Cartoon_Boing_.aac', '/static/sounds/s_fail.mp3', '/static/sounds/s_laughing-man.mp3', '/static/sounds/s_Meow_Farm_Game.aac', '/static/sounds/s_Ni_Sound_Cartoon.aac', '/static/sounds/s_Regular_Braam.mp3', '/static/sounds/s_Vintage_Scream.mp3', '/static/sounds/s_whip.mp3'];
 function shuffleArray(array) {
   var arr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(array); // tạo bản sao để không làm thay đổi mảng gốc
@@ -589,8 +589,8 @@ function getExercisesCongPv10() {
 function getExercisesCongSoNhoHon10() {
   var exercises = [];
 
-  for (var i = 0; i < 10; i++) {
-    for (var j = 0; j < 10; j++) {
+  for (var i = 5; i < 10; i++) {
+    for (var j = 5; j < 10; j++) {
       exercises.push({
         id: "".concat(i, "_").concat(j),
         question: "".concat(i, " + ").concat(j, " = ?"),
@@ -32498,7 +32498,7 @@ routes.add({
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!*************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fphat-am%2Ftrac-nghiem&absolutePagePath=%2FUsers%2Flananh%2FDocuments%2Ftlhw%2Fcash-flow%2Fpages%2Fphat-am%2Ftrac-nghiem.js ***!
   \*************************************************************************************************************************************************************************/
@@ -32521,5 +32521,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=trac-nghiem.js.map
