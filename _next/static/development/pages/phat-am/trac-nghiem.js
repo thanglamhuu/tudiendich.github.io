@@ -400,10 +400,10 @@ var exercisesCongPv10 = Object(_constantsSoHoc__WEBPACK_IMPORTED_MODULE_2__["get
 // ];
 
 var danhSachExercies = [{
-  t: "Cộng phạm vi 10",
+  t: "Cộng 0 - 10",
   e: exercisesCongPv10
 }, {
-  t: "Cộng số nhỏ hơn 10",
+  t: "Cộng 10 - 20",
   e: exercisesCongSoNhoHon10
 }, {
   t: 'Đánh vần',
@@ -462,6 +462,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/utils */ "./utils/utils.js");
+
 
  // Sound arrays for correct and incorrect answers
 
@@ -482,7 +484,7 @@ function shuffleArray(array) {
   return arr;
 } // Mảng 2 chiều thể hiện chính xác layout trong ảnh
 
-var syllablesTable = [["am", "ap", "ăm", "ăp", "âm", "âp", "em", "ep", "im", "ip"], ["iêm", "yêm", "iêp", "om", "op", "ôm", "ôp", "ơm", "ơp", "um"], ["up", "uôm", "ươm", "ươp", "an", "at", "ăn", "ăt", "ân", "ât"], ["en", "et", "ên", "êt", "in", "it", "iên", "iêt", "yên", "yêt"], ["on", "ot", "ôn", "ôt", "ơn", "ơt", "un", "ut", "ưt", "uôn"], ["uôt", "ươn", "ươt", "ang", "ac", "ăng", "ăc", "âng", "âc", "eng"], ["ec", "iêng", "yêng", "iêc", "ong", "oc", "ông", "ôc", "ung", "uc"], ["ưng", "ưc", "uông", "uôc", "ương", "ươc", "anh", "ach", "ênh", "êch"], ["inh", "ich", "ai", "ay", "oi", "ây", "ôi", "ơi", "ui", "ưi"], ["uôi", "ươi", "ao", "eo", "au", "âu", "êu", "iu", "iêu", "yêu"], ["ưu", "ươu", "oa", "oe", "uê", "ươ", "uy", "uya", "oam", "oăm"], ["oan", "oat", "oăn", "oăt", "uân", "uât", "oen", "oet", "uyên", "uyêt"], ["uyn", "uyt", "oang", "oac", "oăng", "oăc", "oanh", "oach", "uênh", "uêch"], ["uynh", "uych", "oai", "oay", "uây", "oong", "ooc", "uyp", "oeo", "uêu"], ["oao", "oap", "uyu", "uâng", "", "", "", "", "", ""]];
+var syllablesTable = [["am", "ap", "ăm", "ăp", "âm", "âp", "em", "ep", "im", "ip"], ["iêm", "yêm", "iêp", "om", "op", "ôm", "ôp", "ơm", "ơp", "um"], ["up", "uôm", "ươm", "ươp", "an", "at", "ăn", "ăt", "ân", "ât"], ["en", "et", "ên", "êt", "in", "it", "iên", "iêt", "yên", "yêt"], ["on", "ot", "ôn", "ôt", "ơn", "ơt", "un", "ut", "ưt", "uôn"], ["uôt", "ươn", "ươt", "ang", "ac", "ăng", "ăc", "âng", "âc", "eng"], ["ec", "iêng", "yêng", "iêc", "ong", "oc", "ông", "ôc", "ung", "uc"], ["ưng", "ưc", "uông", "uôc", "ương", "ươc", "anh", "ach", "ênh", "êch"], ["inh", "ich", "ai", "ay", "oi", "ây", "ôi", "ơi", "ui", "ưi"], ["uôi", "ươi", "ao", "eo", "au", "âu", "êu", "iu", "iêu", "yêu"], ["ưu", "ươu", "oa", "oe", "uê", "ươ", "uy", "uya", "oam", "oăm"], ["oan", "oat", "oăn", "oăt", "uân", "uât", "oen", "oet", "uyên", "uyêt"], ["uyn", "uyt", "oang", "oac", "oăng", "oăc", "oanh", "oach", "uênh", "uêch"], ["uynh", "uych", "oai", "oay", "uây", "oong", "ooc", "uyp", "oeo", "uêu"], ["oao", "oap", "uyu", "uâng"]];
 var exercisesPhatAm = getExercises(); // export const exercises = [
 //   { id: 1, mp3: '/static/phatam/01aip.mp3', choices: ['ip', 'ap', 'iêm', 'yêm'], correctAnswer: 'ip' },
 //   { id: 2, mp3: '/static/phatam/10ayeu.mp3', choices: ['yêu', 'ap', 'iêm', 'yêm'], correctAnswer: 'yêu' },
@@ -494,7 +496,7 @@ function getChoices(rowIndex, colIndex) {
   choices.push(syllablesTable[rowIndex][colIndex]);
 
   var _loop = function _loop() {
-    var j = Math.floor(Math.random() * 10); // console.log('j',j,'syllablesTable[rowIndex]',syllablesTable[rowIndex],'am', syllablesTable[rowIndex][j]);
+    var j = Math.floor(Math.random() * syllablesTable[rowIndex].length); // console.log('j',j,'syllablesTable[rowIndex]',syllablesTable[rowIndex],'am', syllablesTable[rowIndex][j]);
 
     if (!choices.find(function (e) {
       return e === syllablesTable[rowIndex][j];
@@ -659,6 +661,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/get-iterator */ "./n
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./node_modules/core-js/library/fn/is-iterable.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
 
 /***/ }),
 
@@ -2410,6 +2423,408 @@ var unitlessKeys = {
 
 /***/ }),
 
+/***/ "./node_modules/accounting/accounting.js":
+/*!***********************************************!*\
+  !*** ./node_modules/accounting/accounting.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * accounting.js v0.4.1
+ * Copyright 2014 Open Exchange Rates
+ *
+ * Freely distributable under the MIT license.
+ * Portions of accounting.js are inspired or borrowed from underscore.js
+ *
+ * Full details and documentation:
+ * http://openexchangerates.github.io/accounting.js/
+ */
+
+(function(root, undefined) {
+
+	/* --- Setup --- */
+
+	// Create the local library object, to be exported or referenced globally later
+	var lib = {};
+
+	// Current version
+	lib.version = '0.4.1';
+
+
+	/* --- Exposed settings --- */
+
+	// The library's settings configuration object. Contains default parameters for
+	// currency and number formatting
+	lib.settings = {
+		currency: {
+			symbol : "$",		// default currency symbol is '$'
+			format : "%s%v",	// controls output: %s = symbol, %v = value (can be object, see docs)
+			decimal : ".",		// decimal point separator
+			thousand : ",",		// thousands separator
+			precision : 2,		// decimal places
+			grouping : 3		// digit grouping (not implemented yet)
+		},
+		number: {
+			precision : 0,		// default precision on numbers is 0
+			grouping : 3,		// digit grouping (not implemented yet)
+			thousand : ",",
+			decimal : "."
+		}
+	};
+
+
+	/* --- Internal Helper Methods --- */
+
+	// Store reference to possibly-available ECMAScript 5 methods for later
+	var nativeMap = Array.prototype.map,
+		nativeIsArray = Array.isArray,
+		toString = Object.prototype.toString;
+
+	/**
+	 * Tests whether supplied parameter is a string
+	 * from underscore.js
+	 */
+	function isString(obj) {
+		return !!(obj === '' || (obj && obj.charCodeAt && obj.substr));
+	}
+
+	/**
+	 * Tests whether supplied parameter is a string
+	 * from underscore.js, delegates to ECMA5's native Array.isArray
+	 */
+	function isArray(obj) {
+		return nativeIsArray ? nativeIsArray(obj) : toString.call(obj) === '[object Array]';
+	}
+
+	/**
+	 * Tests whether supplied parameter is a true object
+	 */
+	function isObject(obj) {
+		return obj && toString.call(obj) === '[object Object]';
+	}
+
+	/**
+	 * Extends an object with a defaults object, similar to underscore's _.defaults
+	 *
+	 * Used for abstracting parameter handling from API methods
+	 */
+	function defaults(object, defs) {
+		var key;
+		object = object || {};
+		defs = defs || {};
+		// Iterate over object non-prototype properties:
+		for (key in defs) {
+			if (defs.hasOwnProperty(key)) {
+				// Replace values with defaults only if undefined (allow empty/zero values):
+				if (object[key] == null) object[key] = defs[key];
+			}
+		}
+		return object;
+	}
+
+	/**
+	 * Implementation of `Array.map()` for iteration loops
+	 *
+	 * Returns a new Array as a result of calling `iterator` on each array value.
+	 * Defers to native Array.map if available
+	 */
+	function map(obj, iterator, context) {
+		var results = [], i, j;
+
+		if (!obj) return results;
+
+		// Use native .map method if it exists:
+		if (nativeMap && obj.map === nativeMap) return obj.map(iterator, context);
+
+		// Fallback for native .map:
+		for (i = 0, j = obj.length; i < j; i++ ) {
+			results[i] = iterator.call(context, obj[i], i, obj);
+		}
+		return results;
+	}
+
+	/**
+	 * Check and normalise the value of precision (must be positive integer)
+	 */
+	function checkPrecision(val, base) {
+		val = Math.round(Math.abs(val));
+		return isNaN(val)? base : val;
+	}
+
+
+	/**
+	 * Parses a format string or object and returns format obj for use in rendering
+	 *
+	 * `format` is either a string with the default (positive) format, or object
+	 * containing `pos` (required), `neg` and `zero` values (or a function returning
+	 * either a string or object)
+	 *
+	 * Either string or format.pos must contain "%v" (value) to be valid
+	 */
+	function checkCurrencyFormat(format) {
+		var defaults = lib.settings.currency.format;
+
+		// Allow function as format parameter (should return string or object):
+		if ( typeof format === "function" ) format = format();
+
+		// Format can be a string, in which case `value` ("%v") must be present:
+		if ( isString( format ) && format.match("%v") ) {
+
+			// Create and return positive, negative and zero formats:
+			return {
+				pos : format,
+				neg : format.replace("-", "").replace("%v", "-%v"),
+				zero : format
+			};
+
+		// If no format, or object is missing valid positive value, use defaults:
+		} else if ( !format || !format.pos || !format.pos.match("%v") ) {
+
+			// If defaults is a string, casts it to an object for faster checking next time:
+			return ( !isString( defaults ) ) ? defaults : lib.settings.currency.format = {
+				pos : defaults,
+				neg : defaults.replace("%v", "-%v"),
+				zero : defaults
+			};
+
+		}
+		// Otherwise, assume format was fine:
+		return format;
+	}
+
+
+	/* --- API Methods --- */
+
+	/**
+	 * Takes a string/array of strings, removes all formatting/cruft and returns the raw float value
+	 * Alias: `accounting.parse(string)`
+	 *
+	 * Decimal must be included in the regular expression to match floats (defaults to
+	 * accounting.settings.number.decimal), so if the number uses a non-standard decimal 
+	 * separator, provide it as the second argument.
+	 *
+	 * Also matches bracketed negatives (eg. "$ (1.99)" => -1.99)
+	 *
+	 * Doesn't throw any errors (`NaN`s become 0) but this may change in future
+	 */
+	var unformat = lib.unformat = lib.parse = function(value, decimal) {
+		// Recursively unformat arrays:
+		if (isArray(value)) {
+			return map(value, function(val) {
+				return unformat(val, decimal);
+			});
+		}
+
+		// Fails silently (need decent errors):
+		value = value || 0;
+
+		// Return the value as-is if it's already a number:
+		if (typeof value === "number") return value;
+
+		// Default decimal point comes from settings, but could be set to eg. "," in opts:
+		decimal = decimal || lib.settings.number.decimal;
+
+		 // Build regex to strip out everything except digits, decimal point and minus sign:
+		var regex = new RegExp("[^0-9-" + decimal + "]", ["g"]),
+			unformatted = parseFloat(
+				("" + value)
+				.replace(/\((.*)\)/, "-$1") // replace bracketed values with negatives
+				.replace(regex, '')         // strip out any cruft
+				.replace(decimal, '.')      // make sure decimal point is standard
+			);
+
+		// This will fail silently which may cause trouble, let's wait and see:
+		return !isNaN(unformatted) ? unformatted : 0;
+	};
+
+
+	/**
+	 * Implementation of toFixed() that treats floats more like decimals
+	 *
+	 * Fixes binary rounding issues (eg. (0.615).toFixed(2) === "0.61") that present
+	 * problems for accounting- and finance-related software.
+	 */
+	var toFixed = lib.toFixed = function(value, precision) {
+		precision = checkPrecision(precision, lib.settings.number.precision);
+		var power = Math.pow(10, precision);
+
+		// Multiply up by precision, round accurately, then divide and use native toFixed():
+		return (Math.round(lib.unformat(value) * power) / power).toFixed(precision);
+	};
+
+
+	/**
+	 * Format a number, with comma-separated thousands and custom precision/decimal places
+	 * Alias: `accounting.format()`
+	 *
+	 * Localise by overriding the precision and thousand / decimal separators
+	 * 2nd parameter `precision` can be an object matching `settings.number`
+	 */
+	var formatNumber = lib.formatNumber = lib.format = function(number, precision, thousand, decimal) {
+		// Resursively format arrays:
+		if (isArray(number)) {
+			return map(number, function(val) {
+				return formatNumber(val, precision, thousand, decimal);
+			});
+		}
+
+		// Clean up number:
+		number = unformat(number);
+
+		// Build options object from second param (if object) or all params, extending defaults:
+		var opts = defaults(
+				(isObject(precision) ? precision : {
+					precision : precision,
+					thousand : thousand,
+					decimal : decimal
+				}),
+				lib.settings.number
+			),
+
+			// Clean up precision
+			usePrecision = checkPrecision(opts.precision),
+
+			// Do some calc:
+			negative = number < 0 ? "-" : "",
+			base = parseInt(toFixed(Math.abs(number || 0), usePrecision), 10) + "",
+			mod = base.length > 3 ? base.length % 3 : 0;
+
+		// Format the number:
+		return negative + (mod ? base.substr(0, mod) + opts.thousand : "") + base.substr(mod).replace(/(\d{3})(?=\d)/g, "$1" + opts.thousand) + (usePrecision ? opts.decimal + toFixed(Math.abs(number), usePrecision).split('.')[1] : "");
+	};
+
+
+	/**
+	 * Format a number into currency
+	 *
+	 * Usage: accounting.formatMoney(number, symbol, precision, thousandsSep, decimalSep, format)
+	 * defaults: (0, "$", 2, ",", ".", "%s%v")
+	 *
+	 * Localise by overriding the symbol, precision, thousand / decimal separators and format
+	 * Second param can be an object matching `settings.currency` which is the easiest way.
+	 *
+	 * To do: tidy up the parameters
+	 */
+	var formatMoney = lib.formatMoney = function(number, symbol, precision, thousand, decimal, format) {
+		// Resursively format arrays:
+		if (isArray(number)) {
+			return map(number, function(val){
+				return formatMoney(val, symbol, precision, thousand, decimal, format);
+			});
+		}
+
+		// Clean up number:
+		number = unformat(number);
+
+		// Build options object from second param (if object) or all params, extending defaults:
+		var opts = defaults(
+				(isObject(symbol) ? symbol : {
+					symbol : symbol,
+					precision : precision,
+					thousand : thousand,
+					decimal : decimal,
+					format : format
+				}),
+				lib.settings.currency
+			),
+
+			// Check format (returns object with pos, neg and zero):
+			formats = checkCurrencyFormat(opts.format),
+
+			// Choose which format to use for this value:
+			useFormat = number > 0 ? formats.pos : number < 0 ? formats.neg : formats.zero;
+
+		// Return with currency symbol added:
+		return useFormat.replace('%s', opts.symbol).replace('%v', formatNumber(Math.abs(number), checkPrecision(opts.precision), opts.thousand, opts.decimal));
+	};
+
+
+	/**
+	 * Format a list of numbers into an accounting column, padding with whitespace
+	 * to line up currency symbols, thousand separators and decimals places
+	 *
+	 * List should be an array of numbers
+	 * Second parameter can be an object containing keys that match the params
+	 *
+	 * Returns array of accouting-formatted number strings of same length
+	 *
+	 * NB: `white-space:pre` CSS rule is required on the list container to prevent
+	 * browsers from collapsing the whitespace in the output strings.
+	 */
+	lib.formatColumn = function(list, symbol, precision, thousand, decimal, format) {
+		if (!list) return [];
+
+		// Build options object from second param (if object) or all params, extending defaults:
+		var opts = defaults(
+				(isObject(symbol) ? symbol : {
+					symbol : symbol,
+					precision : precision,
+					thousand : thousand,
+					decimal : decimal,
+					format : format
+				}),
+				lib.settings.currency
+			),
+
+			// Check format (returns object with pos, neg and zero), only need pos for now:
+			formats = checkCurrencyFormat(opts.format),
+
+			// Whether to pad at start of string or after currency symbol:
+			padAfterSymbol = formats.pos.indexOf("%s") < formats.pos.indexOf("%v") ? true : false,
+
+			// Store value for the length of the longest string in the column:
+			maxLength = 0,
+
+			// Format the list according to options, store the length of the longest string:
+			formatted = map(list, function(val, i) {
+				if (isArray(val)) {
+					// Recursively format columns if list is a multi-dimensional array:
+					return lib.formatColumn(val, opts);
+				} else {
+					// Clean up the value
+					val = unformat(val);
+
+					// Choose which format to use for this value (pos, neg or zero):
+					var useFormat = val > 0 ? formats.pos : val < 0 ? formats.neg : formats.zero,
+
+						// Format this value, push into formatted list and save the length:
+						fVal = useFormat.replace('%s', opts.symbol).replace('%v', formatNumber(Math.abs(val), checkPrecision(opts.precision), opts.thousand, opts.decimal));
+
+					if (fVal.length > maxLength) maxLength = fVal.length;
+					return fVal;
+				}
+			});
+
+		// Pad each number in the list and send back the column of numbers:
+		return map(formatted, function(val, i) {
+			// Only if this is a string (not a nested array, which would have already been padded):
+			if (isString(val) && val.length < maxLength) {
+				// Depending on symbol position, pad after symbol or at index 0:
+				return padAfterSymbol ? val.replace(opts.symbol, opts.symbol+(new Array(maxLength - val.length + 1).join(" "))) : (new Array(maxLength - val.length + 1).join(" ")) + val;
+			}
+			return val;
+		});
+	};
+
+
+	/* --- Module Definition --- */
+
+	// Export accounting for CommonJS. If being loaded as an AMD module, define it as such.
+	// Otherwise, just add `accounting` to the global object
+	if (true) {
+		if ( true && module.exports) {
+			exports = module.exports = lib;
+		}
+		exports.accounting = lib;
+	} else {}
+
+	// Root will be `window` in browser or `global` on the server:
+}(this));
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/array/from.js":
 /*!*******************************************************!*\
   !*** ./node_modules/core-js/library/fn/array/from.js ***!
@@ -2461,6 +2876,22 @@ module.exports = __webpack_require__(/*! ../modules/core.get-iterator */ "./node
 __webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
 __webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
 module.exports = __webpack_require__(/*! ../modules/core.is-iterable */ "./node_modules/core-js/library/modules/core.is-iterable.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/json/stringify.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/json/stringify.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js");
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
 
 
 /***/ }),
@@ -32495,6 +32926,347 @@ routes.add({
   pattern: '/users/add',
   page: 'users/add'
 });
+
+/***/ }),
+
+/***/ "./utils/map-error-code.json":
+/*!***********************************!*\
+  !*** ./utils/map-error-code.json ***!
+  \***********************************/
+/*! exports provided: 502, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"502\":\"Chúng tôi vừa gặp trục trặc khi kết nối. Bạn vui lòng thử lại nhé!\"}");
+
+/***/ }),
+
+/***/ "./utils/utils.js":
+/*!************************!*\
+  !*** ./utils/utils.js ***!
+  \************************/
+/*! exports provided: logDebug, logDebug2Val, checkIsServer, chuyenSoSangChuyenDoDai, formatPrice, formatNumber0, formatNumber2, replaceAll, correctTyping, correctTypingChinese, xoaKiTuThuaCopyTuTrang, chuanHoaChinesseV2, chuanHoaChinneseNoSign, chuanHoaChinesse, chuanHoaHanVietBacKinh, getMessageError, getSoundFile, getErrorData, isEmptyOrBlank, isNullOrUndefined, removeTags */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logDebug", function() { return logDebug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logDebug2Val", function() { return logDebug2Val; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkIsServer", function() { return checkIsServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chuyenSoSangChuyenDoDai", function() { return chuyenSoSangChuyenDoDai; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatPrice", function() { return formatPrice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatNumber0", function() { return formatNumber0; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatNumber2", function() { return formatNumber2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "replaceAll", function() { return replaceAll; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "correctTyping", function() { return correctTyping; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "correctTypingChinese", function() { return correctTypingChinese; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "xoaKiTuThuaCopyTuTrang", function() { return xoaKiTuThuaCopyTuTrang; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chuanHoaChinesseV2", function() { return chuanHoaChinesseV2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chuanHoaChinneseNoSign", function() { return chuanHoaChinneseNoSign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chuanHoaChinesse", function() { return chuanHoaChinesse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chuanHoaHanVietBacKinh", function() { return chuanHoaHanVietBacKinh; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMessageError", function() { return getMessageError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSoundFile", function() { return getSoundFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getErrorData", function() { return getErrorData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEmptyOrBlank", function() { return isEmptyOrBlank; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNullOrUndefined", function() { return isNullOrUndefined; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeTags", function() { return removeTags; });
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _map_error_code_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./map-error-code.json */ "./utils/map-error-code.json");
+var _map_error_code_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./map-error-code.json */ "./utils/map-error-code.json", 1);
+/* harmony import */ var accounting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! accounting */ "./node_modules/accounting/accounting.js");
+/* harmony import */ var accounting__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(accounting__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+var logDebugFlag = true;
+function logDebug(step, logValue) {
+  if (logDebugFlag) console.log(step, logValue);
+}
+function logDebug2Val(step, logValue1, logValue2) {
+  if (logDebugFlag) console.log(step, logValue1, logValue2);
+}
+function checkIsServer() {
+  try {
+    return !window;
+  } catch (e) {
+    return true;
+  }
+}
+var chuyenSoSangChuyenDoDai = function chuyenSoSangChuyenDoDai(number, len) {
+  var e = '000000';
+  var s = e + number;
+  return s.substr(s.length - len, len);
+};
+var formatPrice = function formatPrice(price) {
+  var numberAfterDot = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  if (typeof price !== "number") return "";
+  return Object(accounting__WEBPACK_IMPORTED_MODULE_3__["formatNumber"])(price / 1000, numberAfterDot);
+};
+var formatNumber0 = function formatNumber0(price) {
+  if (typeof price !== "number") {
+    console.log('typeof price', typeof price);
+    return "";
+  }
+
+  return Object(accounting__WEBPACK_IMPORTED_MODULE_3__["formatNumber"])(price, 0);
+};
+var formatNumber2 = function formatNumber2(price) {
+  if (typeof price !== "number") {
+    console.log('typeof price', typeof price);
+    return "";
+  }
+
+  return Object(accounting__WEBPACK_IMPORTED_MODULE_3__["formatNumber"])(price, 2);
+};
+var replaceAll = function replaceAll(str, search, replacement) {
+  var newStr = '';
+
+  if (lodash__WEBPACK_IMPORTED_MODULE_1___default.a.isString(str)) {
+    // maybe add a lodash test? Will not handle numbers now.
+    newStr = str.split(search).join(replacement);
+  }
+
+  return newStr;
+};
+var correctTyping = function correctTyping(source) {
+  if (!source) return '';
+  var result = replaceAll(source, '	', ' '); // result = replaceAll(result, ' ：', ' ：');
+  // result = replaceAll(result, '「 ', '「');
+  // result = replaceAll(result, ' 」', '」');
+  // result = replaceAll(result, '. 」', '.」');
+  // result = replaceAll(result, '.」', '」.');
+  // result = replaceAll(result, '?', '? ');
+  // result = replaceAll(result, '.', '. ');
+
+  result = replaceAll(result, '   ', ' ');
+  result = replaceAll(result, '  ', ' ');
+  return result;
+};
+var correctTypingChinese = function correctTypingChinese(source) {
+  if (!source) return '';
+  var result = replaceAll(source, ' ', '');
+  result = replaceAll(result, '	', '');
+  result = replaceAll(result, '   ', ' ');
+  result = replaceAll(result, '  ', ' ');
+  return result;
+};
+
+var chuanHoaText = function chuanHoaText(source) {
+  if (!source) return '';
+  var result = replaceAll(source, '	', ' ');
+  result = replaceAll(result, '。', '.');
+  result = replaceAll(result, '，', ',');
+  result = replaceAll(result, '  ', ' ');
+  result = replaceAll(result, '  ', ' ');
+  result = replaceAll(result, '   ', ' ');
+  result = replaceAll(result, '	', ' ');
+  result = replaceAll(result, ' ：', ':');
+  result = replaceAll(result, '「 ', '「');
+  result = replaceAll(result, '  」', ' 」');
+  result = replaceAll(result, '. 」', '.」');
+  result = replaceAll(result, '.」', '」.');
+  result = replaceAll(result, '?', '? ');
+  result = replaceAll(result, '.', '. ');
+  return result;
+};
+
+var xoaKiTuThuaCopyTuTrang = function xoaKiTuThuaCopyTuTrang(chinesse) {
+  var chinesseNonSpace = replaceAll(chinesse, '  ', '');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '  ', '');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '  ', '');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '\n\n', '\n');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '\n\n', '\n');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '\n\n', '\n');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '始祖', 'tổ tiên');
+  return chinesseNonSpace;
+};
+var chuanHoaChinesseV2 = function chuanHoaChinesseV2(chinesse) {
+  var chinesseNonSpace = replaceAll(chinesse, ' ', '');
+  chinesseNonSpace = replaceAll(chinesseNonSpace, '  ', '');
+  var result = [];
+  var signsBef = '「(（';
+  var signsAfter = '、，,:：;；.。」)）?！';
+  var currentWord = '';
+  var i = 0;
+
+  for (i = 0; i <= chinesseNonSpace.length; i++) {
+    if (signsBef.indexOf(chinesseNonSpace[i]) >= 0) {
+      if (currentWord !== '') {
+        result.push(currentWord);
+      }
+
+      currentWord = chinesseNonSpace[i];
+    } else if (signsAfter.indexOf(chinesseNonSpace[i]) >= 0 && i < chinesseNonSpace.length - 1 && signsAfter.indexOf(chinesseNonSpace[i + 1]) >= 0) {
+      currentWord += chinesseNonSpace[i] + chinesseNonSpace[i + 1];
+
+      if (currentWord !== '') {
+        result.push(currentWord);
+      }
+
+      currentWord = '';
+      i++;
+    } else if (signsAfter.indexOf(chinesseNonSpace[i]) >= 0) {
+      currentWord += chinesseNonSpace[i];
+
+      if (currentWord !== '') {
+        result.push(currentWord);
+      }
+
+      currentWord = '';
+    } else {
+      if (currentWord !== '' && signsBef.indexOf(currentWord) < 0) {
+        result.push(currentWord);
+      }
+
+      if (signsBef.indexOf(currentWord) >= 0) {
+        currentWord += chinesseNonSpace[i];
+      } else {
+        currentWord = chinesseNonSpace[i];
+      }
+    }
+  }
+
+  return result;
+};
+var chuanHoaChinneseNoSign = function chuanHoaChinneseNoSign(source) {
+  var result = chuanHoaText(source);
+  result = replaceAll(result, '、', '');
+  result = replaceAll(result, '，', '');
+  result = replaceAll(result, '「', '');
+  result = replaceAll(result, '」', '');
+  result = replaceAll(result, '(', '');
+  result = replaceAll(result, ')', '');
+  result = replaceAll(result, '（', '');
+  result = replaceAll(result, '）', '');
+  result = replaceAll(result, '.', '');
+  result = replaceAll(result, ' ', '');
+  result = replaceAll(result, '.', '');
+  result = replaceAll(result, ',', '');
+  result = replaceAll(result, '。', '');
+  result = replaceAll(result, ':', '');
+  result = replaceAll(result, '：', '');
+  result = replaceAll(result, '：', '');
+  result = replaceAll(result, '?', '');
+  result = replaceAll(result, '!', '');
+  result = replaceAll(result, '！', '');
+  result = replaceAll(result, ';', '');
+  result = replaceAll(result, '；', '');
+  return result;
+}; // 佛	說	："	人	人	都	可	以	成	佛。"
+
+var chuanHoaChinesse = function chuanHoaChinesse(chinesse) {
+  var result = chuanHoaText(chinesse);
+  return result.split(' ');
+};
+var chuanHoaHanVietBacKinh = function chuanHoaHanVietBacKinh(source) {
+  var result = replaceAll(source, '\n', ' ');
+  result = chuanHoaText(result);
+  result = replaceAll(result, '「', '');
+  result = replaceAll(result, '」', '');
+  result = replaceAll(result, '.', '');
+  result = replaceAll(result, ':', '');
+  result = replaceAll(result, '。\n', '。 \n');
+  result = replaceAll(result, '.\n', '. \n');
+  return result.split(' ');
+};
+function getMessageError(error) {
+  var status = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.get(error, 'response.data.httpStatus') || lodash__WEBPACK_IMPORTED_MODULE_1___default.a.get(error, 'httpStatus') || lodash__WEBPACK_IMPORTED_MODULE_1___default.a.get(error, 'code');
+
+  var message = _map_error_code_json__WEBPACK_IMPORTED_MODULE_2__[status];
+
+  var message1 = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.get(error, 'response.data.message');
+
+  var message2 = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.get(error, 'message');
+
+  return message || message1 || message2;
+}
+var getSoundFile = function getSoundFile(phonetic) {
+  if (!phonetic) return '';
+  var fileName = phonetic.toLowerCase();
+  fileName = fileName.replace(':', '');
+  fileName = fileName.replace('.', '');
+  fileName = fileName.replace(',', '');
+  fileName = fileName.replace('?', '');
+  fileName = fileName.replace('!', '');
+  fileName = fileName.replace('！', '');
+  fileName = fileName.replace('"', '');
+
+  if (fileName.indexOf('ā') >= 0) {
+    return "".concat(fileName.replace('ā', 'a'), "1.mp3");
+  } else if (fileName.indexOf('á') >= 0) {
+    return "".concat(fileName.replace('á', 'a'), "2.mp3");
+  } else if (fileName.indexOf('ǎ') >= 0) {
+    return "".concat(fileName.replace('ǎ', 'a'), "3.mp3");
+  } else if (fileName.indexOf('à') >= 0) {
+    return "".concat(fileName.replace('à', 'a'), "4.mp3");
+  } else if (fileName.indexOf('ō') >= 0) {
+    return "".concat(fileName.replace('ō', 'o'), "1.mp3");
+  } else if (fileName.indexOf('ó') >= 0) {
+    return "".concat(fileName.replace('ó', 'o'), "2.mp3");
+  } else if (fileName.indexOf('ǒ') >= 0) {
+    return "".concat(fileName.replace('ǒ', 'o'), "3.mp3");
+  } else if (fileName.indexOf('ò') >= 0) {
+    return "".concat(fileName.replace('ò', 'o'), "4.mp3");
+  } else if (fileName.indexOf('ē') >= 0) {
+    return "".concat(fileName.replace('ē', 'e'), "1.mp3");
+  } else if (fileName.indexOf('é') >= 0) {
+    return "".concat(fileName.replace('é', 'e'), "2.mp3");
+  } else if (fileName.indexOf('ě') >= 0) {
+    return "".concat(fileName.replace('ě', 'e'), "3.mp3");
+  } else if (fileName.indexOf('è') >= 0) {
+    return "".concat(fileName.replace('è', 'e'), "4.mp3");
+  } else if (fileName.indexOf('ī') >= 0) {
+    return "".concat(fileName.replace('ī', 'i').replace('yi', 'i'), "}1.mp3");
+  } else if (fileName.indexOf('í') >= 0) {
+    return "".concat(fileName.replace('í', 'i').replace('yi', 'i'), "2.mp3");
+  } else if (fileName.indexOf('ǐ') >= 0) {
+    return "".concat(fileName.replace('ǐ', 'i').replace('yi', 'i'), "3.mp3");
+  } else if (fileName.indexOf('ì') >= 0) {
+    return "".concat(fileName.replace('ì', 'i').replace('yi', 'i'), "4.mp3");
+  } else if (fileName.indexOf('ū') >= 0) {
+    return "".concat(fileName.replace('ū', 'u').replace('wu', 'u'), "1.mp3");
+  } else if (fileName.indexOf('ú') >= 0) {
+    return "".concat(fileName.replace('ú', 'u').replace('wu', 'u'), "2.mp3");
+  } else if (fileName.indexOf('ǔ') >= 0) {
+    return "".concat(fileName.replace('ǔ', 'u').replace('wu', 'u'), "3.mp3");
+  } else if (fileName.indexOf('ù') >= 0) {
+    return "".concat(fileName.replace('ù', 'u').replace('wu', 'u'), "4.mp3");
+  } else if (fileName.indexOf('ü') >= 0) {
+    return "".concat(fileName.replace('ü', 'v').replace('yv', 'v'), "1.mp3"); // ü
+  } else if (fileName.indexOf('ǖ') >= 0) {
+    return "".concat(fileName.replace('ǖ', 'v').replace('yv', 'v'), "1.mp3"); // ü
+  } else if (fileName.indexOf('ǘ') >= 0) {
+    return "".concat(fileName.replace('ǘ', 'v').replace('yv', 'v'), "1.mp3}2.mp3");
+  } else if (fileName.indexOf('ǜ') >= 0) {
+    return "".concat(fileName.replace('ǜ', 'v').replace('yv', 'v'), "1.mp3}4.mp3");
+  } else if (fileName.indexOf('ǔ') >= 0) {
+    return "".concat(fileName.replace('ǔ', 'u').replace('yv', 'v'), "1.mp3}3.mp3");
+  }
+
+  return "".concat(fileName, "1.mp3");
+};
+function getErrorData(error) {
+  try {
+    return _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error);
+  } catch (e) {
+    return 'Không lấy được toàn bộ thông tin lỗi';
+  }
+}
+function isEmptyOrBlank(str) {
+  if (!str || str === undefined) return true;
+  return lodash__WEBPACK_IMPORTED_MODULE_1___default.a.isEmpty(str.trim());
+}
+function isNullOrUndefined(obj) {
+  if (!obj || obj === undefined || obj === null) return true;
+}
+function removeTags(content) {
+  var regex = /(<([^>]+)>)/ig;
+  return content.replace(regex, '');
+}
 
 /***/ }),
 
