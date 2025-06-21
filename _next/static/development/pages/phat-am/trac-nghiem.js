@@ -322,24 +322,16 @@ var QuizComponent = function QuizComponent(_ref) {
       style: {
         padding: '10px 20px',
         margin: '10px',
-        backgroundColor: selectedAnswer === choice ? choice === correctAnswer ? 'green' : 'red' : '#f0f0f0',
+        // backgroundColor: selectedAnswer ? (selectedAnswer === choice ? (choice === correctAnswer ? 'green' : 'red'): '#f0f0f0') : '#f0f0f0',
+        backgroundColor: selectedAnswer ? correctAnswer === choice ? 'green' : choice === selectedAnswer ? 'red' : '#f0f0f0' : '#f0f0f0',
         color: selectedAnswer === choice ? 'white' : 'black',
         borderRadius: '8px',
         cursor: 'pointer',
-        fontSize: '16px',
+        fontSize: selectedAnswer === choice ? '20px' : '16px',
         border: 'none'
       }
     }, choice);
-  })), question && isAnswered && __jsx("div", {
-    style: {
-      marginTop: '20px',
-      textAlign: 'center'
-    }
-  }, __jsx("strong", {
-    style: {
-      color: selectedAnswer === correctAnswer ? 'green' : 'red'
-    }
-  }, selectedAnswer === correctAnswer ? "\u0110\xFAng! C\xE2u tr\u1EA3 l\u1EDDi l\xE0: ".concat(correctAnswer) : "Sai! C\xE2u tr\u1EA3 l\u1EDDi \u0111\xFAng l\xE0: ".concat(correctAnswer))), __jsx("div", {
+  })), __jsx("div", {
     style: {
       marginTop: '20px',
       textAlign: 'center'
