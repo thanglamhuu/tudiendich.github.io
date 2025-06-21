@@ -499,13 +499,13 @@ function getChoices(rowIndex, colIndex) {
     var j = Math.floor(Math.random() * syllablesTable[rowIndex].length); // console.log('j',j,'syllablesTable[rowIndex]',syllablesTable[rowIndex],'am', syllablesTable[rowIndex][j]);
 
     if (!choices.find(function (e) {
-      return e === syllablesTable[rowIndex][j];
+      return Object(_utils_utils__WEBPACK_IMPORTED_MODULE_2__["replaceAll"])(e, 'y', 'i') === Object(_utils_utils__WEBPACK_IMPORTED_MODULE_2__["replaceAll"])(syllablesTable[rowIndex][j], 'y', 'i');
     })) {
       choices.push(syllablesTable[rowIndex][j]);
     }
   };
 
-  for (var i = 9; i > 0 && choices.length < 4; i--) {
+  for (var i = syllablesTable[rowIndex].length - 1; i > 0 && choices.length < 4; i--) {
     _loop();
   }
 
@@ -541,13 +541,14 @@ function removeVietnameseTones(str) {
 /*!***************************************************!*\
   !*** ./components/hoctaphieuan/constantsSoHoc.js ***!
   \***************************************************/
-/*! exports provided: getExercisesCongPv10, getExercisesCongSoNhoHon10 */
+/*! exports provided: getExercisesCongPv10, getExercisesCongSoNhoHon10, getExercisesTruSoNhoHon10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercisesCongPv10", function() { return getExercisesCongPv10; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercisesCongSoNhoHon10", function() { return getExercisesCongSoNhoHon10; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExercisesTruSoNhoHon10", function() { return getExercisesTruSoNhoHon10; });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constantsPhatAm */ "./components/hoctaphieuan/constantsPhatAm.js");
@@ -596,6 +597,43 @@ function getExercisesCongSoNhoHon10() {
       exercises.push({
         id: "".concat(i, "_").concat(j),
         question: "".concat(i, " + ").concat(j, " = ?"),
+        choices: getChoices(i, j),
+        correctAnswer: i + j
+      });
+    }
+  } // console.log('getExercisesCongSoNhoHon10',exercises);
+
+
+  return Object(_constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__["shuffleArray"])(exercises);
+}
+;
+
+function getChoicesTru(a, b) {
+  var choices = [];
+  choices.push(a - b);
+
+  for (var i = a + (a > 2 ? 1 : 3); i > 0 && choices.length < 4; i--) {
+    for (var j = b + 1; j > 0 && choices.length < 4; j--) {
+      if (!choices.find(function (e) {
+        return e === i + j;
+      })) {
+        choices.push(i + j);
+      }
+    }
+  }
+
+  choices = Object(_constantsPhatAm__WEBPACK_IMPORTED_MODULE_1__["shuffleArray"])(choices);
+  return choices;
+}
+
+function getExercisesTruSoNhoHon10() {
+  var exercises = [];
+
+  for (var i = 5; i <= 10; i++) {
+    for (var j = 0; j < 10 - i; j++) {
+      exercises.push({
+        id: "".concat(i, "_").concat(j),
+        question: "".concat(i, " - ").concat(j, " = ?"),
         choices: getChoices(i, j),
         correctAnswer: i + j
       });
